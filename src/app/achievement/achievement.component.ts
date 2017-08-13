@@ -21,6 +21,7 @@ export class AchievementComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
+    this.displayAchievements();
   }
 
   ngOnChanges(changes: any) {
@@ -31,13 +32,17 @@ export class AchievementComponent implements OnInit, OnChanges {
       );
       if (achievements.length === 1) {
         this.UserDataService.addAchievement(this.user, achievements[0].id);
-        this.userAchievements =
-          this.userData.achievements.map(
-            x => this.AchievementService.find(
-              y => y.id === x).title
-          );
+       this.displayAchievements();
       }
     }
+  }
+
+  displayAchievements() {
+    this.userAchievements =
+      this.userData.achievements.map(
+        x => this.AchievementService.find(
+          y => y.id === x).title
+      );
   }
 
 }

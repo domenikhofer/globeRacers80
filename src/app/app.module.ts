@@ -8,6 +8,7 @@ import { ClickCounterComponent } from './click-counter/click-counter.component';
 import { OdometerComponent } from './odometer/odometer.component';
 import { AchievementService } from './achievement.service';
 import { AchievementComponent } from './achievement/achievement.component';
+import { TachometerComponent } from './tachometer/tachometer.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AchievementComponent } from './achievement/achievement.component';
     CarComponent,
     ClickCounterComponent,
     OdometerComponent,
-    AchievementComponent
+    AchievementComponent,
+    TachometerComponent
   ],
   imports: [
     BrowserModule

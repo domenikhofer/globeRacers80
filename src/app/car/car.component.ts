@@ -1,5 +1,4 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {UserDataService} from '../user-data.service';
 
 @Component({
   selector: 'app-car',
