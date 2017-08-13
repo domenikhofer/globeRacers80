@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {UserDataService} from './user-data.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  clicks;
+  userData;
+  UserDataService;
+  user = 'user1';
+
+  constructor(UserDataService: UserDataService) {
+    this.UserDataService = UserDataService;
+    this.userData = this.UserDataService.getUserData(this.user);
+  }
+
+  onCarClicked() {
+    this.clicks = this.UserDataService.addClicks(this.user, 1);
+  }
 }
