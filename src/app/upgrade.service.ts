@@ -9,15 +9,30 @@ export class UpgradeService {
     {
       id: 0,
       title: 'Protein Shake',
-      unlocks: {unit: 'c', count: 100},
+      unlocks: {unit: 'c', count: 20},
       upgrade: {unit: 'mc', operator: '*', operand: 2}
     },
     {
       id: 1,
-      title: 'eBike Motor',
-      unlocks: {unit: 'd', count: 1000},
+      title: 'Müsli Riegel',
+      unlocks: {unit: 'c', count: 30},
+      upgrade: {unit: 'mc', operator: '+', operand: 0.5}
+    },
+    {
+      id: 2,
+      title: 'eBike Motor (doesnt work yet)',
+      unlocks: {unit: 'd', count: 40},
       upgrade: {unit: 'ms', operator: '+', operand: 1}
     }
   ];
 
+
+
+  getUpgradeById(id: number) {
+    return this.upgrades.filter(x => x.id === id);
+  }
+
+  getAllUpgrades() {
+    return this.upgrades;
+  }
 }

@@ -22,10 +22,10 @@ export class AchievementService {
     },
     {
       id: 2,
-      title: '100 Meters!',
+      title: '31 Meters!',
       img: 'c1.png',
       unit: 'd',
-      count: 100
+      count: 31
     }
   ];
 

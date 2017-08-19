@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnChanges} from '@angular/core';
 import {UserDataService} from './user-data.service';
 
 
@@ -10,6 +10,8 @@ import {UserDataService} from './user-data.service';
 })
 export class AppComponent {
   clicks;
+  distance;
+  multiplier;
   userData;
   UserDataService;
   user = 'user1';
@@ -19,7 +21,13 @@ export class AppComponent {
     this.userData = this.UserDataService.getUserData(this.user);
   }
 
+
   onCarClicked() {
     this.clicks = this.UserDataService.addClicks(this.user, 1);
+  }
+
+  onDistanceChange(distance) {
+    this.multiplier = distance;
+    this.distance = this.UserDataService.addDistance(this.user, distance);
   }
 }

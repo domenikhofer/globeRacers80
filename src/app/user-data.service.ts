@@ -33,12 +33,21 @@ export class UserDataService {
   }
 
   addClicks(user: string, clicks: number) {
-    this.userData.filter(x => x.user === user)[0].data.clicks += 1;
-    return this.getUserData(user).clicks;
+  this.userData.filter(x => x.user === user)[0].data.clicks += 1;
+  return this.getUserData(user).clicks;
+}
+
+  addDistance(user: string, distance: number) {
+    this.userData.filter(x => x.user === user)[0].data.distance += distance;
+    return this.getUserData(user).distance;
   }
 
   addAchievement(user: string, id: number) {
     this.userData.filter(x => x.user === user)[0].data.achievements.push(id);
+  }
+
+  addUpgrade(user: string, id: number) {
+    this.userData.filter(x => x.user === user)[0].data.upgrades.push(id);
   }
 
 }

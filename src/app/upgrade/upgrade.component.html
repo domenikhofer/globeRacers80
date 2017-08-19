@@ -1,0 +1,5 @@
+<div class="upgrade">Available Upgrades:</div>
+<button (click)="onUpgradeClick(upgrade.id)" *ngFor="let upgrade of availableUpgrades">
+  {{upgrade.title}}
+</button>
+<br>
