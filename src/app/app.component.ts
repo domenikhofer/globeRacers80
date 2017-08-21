@@ -9,6 +9,7 @@ import {UserDataService} from './user-data.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = 'GlobeRacers80';
   clicks;
   userData;
   UserDataService;

@@ -1,4 +1,12 @@
-<div class="achievements">My Achievements:</div>
-<div *ngFor="let achievement of userAchievements">
-  {{achievement}}
+<div class="achievements">
+<table class="table table-hover">
+  <thead>
+    <th><div class="achievements">My Achievements:</div></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let achievement of userAchievements">
+      <td>{{achievement}}</td>
+    </tr>
+  </tbody>
+</table>
 </div>
