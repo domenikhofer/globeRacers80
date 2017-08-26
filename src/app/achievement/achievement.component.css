@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Boogaloo');
+
+
+.achievements h3 {
+  background-color: #eba565;
+}
+
+.achievements th, td {
+  background: #fefffa;
+}
+
+#achievement-animation {
+  font-family: 'Boogaloo', cursive;;
+  text-align: center;
+  font-size: 2em;
+  letter-spacing: 3px;
+  color: black;
+  display: block;
+  animation: bounce-text 2s cubic-bezier(0.245, 0.325, 0.670, 1.510);
+  background: white;
+  margin: 0;
+}
+
+@keyframes bounce-text {
+  60% {font-size: 4em;}
+  100% {font-size: 4em;}
+}

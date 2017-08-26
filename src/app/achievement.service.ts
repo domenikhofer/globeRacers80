@@ -11,21 +11,21 @@ export class AchievementService {
       title: 'First Click!',
       img: 'c1.png',
       unit: 'c',
-      count: 1
+      count: 1,
     },
     {
       id: 1,
       title: 'Ten Clicks!',
       img: 'c1.png',
       unit: 'c',
-      count: 10
-    },
+      count: 10,
+},
     {
       id: 2,
-      title: '100 Meters!',
+      title: '31 Meters!',
       img: 'c1.png',
       unit: 'd',
-      count: 100
+      count: 31,
     }
   ];
 

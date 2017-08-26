@@ -1,0 +1,9 @@
+<div class="col-md-4">
+  <div class="upgrades"><h3>Upgrades</h3>
+    <div *ngFor="let upgrade of availableUpgrades" class="upgrade">
+      <button class="btn {{upgrade.title}}" (click)="onUpgradeClick(upgrade.id)" value="{{upgrade.description}}">
+        <img class="upgrade-icon" src="{{upgrade.image}}" width="65px" height="65px">
+       </button>
+      </div>
+  </div>
+</div>

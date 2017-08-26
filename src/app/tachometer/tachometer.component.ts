@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class TachometerComponent implements OnInit {
   @Input() clickCount;
-  mClick = 1;
+  @Input() mpc;
   mSek = 0;
 
   constructor() { }

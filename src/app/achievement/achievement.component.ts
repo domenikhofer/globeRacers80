@@ -11,6 +11,7 @@ export class AchievementComponent implements OnInit, OnChanges {
   @Input() clickCount;
   @Input() userData;
   @Input() user;
+  @Input() distance;
   AchievementService;
   UserDataService;
   userAchievements;
@@ -33,6 +34,18 @@ export class AchievementComponent implements OnInit, OnChanges {
       if (achievements.length === 1) {
         this.UserDataService.addAchievement(this.user, achievements[0].id);
        this.displayAchievements();
+      }
+    }
+    if (changes.distance) {
+      const distance = changes.distance.currentValue;
+      const userData = this.UserDataService.getUserData(this.user);
+      const userAchievements = userData.achievements;
+      const achievements = this.AchievementService.filter(
+        x => x.unit === 'd' && x.count <= distance && userAchievements.indexOf(x.id) === -1
+      );
+      if (achievements.length === 1) {
+        this.UserDataService.addAchievement(this.user, achievements[0].id);
+        this.displayAchievements();
       }
     }
   }

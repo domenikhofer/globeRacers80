@@ -1,27 +1,29 @@
-<h1 class="title"><img src="../assets/logo_v1.png" class="logo" alt="GlobeRacers80 Logo">{{title}}</h1>
-
-<app-tachometer [clickCount]="clicks"></app-tachometer>
-<app-odometer [clickCount]="clicks"></app-odometer>
+<div class="title"><img src="../assets/logo_v1.png" class="logo" alt="GlobeRacers80 Logo"></div>
+<app-car (carClicked)="onCarClicked()"></app-car>
+<app-click-counter
+  [clickCount]="clicks"
+></app-click-counter>
+<br>
+<app-odometer
+  (distanceEmitter)="onDistanceChange($event)"
+  [user]="user"
+  [clickCount]="clicks"
+></app-odometer>
+<br>
+<app-tachometer
+  [clickCount]="clicks"
+  [mpc]="multiplier"
+></app-tachometer>
+<br>
 <app-achievement
   [clickCount]="clicks"
+  [distance]="distance"
   [userData]="userData"
   [user]="user"
 ></app-achievement>
-<footer>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></footer>
+<app-upgrade
+  [user]="user"
+  [clickCount]="clicks"
+  [distance]="distance"
+></app-upgrade>
 
-
-<div class="game-container">
-  <div class="sky">
-    <app-click-counter [clickCount]="clicks"></app-click-counter>
-  </div>
-  <div class="clouds"></div>
-  <div class="mountains">
-    <div class="mountain-shadow"></div>
-  </div>
-  <div class="road">
-    <app-car (carClicked)="onCarClicked()"></app-car>
-    <div class="road-lines"></div>
-  </div>
-  <div class="desert"></div>
-</div>
-<footer>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></footer>

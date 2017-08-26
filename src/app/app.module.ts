@@ -9,6 +9,8 @@ import { OdometerComponent } from './odometer/odometer.component';
 import { AchievementService } from './achievement.service';
 import { AchievementComponent } from './achievement/achievement.component';
 import { TachometerComponent } from './tachometer/tachometer.component';
+import { UpgradeComponent } from './upgrade/upgrade.component';
+import {UpgradeService} from './upgrade.service';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,16 @@ import { TachometerComponent } from './tachometer/tachometer.component';
     ClickCounterComponent,
     OdometerComponent,
     AchievementComponent,
-    TachometerComponent
+    TachometerComponent,
+    UpgradeComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [
     UserDataService,
-    AchievementService
+    AchievementService,
+    UpgradeService
   ],
   bootstrap: [AppComponent]
 })
