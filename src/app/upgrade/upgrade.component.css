@@ -1,3 +1,9 @@
+
+.upgrade-container {
+  background: white;
+  display: table;
+}
+
 .upgrade {
   background: #fefffa;
   margin-left: -1px;
@@ -21,25 +27,24 @@ div.upgrade {
   float:left;
 }
 
-.Protein_Shake {
+.btn {
   position: relative;
 }
-.Protein_Shake::after {
+.btn::after {
   content: attr(value);
   position: absolute;
-  top: 100px; left: 0;
+  bottom: 0px; left: 0;
   opacity: 0;
-  width: 300px;
-  font-size: 13px;
+  font-size: 1em;
   font-weight: 300;
-  line-height: 1.5em;
+  line-height: 2em;
   padding: 0.5em 0.8em;
   background: rgba(0,0,0,0.8);
   color: #fff;
   pointer-events: none; /* This prevents the box from apearing when hovered. */
   transition: opacity 250ms, top 250ms;
 }
-.Protein_Shake::before {
+.btn::before {
   content: '';
   display: block;
   position: absolute;
@@ -50,8 +55,8 @@ div.upgrade {
   border-bottom-color: rgba(0,0,0,0.8);
   transition: opacity 250ms, top 250ms;
 }
-.Protein_Shake:hover {z-index: 2;} /* Keeps the info boxes on top of other elements */
-.Protein_Shake:hover::after,
-.Protein_Shake:hover::before {opacity: 1;}
-.Protein_Shake:hover::after {top: 30px;}
-.Protein_Shake:hover::before {top: 20px;}
+.btn:hover {z-index: 2;} /* Keeps the info boxes on top of other elements */
+.btn:hover::after,
+.btn:hover::before {opacity: 1;}
+.btn:hover::after {top: 30px;}
+.btn:hover::before {top: 20px;}

@@ -1,15 +1,13 @@
 /******************
 Title
  *****************/
-@import url('https://fonts.googleapis.com/css?family=Frijole');
-
 .title {
   background: #416ba7;
   text-align: center;
 }
 
 img.logo {
-  width: 13em;
+  width: 7em;
   background: none;
 }
 

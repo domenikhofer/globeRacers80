@@ -1,10 +1,12 @@
 <div class="col-md-4">
   <div class="upgrades"><h3>Upgrades</h3>
+    <div class="upgrade-container">
     <div *ngFor="let upgrade of availableUpgrades" class="upgrade">
       <button class="btn {{upgrade.title}}" (click)="onUpgradeClick(upgrade.id)" value="{{upgrade.description}}">
-        <img class="upgrade-icon" src="{{upgrade.image}}" width="65px" height="65px">
+        <img class="upgrade-icon" src="{{upgrade.image}}" width="60px" height="60px">
        </button>
-      </div>
+    </div>
+    </div>
   </div>
 </div>
 

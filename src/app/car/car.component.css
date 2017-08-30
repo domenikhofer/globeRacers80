@@ -2,13 +2,13 @@
   z-index: 1000;
   margin: 0 auto;
   position: absolute;
-  bottom: -2em;
-  left: 33%;
+  left: 30%;
+  bottom: -0.5em;
   background:none;
 }
 
-img.car:active {
-  transform: scale(1.1);
+img.car {
+  width: 25vh;
 }
 
 /*********************
@@ -17,7 +17,7 @@ LAYOUT ROAD
 
 
 .game-container {
-  height: 600px;
+  height: 25vh;
   overflow: hidden;
   padding-left: 0;
 }
@@ -113,3 +113,7 @@ LAYOUT ROAD
   0% {transform: translate(0px, 0px);}
   100% {transform: translate(-900px, 0px);}
 }
+
+
+
+
