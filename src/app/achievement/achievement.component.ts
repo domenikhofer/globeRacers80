@@ -5,7 +5,7 @@ import {UserDataService} from '../user-data.service';
 @Component({
   selector: 'app-achievement',
   templateUrl: './achievement.component.html',
-  styleUrls: ['./achievement.component.css']
+  styleUrls: ['./achievement.component.scss']
 })
 export class AchievementComponent implements OnInit, OnChanges {
   @Input() clickCount;
