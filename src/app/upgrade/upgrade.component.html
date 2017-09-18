@@ -2,7 +2,8 @@
   <div class="upgrades"><h3>Upgrades</h3>
     <div class="upgrade-container">
     <div *ngFor="let upgrade of availableUpgrades" class="upgrade">
-      <button class="btn {{upgrade.title}}" (click)="onUpgradeClick(upgrade.id)" value="{{upgrade.description}}">
+      <div class="infobox hidden">{{upgrade.description}}</div>
+      <button class="btn {{upgrade.title}}" (dblclick)="onUpgradeClick(upgrade.id)" (click)="showinfo($event)">
         <img class="upgrade-icon" src="{{upgrade.image}}" width="60px" height="60px">
        </button>
     </div>
