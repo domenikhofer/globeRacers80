@@ -5,7 +5,7 @@ import {UserDataService} from '../user-data.service';
 @Component({
   selector: 'app-upgrade',
   templateUrl: './upgrade.component.html',
-  styleUrls: ['./upgrade.component.css']
+  styleUrls: ['./upgrade.component.scss']
 })
 export class UpgradeComponent implements OnInit, OnChanges {
   allUpgrades;

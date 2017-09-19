@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Boogaloo');
 
+.achievements {
+  h3 {
+    background-color: #eba565;
+  }
 
-.achievements h3 {
-  background-color: #eba565;
-}
+  th, td {
+    background: #fefffa;
+  }
 
-.achievements th, td {
-  background: #fefffa;
 }
 
 #achievement-animation {

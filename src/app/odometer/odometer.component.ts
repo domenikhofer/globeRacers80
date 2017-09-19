@@ -6,7 +6,7 @@ import {UserDataService} from '../user-data.service';
 @Component({
   selector: 'app-odometer',
   templateUrl: './odometer.component.html',
-  styleUrls: ['./odometer.component.css']
+  styleUrls: ['./odometer.component.scss']
 })
 export class OdometerComponent implements OnInit, OnChanges {
   @Input() clickCount;

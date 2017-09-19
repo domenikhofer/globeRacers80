@@ -1,29 +1,26 @@
 <div class="title"><img src="../assets/logo_v1.png" class="logo" alt="GlobeRacers80 Logo"></div>
 <app-car (carClicked)="onCarClicked()"></app-car>
-<app-click-counter
-  [clickCount]="clicks"
-></app-click-counter>
-<br>
-<app-odometer
-  (distanceEmitter)="onDistanceChange($event)"
-  [user]="user"
-  [clickCount]="clicks"
-></app-odometer>
-<br>
 <app-tachometer
   [clickCount]="clicks"
   [mpc]="multiplier"
 ></app-tachometer>
-<br>
+<app-upgrade
+  [user]="user"
+  [clickCount]="clicks"
+  [distance]="distance"
+></app-upgrade>
 <app-achievement
   [clickCount]="clicks"
   [distance]="distance"
   [userData]="userData"
   [user]="user"
 ></app-achievement>
-<app-upgrade
+<app-odometer
+  (distanceEmitter)="onDistanceChange($event)"
   [user]="user"
   [clickCount]="clicks"
-  [distance]="distance"
-></app-upgrade>
+></app-odometer>
+<app-click-counter
+  [clickCount]="clicks"
+></app-click-counter>
 

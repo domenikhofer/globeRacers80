@@ -12,7 +12,7 @@ export class UpgradeService {
       unlocks: {unit: 'c', count: 20},
       upgrade: {unit: 'mc', operator: '*', operand: 2},
       image: '../assets/coke.svg',
-      description: 'take a sip of a protein shake and boost your speed and makes you twice as fast'
+      description: 'take a sip of a protein shake to boost your speed and drive twice as fast'
     },
     {
       id: 1,
