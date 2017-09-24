@@ -23,9 +23,16 @@ export class UpgradeService {
     },
     {
       id: 2,
-      title: 'eBike Motor (doesnt work yet)',
+      title: 'eBike Motor',
       unlocks: {unit: 'd', count: 40},
       upgrade: {unit: 'ms', operator: '+', operand: 1},
+      image: '../assets/electric.svg'
+    },
+    {
+      id: 3,
+      title: 'Mofa Motor',
+      unlocks: {unit: 'd', count: 120},
+      upgrade: {unit: 'ms', operator: '+', operand: 2},
       image: '../assets/electric.svg'
     }
   ];

@@ -5,7 +5,7 @@ export class UserDataService {
 
   constructor() {
   }
-
+  user = 'user1';
   userData = [
     {
       user: 'user1',
@@ -27,27 +27,27 @@ export class UserDataService {
     }
   ];
 
-  getUserData(user: string) {
-    const userData = this.userData.filter(x => x.user === user);
+  getUserData() {
+    const userData = this.userData.filter(x => x.user === this.user);
     return userData[0].data;
   }
 
-  addClicks(user: string, clicks: number) {
-  this.userData.filter(x => x.user === user)[0].data.clicks += 1;
-  return this.getUserData(user).clicks;
+  addClicks(clicks: number) {
+  this.userData.filter(x => x.user === this.user)[0].data.clicks += clicks;
+  return this.getUserData().clicks;
 }
 
-  addDistance(user: string, distance: number) {
-    this.userData.filter(x => x.user === user)[0].data.distance += distance;
-    return this.getUserData(user).distance;
+  addDistance(distance: number) {
+    this.userData.filter(x => x.user === this.user)[0].data.distance += distance;
+    return this.getUserData().distance;
   }
 
-  addAchievement(user: string, id: number) {
-    this.userData.filter(x => x.user === user)[0].data.achievements.push(id);
+  addAchievement(id: number) {
+    this.userData.filter(x => x.user === this.user)[0].data.achievements.push(id);
   }
 
-  addUpgrade(user: string, id: number) {
-    this.userData.filter(x => x.user === user)[0].data.upgrades.push(id);
+  addUpgrade(id: number) {
+    this.userData.filter(x => x.user === this.user)[0].data.upgrades.push(id);
   }
 
 }

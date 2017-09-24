@@ -1,32 +1,73 @@
-import {Component, OnChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserDataService} from './user-data.service';
+import {UpgradeService} from './upgrade.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'GlobeRacers80';
   clicks;
   distance;
   multiplier;
   userData;
   UserDataService;
+  UpgradeService;
+  userUpgrades;
+  allUpgrades;
+  ms;
+  mc;
   user = 'user1';
 
-  constructor(UserDataService: UserDataService) {
+  constructor(UserDataService: UserDataService, UpgradeService: UpgradeService) {
     this.UserDataService = UserDataService;
     this.userData = this.UserDataService.getUserData(this.user);
+    this.userUpgrades = this.userData.upgrades;
+    this.allUpgrades = UpgradeService.getAllUpgrades();
+  }
+
+  ngOnInit() {
+    setInterval(() => {
+      this.ms = this.getMultiplier('ms')
+      this.UserDataService.addDistance(this.ms);
+      this.distance = this.UserDataService.getUserData().distance;
+    }, 1000);
   }
 
 
   onCarClicked() {
-    this.clicks = this.UserDataService.addClicks(this.user, 1);
+    this.clicks = this.UserDataService.addClicks(1);
+    this.mc = this.getMultiplier('mc');
+    this.UserDataService.addDistance(this.mc);
+    this.distance = this.UserDataService.getUserData().distance;
   }
 
-  onDistanceChange(distance) {
-    this.multiplier = distance;
-    this.distance = this.UserDataService.addDistance(this.user, distance);
+  onUpgradeClicked(upgrade) {
+this.getMultiplier(upgrade[0].upgrade.unit);
+if (upgrade[0].upgrade.unit === 'mc') {
+  this.mc = this.getMultiplier('mc');
+}else{
+  this.ms = this.getMultiplier('ms');
+}
   }
+
+  getMultiplier(type: string) {
+const allUserUpgrades = this.userUpgrades.map(x => this.allUpgrades.find(y => y.id === x));
+
+const typeUpgrades = allUserUpgrades.filter(x => x.upgrade.unit === type);
+
+    let multiplier = (type === 'mc' ? 1 : 0);
+
+    const operators = {
+      '*': (a, b) => a * b,
+      '+': (a, b) => a + b,
+    };
+
+
+    typeUpgrades.map(x => multiplier = operators[x.upgrade.operator](multiplier, x.upgrade.operand));
+    return multiplier;
+  }
+
 }

@@ -2,23 +2,20 @@
 <app-car (carClicked)="onCarClicked()"></app-car>
 <app-tachometer
   [clickCount]="clicks"
-  [mpc]="multiplier"
+  [mc]="mc"
+  [ms]="ms"
 ></app-tachometer>
 <app-upgrade
-  [user]="user"
+  (upgradeClicked)="onUpgradeClicked($event)"
   [clickCount]="clicks"
   [distance]="distance"
 ></app-upgrade>
 <app-achievement
   [clickCount]="clicks"
   [distance]="distance"
-  [userData]="userData"
-  [user]="user"
 ></app-achievement>
 <app-odometer
-  (distanceEmitter)="onDistanceChange($event)"
-  [user]="user"
-  [clickCount]="clicks"
+[distance]="distance"
 ></app-odometer>
 <app-click-counter
   [clickCount]="clicks"
