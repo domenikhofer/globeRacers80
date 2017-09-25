@@ -19,14 +19,16 @@ export class UpgradeService {
       title: 'Müsli Riegel',
       unlocks: {unit: 'c', count: 30},
       upgrade: {unit: 'mc', operator: '+', operand: 0.5},
-      image: '../assets/chocolate.svg'
+      image: '../assets/chocolate.svg',
+      description: 'müesli riegel sabfksdahfsdkafhldsaf'
     },
     {
       id: 2,
       title: 'eBike Motor',
       unlocks: {unit: 'd', count: 40},
       upgrade: {unit: 'ms', operator: '+', operand: 1},
-      image: '../assets/electric.svg'
+      image: '../assets/electric.svg',
+      description: 'eBike Motor sabfksdahfsdkafhldsaf'
     },
     {
       id: 3,
@@ -36,8 +38,6 @@ export class UpgradeService {
       image: '../assets/electric.svg'
     }
   ];
-
-
 
   getUpgradeById(id: number) {
     return this.upgrades.filter(x => x.id === id);

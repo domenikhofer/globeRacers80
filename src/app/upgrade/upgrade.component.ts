@@ -30,13 +30,13 @@ export class UpgradeComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-  this.displayUpgrades();
+    this.displayUpgrades();
   }
 
   onUpgradeClick(id) {
-this.UserDataService.addUpgrade(id);
-this.displayUpgrades();
-this.upgradeClicked.emit(this.UpgradeService.getUpgradeById(id));
+    this.UserDataService.addUpgrade(id);
+    this.displayUpgrades();
+    this.upgradeClicked.emit(this.UpgradeService.getUpgradeById(id));
   }
 
   displayUpgrades() {
@@ -46,6 +46,11 @@ this.upgradeClicked.emit(this.UpgradeService.getUpgradeById(id));
       (x.unlocks.unit === 'd' && x.unlocks.count <= this.distance)) &&
       this.userUpgrades.indexOf(x.id) === -1
     );
+  }
+
+  showinfo($event) {
+    const infobox = $event.currentTarget.previousElementSibling.classList;
+    infobox.toggle('hidden');
   }
 
 }
