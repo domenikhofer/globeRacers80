@@ -1,5 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {trigger, state, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
+import  anime from 'animejs';
+
 
 
 @Component({
@@ -7,18 +9,6 @@ import {trigger, state, style, transition, animate, keyframes, query, stagger} f
   templateUrl: './car.component.html',
   styleUrls: ['./car.component.scss'],
   animations: [
-    trigger('carScale', [
-
-     state('small', style ({
-        transform: 'scale(1)',
-     })),
-     state('large', style ({
-        transform: 'scale(1.1)',
-        left: '60%',
-     })),
-
-      transition('small <=> large', animate('500ms ease-in'))
-    ]),
     trigger('roadmove', [
       transition('stop <=> move', animate('500ms linear', keyframes([
         style({transform: 'translate(0px, 0px)'}),
@@ -31,8 +21,6 @@ import {trigger, state, style, transition, animate, keyframes, query, stagger} f
 export class CarComponent implements OnInit {
 @Output() carClicked: EventEmitter<any> = new EventEmitter();
 
-
-  state: string = 'small';
   roadstate: string = 'stop';
 
   constructor() {}
@@ -43,17 +31,10 @@ export class CarComponent implements OnInit {
   onClick() {
    this.carClicked.emit();
    this.roadstate = (this.roadstate === 'stop' ? 'move' : 'stop') ;
+   var carSize = anime({
+      targets: '.car',
+      scale: ['1.05', '1.0'],
+    });
   }
-
-  makeLarge() {
-    this.state = 'large';
-  }
-
-  makeSmall() {
-    this.state = 'small';
-  }
-
-
-
 }
 

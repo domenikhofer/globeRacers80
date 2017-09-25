@@ -11,7 +11,7 @@ export class UpgradeService {
       title: 'Protein_Shake',
       unlocks: {unit: 'c', count: 20},
       upgrade: {unit: 'mc', operator: '*', operand: 2},
-      image: '../assets/coke.svg',
+      image: '../assets/img/coke.svg',
       description: 'take a sip of a protein shake to boost your speed and drive twice as fast'
     },
     {
@@ -19,7 +19,7 @@ export class UpgradeService {
       title: 'Müsli Riegel',
       unlocks: {unit: 'c', count: 30},
       upgrade: {unit: 'mc', operator: '+', operand: 0.5},
-      image: '../assets/chocolate.svg',
+      image: '../assets/img/chocolate.svg',
       description: 'müesli riegel sabfksdahfsdkafhldsaf'
     },
     {
@@ -27,7 +27,7 @@ export class UpgradeService {
       title: 'eBike Motor',
       unlocks: {unit: 'd', count: 40},
       upgrade: {unit: 'ms', operator: '+', operand: 1},
-      image: '../assets/electric.svg',
+      image: '../assets/img/electric.svg',
       description: 'eBike Motor sabfksdahfsdkafhldsaf'
     },
     {
@@ -35,7 +35,7 @@ export class UpgradeService {
       title: 'Mofa Motor',
       unlocks: {unit: 'd', count: 120},
       upgrade: {unit: 'ms', operator: '+', operand: 2},
-      image: '../assets/electric.svg'
+      image: '../assets/img/electric.svg'
     }
   ];
 
