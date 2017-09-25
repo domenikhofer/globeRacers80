@@ -9,9 +9,8 @@ import {UserDataService} from '../user-data.service';
 })
 export class AchievementComponent implements OnInit, OnChanges {
   @Input() clickCount;
-  @Input() userData;
-  @Input() user;
   @Input() distance;
+  userData;
   AchievementService;
   UserDataService;
   userAchievements;
@@ -19,6 +18,7 @@ export class AchievementComponent implements OnInit, OnChanges {
   constructor(AchievementService: AchievementService, UserDataService: UserDataService) {
     this.AchievementService = AchievementService.getAllAchievements();
     this.UserDataService = UserDataService;
+    this.userData = this.UserDataService.getUserData();
   }
 
   ngOnInit() {
@@ -32,19 +32,19 @@ export class AchievementComponent implements OnInit, OnChanges {
         x => x.unit === 'c' && x.count === clickCount
       );
       if (achievements.length === 1) {
-        this.UserDataService.addAchievement(this.user, achievements[0].id);
+        this.UserDataService.addAchievement(achievements[0].id);
        this.displayAchievements();
       }
     }
     if (changes.distance) {
       const distance = changes.distance.currentValue;
-      const userData = this.UserDataService.getUserData(this.user);
+      const userData = this.UserDataService.getUserData();
       const userAchievements = userData.achievements;
       const achievements = this.AchievementService.filter(
         x => x.unit === 'd' && x.count <= distance && userAchievements.indexOf(x.id) === -1
       );
       if (achievements.length === 1) {
-        this.UserDataService.addAchievement(this.user, achievements[0].id);
+        this.UserDataService.addAchievement(achievements[0].id);
         this.displayAchievements();
       }
     }

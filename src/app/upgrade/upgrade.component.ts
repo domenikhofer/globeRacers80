@@ -8,22 +8,24 @@ import {UserDataService} from '../user-data.service';
   styleUrls: ['./upgrade.component.scss']
 })
 export class UpgradeComponent implements OnInit, OnChanges {
+  @Input() distance;
+  @Input() clickCount;
+  @Output() upgradeClicked: EventEmitter<any> = new EventEmitter();
   allUpgrades;
   userData;
   userUpgrades;
   UserDataService;
-  @Input() distance;
-  @Input() clickCount;
-  @Input() user;
+  UpgradeService;
   availableUpgrades;
 
   constructor(UpgradeService: UpgradeService, UserDataService: UserDataService) {
+    this.UpgradeService = UpgradeService;
     this.allUpgrades = UpgradeService.getAllUpgrades();
     this.UserDataService = UserDataService;
   }
 
   ngOnInit() {
-    this.userData = this.UserDataService.getUserData(this.user);
+    this.userData = this.UserDataService.getUserData();
     this.userUpgrades = this.userData.upgrades;
   }
 
@@ -32,8 +34,9 @@ export class UpgradeComponent implements OnInit, OnChanges {
   }
 
   onUpgradeClick(id) {
-    this.UserDataService.addUpgrade(this.user, id);
+    this.UserDataService.addUpgrade(id);
     this.displayUpgrades();
+    this.upgradeClicked.emit(this.UpgradeService.getUpgradeById(id));
   }
 
   displayUpgrades() {

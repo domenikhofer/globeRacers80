@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, OnChanges} from '@angular/core';
-import {trigger, state, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
+import {trigger, style, transition, animate, keyframes} from '@angular/animations';
 
 
 @Component({
@@ -24,24 +24,27 @@ import {trigger, state, style, transition, animate, keyframes, query, stagger} f
   ]
 })
 
-export class TachometerComponent implements OnInit {
+export class TachometerComponent implements OnInit, OnChanges {
   @Input() clickCount;
-  @Input() mpc;
+  @Input() mc;
+  @Input() ms;
 
   mSek = 0;
 
-  state: string = 'zero';
+  state = 'zero';
 
   constructor() {}
 
 
   ngOnInit() {
+    this.mc = 1;
+    this.ms = 0;
   }
 
   ngOnChanges(changes: any) {
-    if (changes.clickCount && this.mpc === 1) {
+    if (changes.clickCount && this.mc === 1) {
       this.state = (this.state === 'zero' ? 'ten' : 'zero') ;
-    } else if (changes.clickCount && this.mpc === 2) {
+    } else if (changes.clickCount && this.mc === 2) {
       this.state = (this.state === 'zero' ? '20' : 'zero') ;
     }
   }
