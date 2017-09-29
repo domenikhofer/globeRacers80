@@ -12,6 +12,7 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 import { UpgradeService } from './upgrade.service';
 import { UserDataService } from './user-data.service';
 import { AchievementService } from './achievement.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AchievementService } from './achievement.service';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     UserDataService,

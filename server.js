@@ -1,18 +1,32 @@
 const express = require('express');
-const app = express();
 const path = require('path');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
+const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+///////PROD/////////
 
 // Run the app by serving the static files
 // in the dist directory
-app.use(express.static(__dirname + '/dist'));
+//app.use(express.static(__dirname + '/dist'));
 
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
-app.get('/*', function(req, res) {
+/*app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/dist/index.html'));
-});
+});*/
+
+
+//////DEV/////////////
+app.use(cors());
+app.use('/db', require("./database/dbRoutes.js"));
 
 
 

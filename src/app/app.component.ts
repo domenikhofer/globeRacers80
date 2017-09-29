@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {UserDataService} from './user-data.service';
 import {UpgradeService} from './upgrade.service';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import {RequestOptions} from '@angular/http';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +24,8 @@ export class AppComponent implements OnInit {
   mc;
   user = 'user1';
 
-  constructor(UserDataService: UserDataService, UpgradeService: UpgradeService) {
+
+  constructor(UserDataService: UserDataService, UpgradeService: UpgradeService, private http: HttpClient) {
     this.UserDataService = UserDataService;
     this.userData = this.UserDataService.getUserData(this.user);
     this.userUpgrades = this.userData.upgrades;
@@ -34,6 +38,9 @@ export class AppComponent implements OnInit {
       this.UserDataService.addDistance(this.ms);
       this.distance = this.UserDataService.getUserData().distance;
     }, 1000);
+
+    this.http.post('http://localhost:1993/db/user/add/', {name: 'test'}).subscribe(data => console.log(data));
+
   }
 
 
