@@ -6,11 +6,13 @@
   [ms]="ms"
 ></app-tachometer>
 <app-upgrade
+  [userData]="userData"
   (upgradeClicked)="onUpgradeClicked($event)"
   [clickCount]="clicks"
   [distance]="distance"
 ></app-upgrade>
 <app-achievement
+  [userData]="userData"
   [clickCount]="clicks"
   [distance]="distance"
 ></app-achievement>

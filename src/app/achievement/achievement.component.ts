@@ -10,7 +10,7 @@ import {UserDataService} from '../user-data.service';
 export class AchievementComponent implements OnInit, OnChanges {
   @Input() clickCount;
   @Input() distance;
-  userData;
+  @Input() userData;
   AchievementService;
   UserDataService;
   userAchievements;
@@ -18,11 +18,9 @@ export class AchievementComponent implements OnInit, OnChanges {
   constructor(AchievementService: AchievementService, UserDataService: UserDataService) {
     this.AchievementService = AchievementService.getAllAchievements();
     this.UserDataService = UserDataService;
-    this.userData = this.UserDataService.getUserData();
   }
 
   ngOnInit() {
-    this.displayAchievements();
   }
 
   ngOnChanges(changes: any) {
@@ -32,30 +30,29 @@ export class AchievementComponent implements OnInit, OnChanges {
         x => x.unit === 'c' && x.count === clickCount
       );
       if (achievements.length === 1) {
-        this.UserDataService.addAchievement(achievements[0].id);
-       this.displayAchievements();
+        this.UserDataService.addAchievement(this.userData._id, achievements[0].id).subscribe(() => this.displayAchievements());
       }
     }
-    if (changes.distance) {
+    if (changes.distance && changes.distance.firstChange === false) {
       const distance = changes.distance.currentValue;
-      const userData = this.UserDataService.getUserData();
-      const userAchievements = userData.achievements;
+      const userAchievements = this.userData.data.achievements;
       const achievements = this.AchievementService.filter(
         x => x.unit === 'd' && x.count <= distance && userAchievements.indexOf(x.id) === -1
       );
       if (achievements.length === 1) {
-        this.UserDataService.addAchievement(achievements[0].id);
-        this.displayAchievements();
+        this.UserDataService.addAchievement(this.userData._id, achievements[0].id).subscribe(() => this.displayAchievements());
       }
     }
   }
 
   displayAchievements() {
-    this.userAchievements =
-      this.userData.achievements.map(
-        x => this.AchievementService.find(
-          y => y.id === x).title
-      );
+    this.UserDataService.getUserData(this.userData._id).subscribe(data => {
+      this.userData = data;
+      this.userAchievements =
+        data.data.achievements.map(
+          x => this.AchievementService.find(
+            y => y.id === x).title
+        );
+    })
   }
-
 }
