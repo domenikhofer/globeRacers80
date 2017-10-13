@@ -19,11 +19,11 @@ export class UpgradeComponent implements OnInit, OnChanges {
 
   constructor(UpgradeService: UpgradeService, UserDataService: UserDataService) {
     this.UpgradeService = UpgradeService;
-    this.allUpgrades = UpgradeService.getAllUpgrades();
     this.UserDataService = UserDataService;
   }
 
   ngOnInit() {
+    this.UpgradeService.getAllUpgrades().subscribe(data => this.allUpgrades = data);
   }
 
   ngOnChanges(changes) {
@@ -37,7 +37,7 @@ export class UpgradeComponent implements OnInit, OnChanges {
     this.UserDataService.addUpgrade(this.userData._id, id).subscribe(() => {
       this.displayUpgrades();
     });
-    this.upgradeClicked.emit(this.UpgradeService.getUpgradeById(id));
+    this.upgradeClicked.emit(this.allUpgrades.find(x => x.id === id));
   }
 
   displayUpgrades() {

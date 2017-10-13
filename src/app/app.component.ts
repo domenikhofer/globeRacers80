@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   user;
 
 
-  constructor(UserDataService: UserDataService, UpgradeService: UpgradeService) {
+  constructor(UserDataService: UserDataService, UpgradeService: UpgradeService, private http: HttpClient) {
     this.UserDataService = UserDataService;
     this.UpgradeService = UpgradeService;
   }
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     }
 
  onUserDataLoaded() {
-   this.allUpgrades = this.UpgradeService.getAllUpgrades();
+   this.UpgradeService.getAllUpgrades().subscribe(data => this.allUpgrades = data);
 
   setInterval(() => {
      this.ms = this.getMultiplier('ms')
@@ -67,8 +67,8 @@ export class AppComponent implements OnInit {
   }
 
   onUpgradeClicked(upgrade) {
-    this.getMultiplier(upgrade[0].upgrade.unit);
-    if (upgrade[0].upgrade.unit === 'mc') {
+    this.getMultiplier(upgrade.upgrade.unit);
+    if (upgrade.upgrade.unit === 'mc') {
       this.mc = this.getMultiplier('mc');
     } else {
       this.ms = this.getMultiplier('ms');
