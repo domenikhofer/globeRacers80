@@ -1,0 +1,3 @@
+{"id":0,"title":"Protein_Shake","unlocks":{"unit":"c","count":20},"upgrade":{"unit":"mc","operator":"*","operand":2},"img":"../assets/img/coke.svg","description":"take a sip of a protein shake to boost your speed and drive twice as fast","_id":"FWnFtDnYbVvcPRT5"}
+{"id":1,"title":"Müsli Riegel","unlocks":{"unit":"c","count":30},"upgrade":{"unit":"mc","operator":"+","operand":0.5},"img":"../assets/img/chocolate.svg","description":"müesli riegel","_id":"NlTW8mHXssbKOkAJ"}
+{"id":2,"title":"eBike Motor","unlocks":{"unit":"d","count":40},"upgrade":{"unit":"ms","operator":"+","operand":1},"img":"../assets/img/electric.svg","description":"eBike Motor","_id":"mJj1wRFXVAl1oqEk"}

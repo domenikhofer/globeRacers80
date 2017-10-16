@@ -13,6 +13,7 @@ import { UpgradeService } from './services/upgrade.service';
 import { UserDataService } from './services/user-data.service';
 import { AchievementService } from './services/achievement.service';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     UserDataService,

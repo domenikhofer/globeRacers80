@@ -1,53 +1,39 @@
 import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserDataService {
 
-  constructor() {
-  }
-  user = 'user1';
-  userData = [
-    {
-      user: 'user1',
-      data: {
-        clicks: 0,
-        distance: 0,
-        achievements: [],
-        upgrades: []
-      }
-    },
-    {
-      user: 'user2',
-      data: {
-        clicks: 0,
-        distance: 0,
-        achievements: [],
-        upgrades: []
-      }
-    }
-  ];
-
-  getUserData() {
-    const userData = this.userData.filter(x => x.user === this.user);
-    return userData[0].data;
+  constructor(private http: HttpClient) {
   }
 
-  addClicks(clicks: number) {
-    this.userData.filter(x => x.user === this.user)[0].data.clicks += clicks;
-    return this.getUserData().clicks;
+
+  addUser(user: string) {
+   return this.http.post('http://localhost:1993/db/user/add/', {username: user});
   }
 
-  addDistance(distance: number) {
-    this.userData.filter(x => x.user === this.user)[0].data.distance += distance;
-    return this.getUserData().distance;
+  getUserData(user: string) {
+    return this.http.post('http://localhost:1993/db/user/get/byId', {id: user});
   }
 
-  addAchievement(id: number) {
-    this.userData.filter(x => x.user === this.user)[0].data.achievements.push(id);
+  addClicks(user: string, clicks: number) {
+    return this.http.post('http://localhost:1993/db/user/add/click', {id: user, clicks: clicks});
+}
+
+  addDistance(user: string, distance: number) {
+    return this.http.post('http://localhost:1993/db/user/add/distance', {id: user, distance: distance});
   }
 
-  addUpgrade(id: number) {
-    this.userData.filter(x => x.user === this.user)[0].data.upgrades.push(id);
+  addAchievement(user: string, id: number) {
+    return this.http.post('http://localhost:1993/db/user/add/achievement', {id: user, achievementId: id});
+  }
+
+  addUpgrade(user: string, id: number) {
+    return this.http.post('http://localhost:1993/db/user/add/upgrade', {id: user, upgradeId: id});
   }
 
 }
+
+
+

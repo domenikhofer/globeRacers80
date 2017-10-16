@@ -10,41 +10,43 @@ import {UserDataService} from '../services/user-data.service';
 export class UpgradeComponent implements OnInit, OnChanges {
   @Input() distance;
   @Input() clickCount;
+  @Input() userData;
   @Output() upgradeClicked: EventEmitter<any> = new EventEmitter();
   allUpgrades;
-  userData;
-  userUpgrades;
   UserDataService;
   UpgradeService;
   availableUpgrades;
 
   constructor(UpgradeService: UpgradeService, UserDataService: UserDataService) {
     this.UpgradeService = UpgradeService;
-    this.allUpgrades = UpgradeService.getAllUpgrades();
     this.UserDataService = UserDataService;
   }
 
   ngOnInit() {
-    this.userData = this.UserDataService.getUserData();
-    this.userUpgrades = this.userData.upgrades;
+    this.UpgradeService.getAllUpgrades().subscribe(data => this.allUpgrades = data);
   }
 
-  ngOnChanges() {
-    this.displayUpgrades();
+  ngOnChanges(changes) {
+    if (changes. userData && changes.userData.firstChange === false ) {
+      this.displayUpgrades();
+    }
+
   }
 
   onUpgradeClick(id) {
-    this.UserDataService.addUpgrade(id);
-    this.displayUpgrades();
-    this.upgradeClicked.emit(this.UpgradeService.getUpgradeById(id));
+    this.UserDataService.addUpgrade(this.userData._id, id).subscribe(() => {
+      this.displayUpgrades();
+    });
+    this.upgradeClicked.emit(this.allUpgrades.find(x => x.id === id));
   }
 
   displayUpgrades() {
+    const userUpgrades = this.userData.data.upgrades;
     this.availableUpgrades = this.allUpgrades.filter(
       x =>
       ((x.unlocks.unit === 'c' && x.unlocks.count <= this.clickCount) ||
       (x.unlocks.unit === 'd' && x.unlocks.count <= this.distance)) &&
-      this.userUpgrades.indexOf(x.id) === -1
+      userUpgrades.indexOf(x.id) === -1
     );
   }
 
