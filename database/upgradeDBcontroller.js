@@ -1,15 +1,6 @@
 const db = require("./upgradeDB.js");
 
 module.exports.addUpgrade = function(req, res){
-  console.log(req.body.id,
-    req.body.title,
-    req.body.unlocksUnit,
-    req.body.unlocksCount,
-    req.body.upgradeUnit,
-    req.body.upgradeOperator,
-    req.body.upgradeOperand,
-    req.body.img,
-    req.body.desc);
   db.addUpgrade(
     req.body.id,
     req.body.title,
