@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
-import {UpgradeService} from '../upgrade.service';
-import {UserDataService} from '../user-data.service';
+import {UpgradeService} from '../services/upgrade.service';
+import {UserDataService} from '../services/user-data.service';
 
 @Component({
   selector: 'app-upgrade',

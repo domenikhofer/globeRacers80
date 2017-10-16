@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
-import {AchievementService} from '../achievement.service';
-import {UserDataService} from '../user-data.service';
+import {AchievementService} from '../services/achievement.service';
+import {UserDataService} from '../services/user-data.service';
 
 @Component({
   selector: 'app-achievement',

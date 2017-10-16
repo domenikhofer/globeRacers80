@@ -9,9 +9,10 @@ import { OdometerComponent } from './odometer/odometer.component';
 import { AchievementComponent } from './achievement/achievement.component';
 import { TachometerComponent } from './tachometer/tachometer.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
-import { UpgradeService } from './upgrade.service';
-import { UserDataService } from './user-data.service';
-import { AchievementService } from './achievement.service';
+import { UpgradeService } from './services/upgrade.service';
+import { UserDataService } from './services/user-data.service';
+import { AchievementService } from './services/achievement.service';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AchievementService } from './achievement.service';
     OdometerComponent,
     AchievementComponent,
     TachometerComponent,
-    UpgradeComponent
+    UpgradeComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,

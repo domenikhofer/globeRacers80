@@ -33,9 +33,9 @@ export class UserDataService {
   }
 
   addClicks(clicks: number) {
-  this.userData.filter(x => x.user === this.user)[0].data.clicks += clicks;
-  return this.getUserData().clicks;
-}
+    this.userData.filter(x => x.user === this.user)[0].data.clicks += clicks;
+    return this.getUserData().clicks;
+  }
 
   addDistance(distance: number) {
     this.userData.filter(x => x.user === this.user)[0].data.distance += distance;

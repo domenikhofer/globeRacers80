@@ -2,11 +2,11 @@
   "name": "globe-racers80",
   "version": "0.0.0",
   "license": "MIT",
-   "engines": {
+  "engines": {
     "node": "7.9.0",
     "npm": "4.2.0"
   },
-    "main": "server.js",
+  "main": "server.js",
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
@@ -38,11 +38,8 @@
     "ngx-bootstrap": "^1.8.1",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14",
-    "core-js": "^2.4.1",
     "express": "^4.15.4",
-    "rxjs": "^5.4.1",
-    "zone.js": "^0.8.14",
-     "body-parser": "~1.17.1",
+    "body-parser": "~1.17.1",
     "nedb": "~1.8.0"
   },
   "devDependencies": {

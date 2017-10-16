@@ -21,7 +21,7 @@ Info Boxes
 
 .achievements,
 .upgrades,
-.click {
+.leaderboard {
   background: #fefffa;
   border-radius: 3px;
   margin: 1.5em;
@@ -32,7 +32,7 @@ Info Boxes
 
 .achievements h3,
 .upgrades h3,
-.click h3 {
+.leaderboard h3 {
   text-align: center;
   font-weight: normal;
   color: #fff;
@@ -47,7 +47,7 @@ Info Boxes
 
 
 .upgrades,
-.click {
+.leaderboard {
   padding: 0.75px;
 }
 
@@ -60,7 +60,7 @@ MEDIA QUERIES
   display: none;
 }
 
-@media screen and (min-width: 730px) {
+@media screen and (min-width: 1000px) {
   body .title img.logo {
     width: 13em;
   }

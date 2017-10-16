@@ -15,7 +15,7 @@ Info Boxes
 /*** Speed, Achievements, Upgrades ****/
 .achievements,
 .upgrades,
-.click {
+.leaderboard {
   background: #fefffa;
   border-radius: 3px;
   margin: 1.5em;
@@ -23,7 +23,7 @@ Info Boxes
 
 .achievements h3,
 .upgrades h3,
-.click h3 {
+.leaderboard h3 {
   text-align: center;
   font-weight: normal;
   color: #fff;
@@ -36,7 +36,7 @@ Info Boxes
   transform: rotate(-2deg); }
 
 .upgrades,
-.click {
+.leaderboard {
   padding: 0.75px; }
 
 /********************************************
@@ -45,7 +45,7 @@ MEDIA QUERIES
 #tachometersign {
   display: none; }
 
-@media screen and (min-width: 730px) {
+@media screen and (min-width: 1000px) {
   body .title img.logo {
     width: 13em; }
 
@@ -75,79 +75,59 @@ MEDIA QUERIES
     width: 20;
     height: 20em;
     z-index: 2; }
-
-  .ii div {
-    position: absolute;
-    width: 17.5em;
-    height: 17.5em;
-    padding: 4px;
-    box-sizing: border-box; }
-
-  .ii div b {
-    position: absolute;
-    display: block;
-    left: 50%;
-    width: 5px;
-    height: 20px;
-    background: #FFF;
-    margin: 0 -5px 0; }
-
-  .ii div:nth-child(2n+1) b {
-    width: 10px;
-    height: 35px;
-    margin: 0 -5px 0; }
-
-  .ii div:nth-child(1) {
-    transform: rotate(240deg); }
-
-  .ii div:nth-child(2) {
-    transform: rotate(255deg); }
-
-  .ii div:nth-child(3) {
-    transform: rotate(270deg); }
-
-  .ii div:nth-child(4) {
-    transform: rotate(285deg); }
-
-  .ii div:nth-child(5) {
-    transform: rotate(300deg); }
-
-  .ii div:nth-child(6) {
-    transform: rotate(315deg); }
-
-  .ii div:nth-child(7) {
-    transform: rotate(330deg); }
-
-  .ii div:nth-child(8) {
-    transform: rotate(345deg); }
-
-  .ii div:nth-child(9) {
-    transform: rotate(0deg);
-    /*---*/ }
-
-  .ii div:nth-child(10) {
-    transform: rotate(15deg); }
-
-  .ii div:nth-child(11) {
-    transform: rotate(30deg); }
-
-  .ii div:nth-child(12) {
-    transform: rotate(45deg); }
-
-  .ii div:nth-child(13) {
-    transform: rotate(60deg); }
-
-  .ii div:nth-child(14) {
-    transform: rotate(75deg); }
-
-  .ii div:nth-child(15) {
-    transform: rotate(90deg); }
-
-  .ii div:nth-child(16) {
-    transform: rotate(105deg); }
-
-  .ii div:nth-child(17) {
-    transform: rotate(120deg); }
+    .ii div {
+      position: absolute;
+      width: 17.5em;
+      height: 17.5em;
+      padding: 4px;
+      box-sizing: border-box; }
+      .ii div b {
+        position: absolute;
+        display: block;
+        left: 50%;
+        width: 5px;
+        height: 20px;
+        background: #FFF;
+        margin: 0 -5px 0; }
+      .ii div:nth-child(2n+1) b {
+        width: 10px;
+        height: 35px;
+        margin: 0 -5px 0; }
+      .ii div:nth-child(1) {
+        transform: rotate(240deg); }
+      .ii div:nth-child(2) {
+        transform: rotate(255deg); }
+      .ii div:nth-child(3) {
+        transform: rotate(270deg); }
+      .ii div:nth-child(4) {
+        transform: rotate(285deg); }
+      .ii div:nth-child(5) {
+        transform: rotate(300deg); }
+      .ii div:nth-child(6) {
+        transform: rotate(315deg); }
+      .ii div:nth-child(7) {
+        transform: rotate(330deg); }
+      .ii div:nth-child(8) {
+        transform: rotate(345deg); }
+      .ii div:nth-child(9) {
+        transform: rotate(0deg);
+        /*---*/ }
+      .ii div:nth-child(10) {
+        transform: rotate(15deg); }
+      .ii div:nth-child(11) {
+        transform: rotate(30deg); }
+      .ii div:nth-child(12) {
+        transform: rotate(45deg); }
+      .ii div:nth-child(13) {
+        transform: rotate(60deg); }
+      .ii div:nth-child(14) {
+        transform: rotate(75deg); }
+      .ii div:nth-child(15) {
+        transform: rotate(90deg); }
+      .ii div:nth-child(16) {
+        transform: rotate(105deg); }
+      .ii div:nth-child(17) {
+        transform: rotate(120deg); }
 
   [class^="num_"] {
     color: #FFF;

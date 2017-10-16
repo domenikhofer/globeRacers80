@@ -24,6 +24,7 @@
 }
 
 @keyframes bounce-text {
+  30% {font-size: 3em;}
   60% {font-size: 4em;}
-  100% {font-size: 4em;}
+  100% {font-size: 2em;}
 }

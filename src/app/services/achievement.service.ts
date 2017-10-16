@@ -19,13 +19,20 @@ export class AchievementService {
       img: 'c1.png',
       unit: 'c',
       count: 10,
-},
+    },
     {
       id: 2,
       title: '31 Meters!',
       img: 'c1.png',
       unit: 'd',
       count: 31,
+    },
+    {
+      id: 3,
+      title: '100 Meters!',
+      img: 'c1.png',
+      unit: 'd',
+      count: 100,
     }
   ];
 

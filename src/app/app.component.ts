@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {UserDataService} from './user-data.service';
-import {UpgradeService} from './upgrade.service';
+import {UserDataService} from './services/user-data.service';
+import {UpgradeService} from './services/upgrade.service';
 
 @Component({
   selector: 'app-root',
