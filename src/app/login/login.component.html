@@ -1,0 +1,26 @@
+<div class="loginform_background">
+  <div class="loginform col-md-4 col-md-offset-4" [@loginform]>
+    <h2 class="login-title">Login</h2>
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label class="sr-only">Username</label>
+        <input type="text" name="username" placeholder="username" [(ngModel)]="model.username" #username="ngModel" required minlength="3"/>
+        <div *ngIf="username.errors && (username.dirty || username.touched)" class="alert alert-danger">
+          <div [hidden]="!username.errors.required">Username is required</div>
+          <div [hidden]="!username.errors.minlength">Username must be at least 3 characters long.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="sr-only">Password</label>
+        <input type="password" name="password" placeholder="password" [(ngModel)]="model.password" #password="ngModel" required />
+        <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+          <div [hidden]="!password.errors.required">Password is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button [disabled]="loading" class="login-btn">Login</button>
+        <a [routerLink]="['/register']" class="btn btn-link">Not a member? </a>
+      </div>
+    </form>
+  </div>
+</div>

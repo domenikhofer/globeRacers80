@@ -1,0 +1,57 @@
+.registerform_background {
+  background: linear-gradient(181deg, rgba(65,107,167,1) 0%, rgba(0,128,128,1) 100%); /* w3c */
+  height: 100vh;
+  width: 100%;
+
+  .registerform {
+    background: #fff;
+    top: 10%;
+    text-align: center;
+    padding: 45px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+
+    .register-title {
+      font-family: 'montserrat', 'arial', 'verdana';
+      font-size: 1.75em;
+      text-transform: uppercase;
+      color: #2C3E50;
+      margin-bottom: 1em;
+    }
+
+    input {
+      font-family: 'montserrat', 'arial', 'verdana';
+      outline: 0;
+      background: #f2f2f2;
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    .register-btn {
+      font-family: 'montserrat', 'arial', 'verdana';
+      text-transform: uppercase;
+      outline: 0;
+      background: #D1495B;
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      color: #FFFFFF;
+      font-size: 14px;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+
+
+
+
+

@@ -1,7 +1,7 @@
-import {Component, Input, EventEmitter, OnInit, Output, OnChanges} from '@angular/core';
-import {animate, keyframes, query, stagger, state, style, transition, trigger} from '@angular/animations';
-import  anime from 'animejs';
+import { Component, Input, EventEmitter, OnInit, Output, OnChanges } from '@angular/core';
+import { animate, style, transition, trigger } from '@angular/animations';
 
+import anime from 'animejs';
 
 @Component({
   selector: 'app-car',
@@ -27,7 +27,7 @@ export class CarComponent implements OnInit, OnChanges {
   @Input() distance;
   @Input() ms;
   @Output() carClicked: EventEmitter<any> = new EventEmitter();
-  showCar: boolean = false;
+  showCar = false;
 
   constructor() {}
 
@@ -62,6 +62,5 @@ export class CarComponent implements OnInit, OnChanges {
    });
 
   }
-
 }
 

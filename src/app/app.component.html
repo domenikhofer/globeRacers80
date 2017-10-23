@@ -1,29 +1,9 @@
-<div class="title"><img src="../assets/img/logo_v1.png" class="logo" alt="GlobeRacers80 Logo"></div>
-<app-car
-  (carClicked)="onCarClicked()"
-  [distance]="distance"
-  [ms]="ms"
-></app-car>
-<app-tachometer
-  [clickCount]="clicks"
-  [mc]="mc"
-  [ms]="ms"
-></app-tachometer>
-<app-leaderboard
-></app-leaderboard>
-<app-achievement
-  [userData]="userData"
-  [clickCount]="clicks"
-  [distance]="distance"
-></app-achievement>
-<app-upgrade
-  [userData]="userData"
-  (upgradeClicked)="onUpgradeClicked($event)"
-  [clickCount]="clicks"
-  [distance]="distance"
-></app-upgrade>
-<app-odometer
-[distance]="distance"
-></app-odometer>
+<div class="title">
+  <img src="../assets/img/logo_v1.png" class="logo" alt="GlobeRacers80 Logo">
+  <div class="login_register_group">
+    <a [routerLink]="['/login']">Login</a>
+    <a [routerLink]="['/register']">Register</a>
+  </div>
+</div>
 
-
+<router-outlet></router-outlet>

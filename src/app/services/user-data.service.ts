@@ -5,9 +5,20 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UserDataService {
 
+  private isUserLoggedIn;
+  private username;
+
   constructor(private http: HttpClient) {
+    this.isUserLoggedIn = false;
   }
 
+  setUserLoggedIn() {
+    this.isUserLoggedIn = true;
+  }
+
+  getUserLoggedIn() {
+    return this.isUserLoggedIn;
+  }
 
   addUser(user: string) {
    return this.http.post('http://localhost:1993/db/user/add/', {username: user});

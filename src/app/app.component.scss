@@ -4,12 +4,20 @@ Title
 .title {
   background: #416ba7;
   text-align: center;
+
+  img.logo {
+    width: 7em;
+    background: none;
+  }
+
+  .login_register_group {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+  }
 }
 
-img.logo {
-  width: 7em;
-  background: none;
-}
 
 
 
