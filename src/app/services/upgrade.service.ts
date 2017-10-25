@@ -6,7 +6,7 @@ export class UpgradeService {
 
   constructor(private http: HttpClient) { }
 
-  getAllUpgrades() {
-    return this.http.get('http://localhost:1993/db/upgrade/get/all');
+  async getAllUpgrades(): Promise<any> {
+    return await this.http.get('http://localhost:1993/db/upgrade/get/all').toPromise();
   }
 }

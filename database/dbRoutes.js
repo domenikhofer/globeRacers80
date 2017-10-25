@@ -9,6 +9,7 @@ router.post("/user/add/click", userDB.addClick);
 router.post("/user/add/distance", userDB.addDistance);
 router.post("/user/add/achievement", userDB.addAchievement);
 router.post("/user/add/upgrade", userDB.addUpgrade);
+router.post("/user/get/byUsername",userDB.getUserByUsername);
 router.post("/user/get/byId",userDB.getUserById);
 router.get("/user/get/all",userDB.getUsers);
 

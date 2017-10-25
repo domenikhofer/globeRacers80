@@ -19,51 +19,35 @@ export class GamecontainerComponent implements OnInit {
   allUpgrades;
   ms;
   mc;
-  randomUser;
   user;
 
-  constructor(UserDataService: UserDataService, UpgradeService: UpgradeService, private http: HttpClient) {
+  constructor(UserDataService: UserDataService, UpgradeService: UpgradeService) {
     this.UserDataService = UserDataService;
     this.UpgradeService = UpgradeService;
   }
 
-  ngOnInit() {
-    this.randomUser = (Math.random().toString(36) + '00000000000000000').slice(2, 18);
-    this.UserDataService.addUser(this.randomUser).subscribe(data => {
-      this.user = data._id;
-      this.UserDataService.getUserData(this.user)
-        .subscribe(
-          data2 => this.userData = data2,
-          err => console.log(err),
-          () => this.onUserDataLoaded());
-    });
-  }
+  async ngOnInit() {
+    this.user = this.UserDataService.getUserLoggedIn();
+    this.userData = await this.UserDataService.getUserByUsername(this.user);
+    this.allUpgrades = await this.UpgradeService.getAllUpgrades();
 
-  onUserDataLoaded() {
-    this.UpgradeService.getAllUpgrades().subscribe(data => this.allUpgrades = data);
-
-    setInterval(() => {
-      this.ms = this.getMultiplier('ms')
-      this.UserDataService.addDistance(this.user, this.ms).subscribe();
-      this.UserDataService.getUserData(this.user).subscribe(data => {
-        this.distance = data.data.distance;
-        this.userData = data;
-      });
+    setInterval(async () => {
+      this.ms = this.getMultiplier('ms');
+      await this.UserDataService.addDistance(this.userData._id, this.ms);
+      this.userData = await this.UserDataService.getUserByUsername(this.user);
+      this.distance = this.userData.data.distance;
     }, 1000);
   }
 
-  onCarClicked() {
-    this.UserDataService.addClicks(this.user, 1).subscribe();
-    this.UserDataService.getUserData(this.user).subscribe(data => {
-      this.clicks = data.data.clicks;
-      this.userData = data;
-    });
+
+
+  async onCarClicked() {
+   await this.UserDataService.addClicks(this.userData._id, 1);
     this.mc = this.getMultiplier('mc');
-    this.UserDataService.addDistance(this.user, this.mc).subscribe();
-    this.UserDataService.getUserData(this.user).subscribe(data => {
-      this.distance = data.data.distance;
-      this.userData = data;
-    });
+    await this.UserDataService.addDistance(this.userData._id, this.mc)
+    this.userData = await this.UserDataService.getUserByUsername(this.user);
+    this.clicks = this.userData.data.clicks;
+    this.distance = this.userData.data.distance;
   }
 
   onUpgradeClicked(upgrade) {

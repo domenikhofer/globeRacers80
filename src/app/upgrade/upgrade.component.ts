@@ -22,8 +22,8 @@ export class UpgradeComponent implements OnInit, OnChanges {
     this.UserDataService = UserDataService;
   }
 
-  ngOnInit() {
-    this.UpgradeService.getAllUpgrades().subscribe(data => this.allUpgrades = data);
+  async ngOnInit() {
+    this.allUpgrades = await this.UpgradeService.getAllUpgrades();
   }
 
   ngOnChanges(changes) {
@@ -33,10 +33,9 @@ export class UpgradeComponent implements OnInit, OnChanges {
 
   }
 
-  onUpgradeClick(id) {
-    this.UserDataService.addUpgrade(this.userData._id, id).subscribe(() => {
+  async onUpgradeClick(id) {
+    await this.UserDataService.addUpgrade(this.userData._id, id);
       this.displayUpgrades();
-    });
     this.upgradeClicked.emit(this.allUpgrades.find(x => x.id === id));
   }
 

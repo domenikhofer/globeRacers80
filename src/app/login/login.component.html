@@ -16,6 +16,9 @@
         <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
           <div [hidden]="!password.errors.required">Password is required</div>
         </div>
+        <div *ngIf="wrongPw" class="alert alert-danger">
+          <div>Wrong Password!</div>
+        </div>
       </div>
       <div class="form-group">
         <button [disabled]="loading" class="login-btn">Login</button>

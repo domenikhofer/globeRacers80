@@ -21,20 +21,19 @@ export class AchievementComponent implements OnInit, OnChanges {
     this.UserDataService = UserDataService;
   }
 
-  ngOnInit() {
-    this.AchievementService.getAllAchievements().subscribe(data => {
-      this.allAchievements = data;
-    });
+  async ngOnInit() {
+    this.allAchievements = await this.AchievementService.getAllAchievements();
   }
 
-  ngOnChanges(changes: any) {
-   if (changes.clickCount && changes.clickCount.firstChange === false) {
+  async ngOnChanges(changes: any) {
+    if (changes.clickCount && changes.clickCount.firstChange === false) {
       const clickCount = changes.clickCount.currentValue;
       const achievements = this.allAchievements.filter(
         x => x.unit === 'c' && x.count === clickCount
       );
       if (achievements.length === 1) {
-        this.UserDataService.addAchievement(this.userData._id, achievements[0].id).subscribe(() => this.displayAchievements());
+        await this.UserDataService.addAchievement(this.userData._id, achievements[0].id);
+       await this.displayAchievements();
       }
     }
     if (changes.distance && changes.distance.firstChange === false) {
@@ -44,19 +43,18 @@ export class AchievementComponent implements OnInit, OnChanges {
         x => x.unit === 'd' && x.count <= distance && userAchievements.indexOf(x.id) === -1
       );
       if (achievements.length === 1) {
-        this.UserDataService.addAchievement(this.userData._id, achievements[0].id).subscribe(() => this.displayAchievements());
+        await this.UserDataService.addAchievement(this.userData._id, achievements[0].id);
+        await this.displayAchievements();
       }
     }
   }
 
-  displayAchievements() {
-    this.UserDataService.getUserData(this.userData._id).subscribe(data => {
-      this.userData = data;
-      this.userAchievements =
-        data.data.achievements.map(
+  async displayAchievements() {
+    this.userData = await this.UserDataService.getUserByUsername(this.userData.username)
+    this.userAchievements =
+        this.userData.data.achievements.map(
           x => this.allAchievements.find(
             y => y.id === x).title
         );
-    });
   }
 }

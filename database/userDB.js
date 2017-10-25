@@ -3,8 +3,9 @@ const db = new Datastore({filename: './data/users.db', autoload: true});
 
 
 class User {
-  constructor(username) {
+  constructor(username, hash) {
     this.username = username;
+    this.hash = hash;
     this.data = {};
       this.data.clicks = 0;
       this.data.distance = 0;
@@ -16,8 +17,8 @@ class User {
 
 
 
-function addUser(username, callback) {
-let user = new User(username);
+function addUser(username, hash, callback) {
+let user = new User(username, hash);
   db.insert(user, function (err, dbUser) {
     if (callback) {
       callback(err, dbUser);
@@ -33,8 +34,17 @@ function getUsers(callback) {
   })
 }
 
+function getUserByUsername(username, callback) {
+  db.findOne({username: username}, function (err, dbUser) {
+    if (callback) {
+      callback(err, dbUser);
+      return dbUser;
+    }
+  })
+}
+
 function getUserById(id, callback) {
-  db.findOne({_id: id}, function (err, dbUser) {
+  db.findOne({id: id}, function (err, dbUser) {
     if (callback) {
       callback(err, dbUser);
       return dbUser;
@@ -83,6 +93,7 @@ function addUpgrade(id,  upgradeId, callback) {
 module.exports = {
   addUser: addUser,
   getUsers: getUsers,
+  getUserByUsername: getUserByUsername,
   getUserById: getUserById,
   addClick: addClick,
   addDistance: addDistance,

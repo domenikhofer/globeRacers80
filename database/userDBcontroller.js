@@ -3,6 +3,7 @@ const db = require("./userDB.js");
 module.exports.addUser = function(req, res){
   db.addUser(
     req.body.username,
+    req.body.hash,
     (err,dbUser)=>{
       res.json(dbUser);
     }
@@ -13,6 +14,15 @@ module.exports.getUsers = function(req, res){
   db.getUsers(
     (err,dbUsers)=>{
       res.json(dbUsers);
+    }
+  )
+};
+
+module.exports.getUserByUsername = function(req, res){
+  db.getUserByUsername(
+    req.body.username,
+    (err,dbUser)=>{
+      res.json(dbUser);
     }
   )
 };

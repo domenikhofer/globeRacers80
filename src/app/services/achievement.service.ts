@@ -6,8 +6,8 @@ export class AchievementService {
 
   constructor(private http: HttpClient) { }
 
-  getAllAchievements() {
-    return this.http.get('http://localhost:1993/db/achievement/get/all');
+  async getAllAchievements(): Promise<any> {
+    return await this.http.get('http://localhost:1993/db/achievement/get/all').toPromise();
   }
 
 }
