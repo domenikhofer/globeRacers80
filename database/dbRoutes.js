@@ -12,6 +12,8 @@ router.post("/user/add/upgrade", userDB.addUpgrade);
 router.post("/user/get/byUsername",userDB.getUserByUsername);
 router.post("/user/get/byId",userDB.getUserById);
 router.get("/user/get/all",userDB.getUsers);
+router.get("/user/get/topUsers",userDB.getTopUsers);
+
 
 router.post("/achievement/add/", achievementDB.addAchievement);
 router.post("/achievement/get/byId", achievementDB.getAchievementById);

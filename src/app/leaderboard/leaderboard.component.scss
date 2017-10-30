@@ -1,0 +1,29 @@
+.leaderboard-container {
+
+  h3 {
+    background-color: #CF5C36;
+  }
+
+  .table>thead>tr>th,
+  .table>tbody>tr>td {
+    border: none;
+  }
+
+  tr {
+    &:first-child {
+      td {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+    }
+
+    td {
+      color: white;
+      font-family: 'Boogaloo', cursive;
+      font-size: 1.5em;
+      letter-spacing: 2px;
+      padding: 0.25em 0.5em;
+    }
+  }
+}
+

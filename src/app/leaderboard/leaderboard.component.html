@@ -1,8 +1,27 @@
 <div class="col-md-4">
-  <div class="leaderboard"><h3>Leaderboard</h3>
-    <div class="leaderboard-container">
-      <div class=""></div>
-    </div>
+  <div class="leaderboard-container">
+
+  <table class="table">
+      <thead>
+      <tr>
+        <th colspan="2"><h3>Leaderboard</h3></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Username</td>
+        <td>Distance</td>
+      </tr>
+      <tr *ngFor="let user of topUsers; let i = index;" >
+        <td>
+          <img *ngIf="i===0" src="../assets/img/achievements/1-prize.png">
+          <img *ngIf="i===1" src="../assets/img/achievements/2-prize.png">
+          <img *ngIf="i===2" src="../assets/img/achievements/3-prize.png">
+          {{user.username}}
+        </td>
+        <td>{{user.data.distance}}m</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
-

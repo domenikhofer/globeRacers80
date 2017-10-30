@@ -1,20 +1,41 @@
 
 .upgrade-container {
-  background: white;
+  //background: white;
   display: table;
 }
 
 .upgrade {
-  background: #fefffa;
-  margin-left: -1px;
-  margin-top: -2px;
+  //background: #fefffa;
+  margin: 1em;
 
-  .btn {
-    background: #2E5266;
-    margin: 1rem;
+  .infobox {
+    background: lightgray;
+    padding: 1.5em;
+    margin: 1em;
+    position: absolute;
+    bottom: 10%;
+    left: 20%;
+    border-radius: 2px;
+    opacity: 0.95;
+    z-index: 1000;
+    font-family: 'montserrat', 'arial', 'verdana';
+    line-height: 2em;
+    text-align: center;
 
-    img {
-      background: #2E5266;
+    .upgrade-btn {
+      background: #af1117;
+      color: white;
+      text-transform: uppercase;
+
+      &:hover {
+        background: #af1155;
+      }
+    }
+
+    .x-close {
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
 }
@@ -29,18 +50,7 @@
     float:left;
   }
 
-//TODO: Upgrade Information on Click
 
 .infobox {
-  background: lightgray;
-  padding: 1em;
-  margin: 0 1em;
-  width: 75%;
-  position: absolute;
-  bottom: 10%;
-  left: 20%;
-  border-radius: 3px;
-  border: 3px solid darkgray;
-  opacity: 0.95;
-  z-index: 1000;
+
 }

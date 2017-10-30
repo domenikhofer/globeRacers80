@@ -50,7 +50,7 @@ export class AchievementComponent implements OnInit, OnChanges {
   }
 
   async displayAchievements() {
-    this.userData = await this.UserDataService.getUserByUsername(this.userData.username)
+    this.userData = await this.UserDataService.getUserByUsername(this.userData.username);
     this.userAchievements =
         this.userData.data.achievements.map(
           x => this.allAchievements.find(

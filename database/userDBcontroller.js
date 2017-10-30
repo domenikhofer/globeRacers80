@@ -76,4 +76,10 @@ module.exports.addUpgrade = function(req, res){
   )
 };
 
-
+module.exports.getTopUsers = function(req, res){
+  db.getTopUsers(
+    (err,dbUser)=>{
+    res.json(dbUser);
+    }
+  )
+};

@@ -60,7 +60,9 @@ export class UserDataService {
   checkPassword(password: string, hash: string): boolean {
     return bcrypt.compareSync(password, hash);
   }
+
+  async getTopUsers(): Promise<any> {
+    return await this.http.get('http://localhost:1993/db/user/get/topUsers').toPromise();
+  }
 }
-
-
 

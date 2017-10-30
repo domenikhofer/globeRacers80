@@ -13,12 +13,6 @@ import anime from 'animejs';
         style({transform: 'translateY(-100%)' }),
         animate('1s')
       ])
-    ]),
-    trigger('startContainer', [
-      transition('void => *', [
-        style({transform: 'translateY(-100%)' }),
-        animate('1s')
-      ])
     ])
   ]
 })

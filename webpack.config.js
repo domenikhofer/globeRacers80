@@ -1,13 +1,15 @@
 const fs = require('fs');
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const postcssUrl = require('postcss-url');
 const cssnano = require('cssnano');
 
 const { NoEmitOnErrorsPlugin, SourceMapDevToolPlugin, NamedModulesPlugin } = require('webpack');
-const { GlobCopyWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack');
+const { NamedLazyChunksWebpackPlugin, BaseHrefWebpackPlugin } = require('@angular/cli/plugins/webpack');
 const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AotPlugin } = require('@ngtools/webpack');
 
@@ -67,7 +69,8 @@ module.exports = {
       "./node_modules",
       "./node_modules"
     ],
-    "symlinks": true
+    "symlinks": true,
+    "alias": {}
   },
   "resolveLoader": {
     "modules": [
@@ -77,14 +80,14 @@ module.exports = {
   },
   "entry": {
     "main": [
-      "./src\\main.ts"
+      "./src/main.ts"
     ],
     "polyfills": [
-      "./src\\polyfills.ts"
+      "./src/polyfills.ts"
     ],
     "styles": [
-      "./node_modules\\bootstrap\\dist\\css\\bootstrap.min.css",
-      "./src\\styles.css"
+      "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "./src/styles.css"
     ]
   },
   "output": {
@@ -99,29 +102,33 @@ module.exports = {
         "test": /\.js$/,
         "loader": "source-map-loader",
         "exclude": [
-          path.join(process.cwd(), 'node_modules')
+          /(\\|\/)node_modules(\\|\/)/
         ]
-      },
-      {
-        "test": /\.json$/,
-        "loader": "json-loader"
       },
       {
         "test": /\.html$/,
         "loader": "raw-loader"
       },
       {
-        "test": /\.(eot|svg)$/,
-        "loader": "file-loader?name=[name].[hash:20].[ext]"
+        "test": /\.(eot|svg|cur)$/,
+        "loader": "file-loader",
+        "options": {
+          "name": "[name].[hash:20].[ext]",
+          "limit": 10000
+        }
       },
       {
-        "test": /\.(jpg|png|webp|gif|otf|ttf|woff|woff2|cur|ani)$/,
-        "loader": "url-loader?name=[name].[hash:20].[ext]&limit=10000"
+        "test": /\.(jpg|png|webp|gif|otf|ttf|woff|woff2|ani)$/,
+        "loader": "url-loader",
+        "options": {
+          "name": "[name].[hash:20].[ext]",
+          "limit": 10000
+        }
       },
       {
         "exclude": [
-          path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.css$/,
         "use": [
@@ -144,8 +151,8 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
@@ -176,8 +183,8 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.less$/,
         "use": [
@@ -206,8 +213,8 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.styl$/,
         "use": [
@@ -237,8 +244,8 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.css$/,
         "use": [
@@ -261,8 +268,8 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
@@ -293,8 +300,8 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.less$/,
         "use": [
@@ -323,8 +330,8 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "node_modules\\bootstrap\\dist\\css\\bootstrap.min.css"),
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "node_modules/bootstrap/dist/css/bootstrap.min.css"),
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.styl$/,
         "use": [
@@ -360,20 +367,37 @@ module.exports = {
   },
   "plugins": [
     new NoEmitOnErrorsPlugin(),
-    new GlobCopyWebpackPlugin({
-      "patterns": [
-        "assets",
-        "favicon.ico"
-      ],
-      "globOptions": {
-        "cwd": path.join(process.cwd(), "src"),
-        "dot": true,
-        "ignore": "**/.gitkeep"
+    new CopyWebpackPlugin([
+      {
+        "context": "src",
+        "to": "",
+        "from": {
+          "glob": "assets/**/*",
+          "dot": true
+        }
+      },
+      {
+        "context": "src",
+        "to": "",
+        "from": {
+          "glob": "favicon.ico",
+          "dot": true
+        }
       }
+    ], {
+      "ignore": [
+        ".gitkeep"
+      ],
+      "debug": "warning"
     }),
     new ProgressPlugin(),
+    new CircularDependencyPlugin({
+      "exclude": /(\\|\/)node_modules(\\|\/)/,
+      "failOnError": false
+    }),
+    new NamedLazyChunksWebpackPlugin(),
     new HtmlWebpackPlugin({
-      "template": "./src\\index.html",
+      "template": "./src/index.html",
       "filename": "./index.html",
       "hash": false,
       "inject": true,
@@ -402,10 +426,6 @@ module.exports = {
     }),
     new BaseHrefWebpackPlugin({}),
     new CommonsChunkPlugin({
-      "minChunks": 2,
-      "async": "common"
-    }),
-    new CommonsChunkPlugin({
       "name": [
         "inline"
       ],
@@ -431,14 +451,22 @@ module.exports = {
       "fallbackModuleFilenameTemplate": "[resource-path]?[hash]",
       "sourceRoot": "webpack:///"
     }),
+    new CommonsChunkPlugin({
+      "name": [
+        "main"
+      ],
+      "minChunks": 2,
+      "async": "common"
+    }),
     new NamedModulesPlugin({}),
     new AotPlugin({
       "mainPath": "main.ts",
+      "replaceExport": false,
       "hostReplacementPaths": {
-        "environments\\environment.ts": "environments\\environment.ts"
+        "environments/environment.ts": "environments/environment.ts"
       },
       "exclude": [],
-      "tsConfigPath": "src\\tsconfig.app.json",
+      "tsConfigPath": "src/tsconfig.app.json",
       "skipCodeGeneration": true
     })
   ],

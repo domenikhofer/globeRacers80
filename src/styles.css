@@ -4,13 +4,17 @@ All Fonts
 **********************************/
 @import url("https://fonts.googleapis.com/css?family=Bangers");
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+@import url("https://fonts.googleapis.com/css?family=Boogaloo");
 .notes {
   clear: both;
   bottom: 0;
   color: grey; }
 
 body {
-  background-color: #4c4e45; }
+  background: linear-gradient(to top, #4a483d 0%, #4c4f48 30%); }
+
+footer a {
+  color: grey; }
 
 /**********************************
 Info Boxes
@@ -18,15 +22,13 @@ Info Boxes
 /*** Speed, Achievements, Upgrades ****/
 .achievements,
 .upgrades,
-.leaderboard {
-  background: #fefffa;
+.leaderboard-container {
   border-radius: 3px;
-  margin: 1.5em;
-  box-shadow: 5px 3px rgba(255, 255, 255, 0.2); }
+  margin: 1.5em; }
 
 .achievements h3,
 .upgrades h3,
-.leaderboard h3 {
+.leaderboard-container h3 {
   text-align: center;
   font-weight: normal;
   color: #fff;

@@ -2,10 +2,12 @@
   <div class="upgrades"><h3>Upgrades</h3>
     <div class="upgrade-container">
     <div *ngFor="let upgrade of availableUpgrades" class="upgrade">
-      <div class="infobox hidden">{{upgrade.description}}</div>
-      <button class="btn {{upgrade.title}}" (dblclick)="onUpgradeClick(upgrade.id)" (click)="showinfo($event)">
-        <img class="upgrade-icon" src="{{upgrade.img}}" width="60px" height="60px">
-       </button>
+      <div *ngIf="showBox && (clickedId === upgrade.id)" class="infobox">
+        <button class="x-close" (click)="hideInfo(upgrade.id)">x</button>
+        {{upgrade.description}}<br>
+        <button class="btn upgrade-btn" (click)="onUpgradeClick(upgrade.id)">Upgrade!</button>
+      </div>
+      <img (click)="showinfo(upgrade.id)" class="upgrade-icon" src="{{upgrade.img}}" width="60px" height="60px">
     </div>
     </div>
   </div>

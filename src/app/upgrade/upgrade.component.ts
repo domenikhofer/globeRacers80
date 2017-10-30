@@ -16,6 +16,8 @@ export class UpgradeComponent implements OnInit, OnChanges {
   UserDataService;
   UpgradeService;
   availableUpgrades;
+  showBox = false;
+  clickedId;
 
   constructor(UpgradeService: UpgradeService, UserDataService: UserDataService) {
     this.UpgradeService = UpgradeService;
@@ -49,9 +51,16 @@ export class UpgradeComponent implements OnInit, OnChanges {
     );
   }
 
-  showinfo($event) {
-    const infobox = $event.currentTarget.previousElementSibling.classList;
-    infobox.toggle('hidden');
+  showinfo(id) {
+    this.showBox = true;
+    this.clickedId = id;
+    console.log(this.showBox);
+  }
+
+  hideInfo(id) {
+    this.showBox = false;
+    this.clickedId = id;
+    console.log(this.showBox);
   }
 
 }

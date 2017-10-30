@@ -89,6 +89,14 @@ function addUpgrade(id,  upgradeId, callback) {
   })
 }
 
+function getTopUsers(callback) {
+  db.find({}).sort({ 'data.distance': -1}).skip(0).limit(3).exec(function (err, dbUser) {
+    if (callback) {
+      callback(err, dbUser)
+    }
+  })
+}
+
 
 module.exports = {
   addUser: addUser,
@@ -98,6 +106,7 @@ module.exports = {
   addClick: addClick,
   addDistance: addDistance,
   addAchievement: addAchievement,
-  addUpgrade: addUpgrade
+  addUpgrade: addUpgrade,
+  getTopUsers: getTopUsers
 };
 
