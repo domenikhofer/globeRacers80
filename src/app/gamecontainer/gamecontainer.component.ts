@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Router} from '@angular/router';
+
 
 import { UserDataService } from '../services/user-data.service';
 import { UpgradeService } from '../services/upgrade.service';
+
 
 @Component({
   selector: 'app-gamecontainer',
@@ -21,7 +24,7 @@ export class GamecontainerComponent implements OnInit {
   mc;
   user;
 
-  constructor(UserDataService: UserDataService, UpgradeService: UpgradeService) {
+  constructor(UserDataService: UserDataService, UpgradeService: UpgradeService, private router: Router) {
     this.UserDataService = UserDataService;
     this.UpgradeService = UpgradeService;
   }
@@ -72,6 +75,11 @@ export class GamecontainerComponent implements OnInit {
 
     typeUpgrades.map(x => multiplier = operators[x.upgrade.operator](multiplier, x.upgrade.operand));
     return multiplier;
+  }
+
+  logout() {
+    this.UserDataService.setUserLoggedOut(this.user);
+    this.router.navigate(['/login']);
   }
 
 }

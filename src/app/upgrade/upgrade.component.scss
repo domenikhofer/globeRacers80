@@ -1,56 +1,54 @@
-
-.upgrade-container {
-  //background: white;
-  display: table;
-}
-
-.upgrade {
-  //background: #fefffa;
-  margin: 1em;
-
-  .infobox {
-    background: lightgray;
-    padding: 1.5em;
-    margin: 1em;
-    position: absolute;
-    bottom: 10%;
-    left: 20%;
-    border-radius: 2px;
-    opacity: 0.95;
-    z-index: 1000;
-    font-family: 'montserrat', 'arial', 'verdana';
-    line-height: 2em;
-    text-align: center;
-
-    .upgrade-btn {
-      background: #af1117;
-      color: white;
-      text-transform: uppercase;
-
-      &:hover {
-        background: #af1155;
-      }
-    }
-
-    .x-close {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-  }
-}
-
 .upgrades {
   h3 {
     background-color: #f5b741;
   }
-}
 
-  div.upgrade {
-    float:left;
+  .upgrade-container {
+    display: flex;
+    flex-wrap: wrap;
   }
 
+  .upgrade {
+    margin: 1em;
 
-.infobox {
+    .infobox {
+      background: lightgray;
+      padding: 1.5em;
+      margin: 1em;
+      position: absolute;
+      bottom: 10%;
+      left: 20%;
+      border-radius: 2px;
+      opacity: 0.95;
+      z-index: 1000;
+      font-family: 'montserrat', 'arial', 'verdana';
+      line-height: 2em;
+      text-align: center;
 
+      .upgrade-btn {
+        background: #af1117;
+        color: white;
+        text-transform: uppercase;
+
+        &:hover {
+          background: #af1155;
+        }
+      }
+
+      .x-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+  }
 }
+
+
+@media screen and (min-width: 567px) and (max-height: 767px) {
+  .upgrades {
+    display: flex;
+  }
+}
+
+

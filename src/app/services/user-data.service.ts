@@ -20,6 +20,11 @@ export class UserDataService {
     this.username = username;
   }
 
+  setUserLoggedOut(username: string) {
+    this.username = username;
+    this.isUserLoggedIn = false;
+  }
+
   getUserLoggedIn() {
     return this.username || null;
   }

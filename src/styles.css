@@ -44,18 +44,4 @@ Info Boxes
 .leaderboard {
   padding: 0.75px; }
 
-/********************************************
-MEDIA QUERIES
- ******************************************/
-@media screen and (min-width: 1000px) {
-  body .title img.logo {
-    width: 13em; }
-
-  app-root app-car .game-container {
-    height: 50vh !important; }
-
-  app-car .game-container .road .car {
-    width: 50vh;
-    bottom: -1.5em; } }
-
 /*# sourceMappingURL=styles.css.map */

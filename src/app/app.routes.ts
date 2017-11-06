@@ -14,12 +14,13 @@ import { AuthGuard } from './auth.guard';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'register',
+    redirectTo: 'game',
     pathMatch: 'full',
   },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'game', canActivate: [AuthGuard], component: GamecontainerComponent }
+ // { path: 'game', canActivate: [AuthGuard], component: GamecontainerComponent }
+  { path: 'game', component: GamecontainerComponent }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

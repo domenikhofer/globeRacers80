@@ -5,7 +5,6 @@
 
   .loginform {
     background: #fff;
-    top: 10%;
     text-align: center;
     padding: 45px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -51,8 +50,15 @@
 
 }
 
+/********************************************
+MEDIA QUERIES
+ ******************************************/
 
-
+@media screen and (min-height: 376px) {
+  .loginform {
+    top: 10%;
+  }
+}
 
 
 

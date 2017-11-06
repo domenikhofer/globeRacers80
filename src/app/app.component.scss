@@ -19,6 +19,18 @@ Title
 }
 
 
+/********************************************
+MEDIA QUERIES
+ ******************************************/
+
+@media screen and (min-width: 1000px) {
+  body .title img.logo {
+    width: 13em;
+  }
+
+}
+
+
 
 
 

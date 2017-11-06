@@ -1,3 +1,4 @@
+<div class="game-container">
 <app-car
   (carClicked)="onCarClicked()"
   [distance]="distance"
@@ -11,6 +12,10 @@
 <app-odometer
   [distance]="distance"
 ></app-odometer>
+<div class="username logout" (click)="logout()">
+  <i class="fa fa-sign-out" aria-hidden="true"></i>
+  {{user}}
+</div>
 
 <div class="game-info">
   <app-leaderboard
@@ -26,4 +31,5 @@
     [clickCount]="clicks"
     [distance]="distance"
   ></app-upgrade>
+</div>
 </div>
