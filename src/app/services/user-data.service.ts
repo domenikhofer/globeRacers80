@@ -20,15 +20,17 @@ export class UserDataService {
   setUserLoggedIn(username: string) {
     this.isUserLoggedIn = true;
     this.username = username;
+    localStorage.setItem('globeRacers80User', JSON.stringify(this.username));
   }
 
   setUserLoggedOut(username: string) {
     this.username = username;
     this.isUserLoggedIn = false;
+    localStorage.setItem('globeRacers80User', null);
   }
 
   getUserLoggedIn() {
-    return this.username || null;
+    return JSON.parse(localStorage.getItem('globeRacers80User'));
   }
 
   async addUser(username: string, hash: string): Promise<any> {

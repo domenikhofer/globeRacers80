@@ -19,8 +19,8 @@ export const routes: Routes = [
   },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
- // { path: 'game', canActivate: [AuthGuard], component: GamecontainerComponent }
-  { path: 'game', component: GamecontainerComponent }
+  { path: 'game', canActivate: [AuthGuard], component: GamecontainerComponent }
+ // { path: 'game', component: GamecontainerComponent }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

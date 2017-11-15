@@ -11,6 +11,7 @@ export class AchievementComponent implements OnInit, OnChanges {
   @Input() clickCount;
   @Input() distance;
   @Input() userData;
+  @Input() user;
   AchievementService;
   UserDataService;
   userAchievements;
@@ -23,6 +24,7 @@ export class AchievementComponent implements OnInit, OnChanges {
 
   async ngOnInit() {
     this.allAchievements = await this.AchievementService.getAllAchievements();
+    await this.displayAchievements();
   }
 
   async ngOnChanges(changes: any) {
@@ -50,9 +52,9 @@ export class AchievementComponent implements OnInit, OnChanges {
   }
 
   async displayAchievements() {
-    this.userData = await this.UserDataService.getUserByUsername(this.userData.username);
+    const userData = await this.UserDataService.getUserByUsername(this.user);
     this.userAchievements =
-        this.userData.data.achievements.map(
+        userData.data.achievements.map(
           x => this.allAchievements.find(
             y => y.id === x).title
         );
