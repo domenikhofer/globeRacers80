@@ -29,7 +29,7 @@ export class UpgradeComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes) {
-    if (changes. userData && changes.userData.firstChange === false ) {
+    if (changes.userData && changes.userData.firstChange === false ) {
       this.displayUpgrades();
     }
 

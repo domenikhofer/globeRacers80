@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import * as bcrypt from 'bcrypt-nodejs';
+import {environment} from '../../environments/environment';
 
 
 @Injectable()
@@ -10,6 +11,7 @@ export class UserDataService {
   private isUserLoggedIn;
   private saltRounds = 10;
   private username;
+  private endpoint = environment.server;
 
   constructor(private http: HttpClient) {
     this.isUserLoggedIn = false;
@@ -30,31 +32,32 @@ export class UserDataService {
   }
 
   async addUser(username: string, hash: string): Promise<any> {
-    return await this.http.post('http://localhost:1993/db/user/add/', {username, hash}).toPromise();
+    return await this.http.post(this.endpoint + '/db/user/add/', {username, hash}).toPromise();
   }
 
   async getUserById(id: string): Promise<any> {
-    return await this.http.post('http://localhost:1993/db/user/get/byId', {id}).toPromise();
+    return await this.http.post(this.endpoint + '/db/user/get/byId', {id}).toPromise();
   }
 
   async getUserByUsername(username: string): Promise<any> {
-    return await this.http.post('http://localhost:1993/db/user/get/byUsername', {username}).toPromise();
+    return await this.http.post(this.endpoint + '/db/user/get/byUsername', {username}).toPromise();
   }
 
+
   async addClicks(id: string, clicks: number): Promise<any> {
-    return await this.http.post('http://localhost:1993/db/user/add/click', {id, clicks}).toPromise();
+    return await this.http.post(this.endpoint + '/db/user/add/click', {id, clicks}).toPromise();
   }
 
   async addDistance(id: string, distance: number): Promise<any> {
-    return await this.http.post('http://localhost:1993/db/user/add/distance', {id, distance}).toPromise();
+    return await this.http.post(this.endpoint + '/db/user/add/distance', {id, distance}).toPromise();
   }
 
   async addAchievement(id: string, achievementId: number): Promise<any> {
-    return await this.http.post('http://localhost:1993/db/user/add/achievement', {id, achievementId}).toPromise();
+    return await this.http.post(this.endpoint + '/db/user/add/achievement', {id, achievementId}).toPromise();
   }
 
   async addUpgrade(id: string, upgradeId: number): Promise<any> {
-    return await this.http.post('http://localhost:1993/db/user/add/upgrade', {id, upgradeId}).toPromise();
+    return await this.http.post(this.endpoint + '/db/user/add/upgrade', {id, upgradeId}).toPromise();
   }
 
   getPasswordHash(password: string): string {
@@ -67,7 +70,7 @@ export class UserDataService {
   }
 
   async getTopUsers(): Promise<any> {
-    return await this.http.get('http://localhost:1993/db/user/get/topUsers').toPromise();
+    return await this.http.get(this.endpoint + '/db/user/get/topUsers').toPromise();
   }
 }
 
