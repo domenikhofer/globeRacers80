@@ -37,7 +37,7 @@ export class CarComponent implements OnInit, OnChanges {
     if (this.ms > 0) {
       anime({
         targets: '.road-lines',
-        translateX: ['0', '-40%'],
+        translateX: ['0', '-20%'],
         easing: 'easeOutExpo',
       });
     }
@@ -51,7 +51,7 @@ export class CarComponent implements OnInit, OnChanges {
     });
    anime({
      targets: '.road-lines',
-     translateX: ['0', '-40%'],
+     translateX: ['0', '-20%'],
      easing: 'easeOutExpo',
    });
 

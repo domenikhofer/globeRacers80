@@ -17,20 +17,25 @@
   {{user}}
 </div>
 
-<div class="game-info">
-  <app-leaderboard
-  ></app-leaderboard>
-  <app-achievement
-    [userData]="userData"
-    [clickCount]="clicks"
-    [distance]="distance"
-    [user]="user"
-  ></app-achievement>
-  <app-upgrade
-    [userData]="userData"
-    (upgradeClicked)="onUpgradeClicked($event)"
-    [clickCount]="clicks"
-    [distance]="distance"
-  ></app-upgrade>
-</div>
+  <div class="game-info col-md-12">
+    <div class="col-md-4">
+      <app-leaderboard></app-leaderboard>
+    </div>
+    <div class="col-md-4">
+      <app-achievement
+        [userData]="userData"
+        [clickCount]="clicks"
+        [distance]="distance"
+        [user]="user"
+      ></app-achievement>
+    </div>
+    <div class="col-md-4">
+      <app-upgrade
+        [userData]="userData"
+        (upgradeClicked)="onUpgradeClicked($event)"
+        [clickCount]="clicks"
+        [distance]="distance"
+      ></app-upgrade>
+    </div>
+  </div>
 </div>

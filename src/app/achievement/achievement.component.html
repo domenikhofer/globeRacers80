@@ -1,14 +1,14 @@
 <div class="achievements">
-  <table class="table table-hover">
+  <table class="table">
     <thead>
      <tr>
-       <th><h3>Achievements</h3></th>
+       <th class="achievement_title"><h3>Achievements</h3></th>
      </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let achievement of userAchievements">
-        <td><p id="achievement-animation">{{achievement}}</p></td>
-      </tr>
+    <tbody *ngIf="userAchievements">
+        <tr *ngFor="let achievement of (userAchievements.reverse()); let i = index; ">
+            <td class="achievement achievement-animation" *ngIf="i<3">{{achievement}}</td>
+         </tr>
     </tbody>
   </table>
 </div>

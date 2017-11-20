@@ -8,7 +8,8 @@ All Fonts
 .notes {
   clear: both;
   bottom: 0;
-  color: grey; }
+  color: grey;
+  display: none; }
 
 body {
   background: linear-gradient(to top, #4a483d 0%, #4c4f48 30%); }
@@ -20,12 +21,6 @@ footer a {
 Info Boxes
 **********************************/
 /*** Speed, Achievements, Upgrades ****/
-.achievements,
-.upgrades,
-.leaderboard-container {
-  border-radius: 3px;
-  margin: 1.5em; }
-
 .achievements h3,
 .upgrades h3,
 .leaderboard-container h3 {

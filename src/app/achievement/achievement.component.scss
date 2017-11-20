@@ -3,13 +3,13 @@
     background-color: #eba565;
   }
 
-  .table>thead>tr>th,
-  .table>tbody>tr>td {
+  .achievement_title,
+  .achievement {
     border: none;
   }
 }
 
-#achievement-animation {
+.achievement-animation {
   font-family: 'Boogaloo', cursive;;
   text-align: center;
   font-size: 2em;
@@ -17,7 +17,6 @@
   color: white;
   display: block;
   animation: bounce-text 2s cubic-bezier(0.245, 0.325, 0.670, 1.510);
-  //background: white;
   margin: 0;
 }
 

@@ -1,4 +1,7 @@
 .upgrades {
+  display: flex;
+  flex-direction: row;
+
   h3 {
     background-color: #f5b741;
   }
@@ -11,19 +14,31 @@
   .upgrade {
     margin: 1em;
 
+    &.Pizza {
+      animation: hide 0s ease-in 60s forwards;
+
+      img {
+        animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+      }
+    }
+
     .infobox {
-      background: lightgray;
-      padding: 1.5em;
-      margin: 1em;
-      position: absolute;
-      bottom: 10%;
-      left: 20%;
-      border-radius: 2px;
-      opacity: 0.95;
-      z-index: 1000;
-      font-family: 'montserrat', 'arial', 'verdana';
-      line-height: 2em;
-      text-align: center;
+        background: lightgray;
+        padding: 1.5em;
+        margin: 1em;
+        position: absolute;
+        bottom: 10%;
+        left: 20%;
+        border-radius: 2px;
+        opacity: 0.95;
+        z-index: 1000;
+        font-family: 'montserrat', 'arial', 'verdana';
+        line-height: 2em;
+        text-align: center;
+
+      .upgrade-title {
+        font-size: 1.25em;
+      }
 
       .upgrade-btn {
         background: #af1117;
@@ -41,13 +56,32 @@
         right: 0;
       }
     }
+    .special-info {
+      color: red;
+      font-weight: bold;
+      font-size: 1em;
+      font-family: 'montserrat', 'arial', 'verdana';
+      position: absolute;
+      padding-top: 1em;
+      animation: hide 0s ease-in 60s forwards;
+    }
   }
 }
 
+@keyframes pulse {
+  0% {transform: scale(.9);}
+  70% {transform: scale(1.5); box-shadow: 0 0 0 50px rgba(#5a99d4, 0);}
+  100% {transform: scale(.9); box-shadow: 0 0 0 0 rgba(#5a99d4, 0);}
+}
 
-@media screen and (min-width: 567px) and (max-height: 767px) {
+@keyframes hide {
+  to {width:0; height:0; overflow:hidden;}
+}
+
+
+@media screen and (min-height: 520px) {
   .upgrades {
-    display: flex;
+    flex-direction: column;
   }
 }
 
