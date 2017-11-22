@@ -30,7 +30,7 @@ export class UserDataService {
   }
 
   getUserLoggedIn() {
-    return JSON.parse(localStorage.getItem('globeRacers80User'));
+    return JSON.parse(localStorage.getItem('globeRacers80User')) || null;
   }
 
   async addUser(username: string, hash: string): Promise<any> {

@@ -1,13 +1,25 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AchievementService } from './achievement.service';
-import {HttpClient, HttpHandler} from '@angular/common/http';
-
+import {MockBackend} from '@angular/http/testing';
+import {BaseRequestOptions, Http} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 
 describe('AchievementService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AchievementService, HttpClient, HttpHandler]
+      providers: [
+        MockBackend,
+        BaseRequestOptions,
+        {
+          provide: HttpClient,
+          useFactory: (backendInstance: MockBackend, defaultOptions: BaseRequestOptions) => {
+            return new Http(backendInstance, defaultOptions);
+          },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        AchievementService
+      ]
     });
   });
 
