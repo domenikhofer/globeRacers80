@@ -14,7 +14,8 @@
   .upgrade {
     margin: 1em;
 
-    &.Pizza {
+    &.Pizza,
+    &.Spaghetti {
       animation: hide 0s ease-in 60s forwards;
 
       img {

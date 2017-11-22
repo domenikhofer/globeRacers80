@@ -8,12 +8,10 @@
       <button class="btn upgrade-btn" (click)="onUpgradeClick(upgrade.id)">Upgrade!</button>
     </div>
     <img (click)="showinfo(upgrade.id)" class="upgrade-icon" src="{{upgrade.img}}" width="60px" height="60px">
-    <span *ngIf="(upgrade.id === 9)" class="special-info">
+    <span *ngIf="(upgrade.id === 10) || (upgrade.id === 11)" class="special-info">
       <p>Upgrade only available for 1min!</p>
     </span>
   </div>
   </div>
 </div>
-
-
 

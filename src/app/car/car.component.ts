@@ -54,7 +54,10 @@ export class CarComponent implements OnInit, OnChanges {
      translateX: ['0', '-20%'],
      easing: 'easeOutExpo',
    });
-
+   const audio = new Audio();
+   audio.src = '../assets/audio/motor.mp3';
+   audio.load();
+   audio.play();
   }
 }
 

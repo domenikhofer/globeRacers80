@@ -7,21 +7,23 @@
   .achievement {
     border: none;
   }
+
+  .achievement {
+    font-family: 'Boogaloo', cursive;;
+    text-align: center;
+    font-size: 1.5em;
+    letter-spacing: 3px;
+    color: white;
+    display: block;
+    animation: bounce-text 2s cubic-bezier(0.245, 0.325, 0.670, 1.510);
+    margin: 0;
+  }
 }
 
-.achievement-animation {
-  font-family: 'Boogaloo', cursive;;
-  text-align: center;
-  font-size: 2em;
-  letter-spacing: 3px;
-  color: white;
-  display: block;
-  animation: bounce-text 2s cubic-bezier(0.245, 0.325, 0.670, 1.510);
-  margin: 0;
-}
+
 
 @keyframes bounce-text {
-  30% {font-size: 3em;}
-  60% {font-size: 4em;}
-  100% {font-size: 2em;}
+  30% {font-size: 1.5em;}
+  60% {font-size: 2em;}
+  100% {font-size: 1em;}
 }

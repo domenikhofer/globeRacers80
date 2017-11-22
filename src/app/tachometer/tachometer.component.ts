@@ -13,8 +13,6 @@ export class TachometerComponent implements OnInit, OnChanges {
   @Input() mc;
   @Input() ms;
 
-  mSek = 0;
-
   constructor() {}
 
 

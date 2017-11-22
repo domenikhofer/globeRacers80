@@ -7,6 +7,7 @@ import {UserDataService} from '../services/user-data.service';
   templateUrl: './achievement.component.html',
   styleUrls: ['./achievement.component.scss']
 })
+
 export class AchievementComponent implements OnInit, OnChanges {
   @Input() clickCount;
   @Input() distance;

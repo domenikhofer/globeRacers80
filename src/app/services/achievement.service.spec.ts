@@ -1,11 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AchievementService } from './achievement.service';
+import {HttpClient, HttpHandler} from '@angular/common/http';
+
 
 describe('AchievementService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AchievementService]
+      providers: [AchievementService, HttpClient, HttpHandler]
     });
   });
 

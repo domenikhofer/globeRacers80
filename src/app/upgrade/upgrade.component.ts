@@ -7,6 +7,7 @@ import {UserDataService} from '../services/user-data.service';
   templateUrl: './upgrade.component.html',
   styleUrls: ['./upgrade.component.scss']
 })
+
 export class UpgradeComponent implements OnInit, OnChanges {
   @Input() distance;
   @Input() clickCount;
@@ -46,7 +47,7 @@ export class UpgradeComponent implements OnInit, OnChanges {
     this.availableUpgrades = this.allUpgrades.filter(
       x =>
       ((x.unlocks.unit === 'c' && x.unlocks.count <= this.clickCount) ||
-      (x.unlocks.unit === 'd' && x.unlocks.count <= this.distance)) &&
+        (x.unlocks.unit === 'd' && x.unlocks.count <= this.distance && this.distance <= x.unlocks.max)) &&
       userUpgrades.indexOf(x.id) === -1
     );
   }
@@ -54,13 +55,11 @@ export class UpgradeComponent implements OnInit, OnChanges {
   showinfo(id) {
     this.showBox = true;
     this.clickedId = id;
-    console.log(this.showBox);
   }
 
   hideInfo(id) {
     this.showBox = false;
     this.clickedId = id;
-    console.log(this.showBox);
   }
 
 }
