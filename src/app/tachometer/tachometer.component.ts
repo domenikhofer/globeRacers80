@@ -22,32 +22,28 @@ export class TachometerComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: any) {
+    if (this.ms > 3) {
+      anime({
+        targets: '.line',
+        rotate: ['-90', '120'],
+      });
+    }  else if (this.ms === 1) {
+      anime({
+        targets: '.line',
+        rotate: ['-90'],
+      });
+    }
+
     if (changes.clickCount && this.mc === 1) {
       anime({
         targets: '.line',
         rotate: ['-90', '-120'],
       });
-    } else if (this.ms === 1) {
-      anime({
-        targets: '.line',
-        rotate: ['-90'],
-      });
-    } else if (changes.clickCount && this.mc === 2) {
+    } else if (changes.clickCount && this.mc >= 2) {
       anime({
         targets: '.line',
         rotate: ['-45', '-120'],
       });
-    } else if (this.ms === 2) {
-      anime({
-        targets: '.line',
-        rotate: ['-45'],
-      });
-    } else if (this.ms === 3) {
-      anime({
-        targets: '.line',
-        rotate: ['-15'],
-      });
     }
   }
-
 }

@@ -1,14 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import {Component, DebugElement} from '@angular/core';
 import { LoginComponent } from './login.component';
-<<<<<<< HEAD
-import { FormsModule } from '@angular/forms';
-import {RouterTestingModule} from '@angular/router/testing';
-import {UserDataService} from '../services/user-data.service';
-import {HttpClient, HttpHandler} from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-=======
 import {FormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -17,89 +9,59 @@ import {BaseRequestOptions, Http} from '@angular/http';
 import {HttpClient} from '@angular/common/http';
 import {UserDataService} from '../services/user-data.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
->>>>>>> c8d0508877f0fd540525def4da8834d358d73e89
+import {By} from '@angular/platform-browser';
 
-/***
+
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
-  let de:      DebugElement;
-  let el:      HTMLElement;
-  const userDataServiceStub = {
-    isUserLoggedIn: true,
-    user: { name: 'Test User'}
-  };
+  let submitEl: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
-<<<<<<< HEAD
-      imports: [FormsModule, RouterTestingModule, BrowserAnimationsModule],
-      providers: [
-        // UserDataService,
-        HttpClient,
-        HttpHandler]
-=======
-      imports: [
-        FormsModule,
-      RouterTestingModule,
-        BrowserAnimationsModule
-      ],
-      providers: [
-        MockBackend,
-        BaseRequestOptions,
-        {
-          provide: HttpClient,
-          useFactory: (backendInstance: MockBackend, defaultOptions: BaseRequestOptions) => {
-            return new Http(backendInstance, defaultOptions);
-          },
-          deps: [MockBackend, BaseRequestOptions]
-        },
-        UserDataService
-      ]
->>>>>>> c8d0508877f0fd540525def4da8834d358d73e89
-    })
+         declarations: [ LoginComponent ],
+            imports: [
+              FormsModule,
+            RouterTestingModule,
+              BrowserAnimationsModule
+            ],
+            providers: [
+              MockBackend,
+              BaseRequestOptions,
+              {
+                provide: HttpClient,
+                useFactory: (backendInstance: MockBackend, defaultOptions: BaseRequestOptions) => {
+                  return new Http(backendInstance, defaultOptions);
+                },
+                deps: [MockBackend, BaseRequestOptions]
+            },
+            UserDataService
+          ]
+  })
     .compileComponents();
   }));
 
   beforeEach(() => {
-   TestBed.configureTestingModule({
-      declarations: [ LoginComponent ],
-      providers:    [ {provide: UserDataService, useValue: userDataServiceStub } ]
-    });
     fixture = TestBed.createComponent(LoginComponent);
-    component    = fixture.componentInstance;
-
-    // UserService from the root injector
-    userDataService = fixture.debugElement.injector.get(UserDataService);
-
-    //  get the "welcome" element by CSS selector (e.g., by class name)
-    de = fixture.debugElement.query(By.css('.welcome'));
-    el = de.nativeElement;
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+    submitEl = fixture.debugElement.query(By.css('button'));
   });
 
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should welcome the user', () => {
+  it('#Setting loading to true disables the submit button', () => {
+    component.loading = true;
     fixture.detectChanges();
-    const content = el.textContent;
-    expect(content).toContain('Welcome', '"Welcome ..."');
-    expect(content).toContain('Test User', 'expected name');
+    expect(submitEl.nativeElement.disabled).toBeTruthy();
   });
 
-  it('should request login if not logged in', () => {
-    UserDataService.isUserLoggedIn = false; // welcome message hasn't been shown yet
+  it('#Setting loading to false enables the submit button', () => {
+    component.loading = false;
     fixture.detectChanges();
-    const content = el.textContent;
-    expect(content).not.toContain('Welcome', 'not welcomed');
-    expect(content).toMatch(/log in/i, '"log in"');
+    expect(submitEl.nativeElement.disabled).toBeFalsy();
   });
+
 });
-<<<<<<< HEAD
- ****/
-=======
-
-
->>>>>>> c8d0508877f0fd540525def4da8834d358d73e89

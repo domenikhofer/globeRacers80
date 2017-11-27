@@ -4,20 +4,20 @@
     background-color: #CF5C36;
   }
 
-  .table>thead>tr>th,
-  .table>tbody>tr>td {
+  .leaderboard-td,
+  .leaderboard-th {
     border: none;
   }
 
   tr {
     &:first-child {
-      td {
+      .leaderboard-td  {
         letter-spacing: 2px;
         text-transform: uppercase;
       }
     }
 
-    td {
+    .leaderboard-td  {
       color: white;
       font-family: 'Boogaloo', cursive;
       font-size: 1.5em;

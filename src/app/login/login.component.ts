@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {animate, style, transition, trigger} from '@angular/animations';
-
 import {UserDataService} from '../services/user-data.service';
+
 
 @Component({
   selector: 'app-login',
@@ -36,7 +36,10 @@ export class LoginComponent implements OnInit {
     const username = this.model['username'];
     const password = this.model['password'];
     const userdata = await this.userDataService.getUserByUsername(username);
-    if (await this.userDataService.checkPassword(password, userdata.hash)) {
+
+    if (!userdata) {
+      alert('Username not found, please register');
+    } else if (await this.userDataService.checkPassword(password, userdata.hash)) {
       this.loading = true;
       this.userDataService.setUserLoggedIn(username);
       this.router.navigate(['/game']);

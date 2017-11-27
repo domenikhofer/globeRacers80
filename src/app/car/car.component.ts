@@ -22,6 +22,7 @@ export class CarComponent implements OnInit, OnChanges {
   @Input() ms;
   @Output() carClicked: EventEmitter<any> = new EventEmitter();
   showCar = false;
+  shown = false;
 
   constructor() {}
 
@@ -54,6 +55,15 @@ export class CarComponent implements OnInit, OnChanges {
      translateX: ['0', '-20%'],
      easing: 'easeOutExpo',
    });
+
+   if (this.distance > 40000 && this.distance < 40500 ) {
+     this.shown = true;
+     let that = this;
+     setTimeout(function() {
+       that.shown = false;
+     }, 10000);
+   }
+
    const audio = new Audio();
    audio.src = '../assets/audio/motor.mp3';
    audio.load();

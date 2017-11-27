@@ -1,24 +1,23 @@
 <div class="leaderboard-container">
-
 <table class="table">
     <thead>
     <tr>
-      <th colspan="2"><h3>Leaderboard</h3></th>
+      <th colspan="2" class="leaderboard-th"><h3>Leaderboard</h3></th>
     </tr>
     </thead>
     <tbody>
     <tr>
-      <td>Username</td>
-      <td>Distance</td>
+      <td class="leaderboard-td">Username</td>
+      <td class="leaderboard-td">Distance</td>
     </tr>
     <tr *ngFor="let user of topUsers; let i = index;" >
-      <td>
+      <td class="leaderboard-td">
         <img *ngIf="i===0" src="../assets/img/achievements/1-prize.png">
         <img *ngIf="i===1" src="../assets/img/achievements/2-prize.png">
         <img *ngIf="i===2" src="../assets/img/achievements/3-prize.png">
         {{user.username}}
       </td>
-      <td>{{user.data.distance}}m</td>
+      <td class="leaderboard-td">{{user.data.distance}}m</td>
     </tr>
     </tbody>
   </table>

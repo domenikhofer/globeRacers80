@@ -1,17 +1,13 @@
-.odometer {
-  color: white;
-  font-size: 2rem;
-  font-family: 'montserrat', 'arial', 'verdana';
-  letter-spacing: 2.5px;
-  border-radius: 3px;
-  min-width: 150px;
-  height: 40px;
-  background: linear-gradient(to top, #070000, #7E7E7E, #070000);
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.85rem;
-  margin: 1rem;
+.odometer_design {
+  font-size: 1.5em;
   position: absolute;
   right: 1%;
   top: 10%;
 }
+
+@media screen and (min-width: 1000px) {
+  .odometer_design {
+    font-size: 2em;
+  }
+}
+

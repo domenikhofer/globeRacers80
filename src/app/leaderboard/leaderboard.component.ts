@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {UserDataService} from '../services/user-data.service';
-
 
 @Component({
   selector: 'app-leaderboard',

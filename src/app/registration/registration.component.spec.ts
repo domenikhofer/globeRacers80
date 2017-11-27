@@ -1,14 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { RegistrationComponent } from './registration.component';
-<<<<<<< HEAD
-import { FormsModule } from '@angular/forms';
-import {RouterTestingModule} from '@angular/router/testing';
-import {UserDataService} from '../services/user-data.service';
-import {HttpClient, HttpHandler} from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-=======
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {Component, DebugElement} from '@angular/core';
+import {RegistrationComponent} from './registration.component';
 import {FormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -17,19 +9,17 @@ import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
 import {HttpClient} from '@angular/common/http';
 import {UserDataService} from '../services/user-data.service';
->>>>>>> c8d0508877f0fd540525def4da8834d358d73e89
+import {By} from '@angular/platform-browser';
+
 
 describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
+  let submitEl: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ RegistrationComponent ],
-<<<<<<< HEAD
-      imports: [FormsModule, RouterTestingModule, BrowserAnimationsModule],
-      providers: [UserDataService, HttpClient, HttpHandler]
-=======
       imports: [
         FormsModule,
         RouterTestingModule,
@@ -47,7 +37,6 @@ describe('RegistrationComponent', () => {
         },
         UserDataService
       ]
->>>>>>> c8d0508877f0fd540525def4da8834d358d73e89
     })
     .compileComponents();
   }));
@@ -56,9 +45,23 @@ describe('RegistrationComponent', () => {
     fixture = TestBed.createComponent(RegistrationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    submitEl = fixture.debugElement.query(By.css('button'));
   });
 
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  it('#Setting loading to true disables the submit button', () => {
+    component.loading = true;
+    fixture.detectChanges();
+    expect(submitEl.nativeElement.disabled).toBeTruthy();
+  });
+
+  it('#Setting loading to false enables the submit button', () => {
+    component.loading = false;
+    fixture.detectChanges();
+    expect(submitEl.nativeElement.disabled).toBeFalsy();
+  });
+
 });

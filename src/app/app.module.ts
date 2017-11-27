@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { Ng2OdometerModule } from 'ng2-odometer';
 
 import { AppComponent } from './app.component';
 import { CarComponent } from './car/car.component';
@@ -43,7 +44,8 @@ import { AuthGuard } from './auth.guard';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    routing
+    routing,
+    Ng2OdometerModule
   ],
   providers: [
     UserDataService,
