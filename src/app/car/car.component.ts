@@ -58,16 +58,20 @@ export class CarComponent implements OnInit, OnChanges {
 
    if (this.distance > 40000 && this.distance < 40500 ) {
      this.shown = true;
-     let that = this;
+     const that = this;
      setTimeout(function() {
        that.shown = false;
      }, 10000);
    }
-
-   const audio = new Audio();
-   audio.src = '../assets/audio/motor.mp3';
-   audio.load();
-   audio.play();
+    this.playAudio();
   }
+
+  playAudio() {
+    const audio = new Audio();
+    audio.src = '../assets/audio/click.mp3';
+    audio.load();
+    audio.play();
+  }
+
 }
 

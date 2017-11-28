@@ -15,15 +15,27 @@
     letter-spacing: 3px;
     color: white;
     display: block;
-    animation: bounce-text 2s cubic-bezier(0.245, 0.325, 0.670, 1.510);
+    animation: pop-out 4s ease-in-out;
     margin: 0;
+    opacity: 0;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+  }
+}
+@keyframes pop-out {
+  0% {
+    -webkit-transform: scale3d(0, 0, 1);
+    transform: scale3d(0, 0, 1);
+    opacity: 1;
+  }
+  25% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale3d(1.5, 1.5, 1);
+    transform: scale3d(1.5, 1.5, 1);
+    opacity: 0;
   }
 }
 
-
-
-@keyframes bounce-text {
-  30% {font-size: 1.5em;}
-  60% {font-size: 2em;}
-  100% {font-size: 1.5em;}
-}
