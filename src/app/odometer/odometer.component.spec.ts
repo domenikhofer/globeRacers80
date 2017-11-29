@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OdometerComponent } from './odometer.component';
+import { Ng2OdometerModule } from 'ng2-odometer';
 
 describe('OdometerComponent', () => {
   let component: OdometerComponent;
@@ -8,7 +9,8 @@ describe('OdometerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OdometerComponent ]
+      declarations: [ OdometerComponent ],
+      imports: [ Ng2OdometerModule ]
     })
     .compileComponents();
   }));

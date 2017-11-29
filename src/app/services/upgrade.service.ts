@@ -10,5 +10,6 @@ export class UpgradeService {
 
   async getAllUpgrades(): Promise<any> {
     return await this.http.get(this.endpoint + '/db/upgrade/get/all').toPromise();
+
   }
 }

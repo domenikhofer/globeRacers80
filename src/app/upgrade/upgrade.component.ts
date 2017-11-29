@@ -43,7 +43,7 @@ export class UpgradeComponent implements OnInit, OnChanges {
 
   async displayUpgrades() {
     const userUpgrades = this.userData.data.upgrades;
-    this.availableUpgrades = await this.allUpgrades.filter(
+    this.availableUpgrades = this.allUpgrades.filter(
       x =>
       ((x.unlocks.unit === 'c' && x.unlocks.count <= this.clickCount) ||
         (x.unlocks.unit === 'd' && x.unlocks.count <= this.distance && this.distance <= x.unlocks.max)) &&

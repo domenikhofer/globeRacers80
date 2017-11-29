@@ -13,6 +13,7 @@ import {HttpClient} from '@angular/common/http';
 import {UserDataService} from '../services/user-data.service';
 import {UpgradeService} from '../services/upgrade.service';
 import {AchievementService} from '../services/achievement.service';
+import { Ng2OdometerModule } from 'ng2-odometer';
 import {Router} from '@angular/router';
 
 describe('GamecontainerComponent', () => {
@@ -30,6 +31,7 @@ describe('GamecontainerComponent', () => {
         AchievementComponent,
         UpgradeComponent
       ],
+      imports:[ Ng2OdometerModule ],
       providers: [
         MockBackend,
         BaseRequestOptions,
