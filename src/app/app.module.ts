@@ -23,6 +23,8 @@ import { UserDataService } from './services/user-data.service';
 import { AchievementService } from './services/achievement.service';
 
 import { AuthGuard } from './auth.guard';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { LogoAnimationComponent } from './logo-animation/logo-animation.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { AuthGuard } from './auth.guard';
     LeaderboardComponent,
     LoginComponent,
     GamecontainerComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    WelcomeComponent,
+    LogoAnimationComponent
   ],
   imports: [
     BrowserModule,

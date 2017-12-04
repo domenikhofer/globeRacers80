@@ -1,29 +1,2 @@
-/******************
-Title
- *****************/
-.title {
-  background: #416ba7;
-  text-align: center;
-
-  img.logo {
-    width: 7em;
-    background: none;
-  }
-}
-
-
-/********************************************
-MEDIA QUERIES
- ******************************************/
-
-@media screen and (min-width: 1000px) {
-  body .title img.logo {
-    width: 13em;
-  }
-
-}
-
-
-
 
 

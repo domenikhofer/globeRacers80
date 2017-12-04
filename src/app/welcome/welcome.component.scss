@@ -1,16 +1,16 @@
-.registerform_background {
-  background: linear-gradient(181deg, rgba(65,107,167,1) 0%, rgba(0,128,128,1) 100%); /* w3c */
-  height: 100vh;
+.loginform_background {
+  background: linear-gradient(181deg, rgba(65, 107, 167, 1) 0%, rgba(0, 128, 128, 1) 100%); /* w3c */
   width: 100%;
+  height: 100%;
 
-  .registerform {
+  .loginform {
     background: #fff;
     text-align: center;
     padding: 45px;
     top:7.5em;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 
-    .register-title {
+    .login-title {
       font-family: 'montserrat', 'arial', 'verdana', cursive;
       font-size: 1.75em;
       text-transform: uppercase;
@@ -18,7 +18,7 @@
       margin-bottom: 1em;
     }
 
-    input {
+    p {
       font-family: 'montserrat', 'arial', 'verdana', cursive;
       outline: 0;
       background: #f2f2f2;
@@ -27,9 +27,15 @@
       padding: 15px;
       box-sizing: border-box;
       font-size: 14px;
+      margin: 0;
     }
 
-    .register-btn {
+    .loginRegistrationBtn{
+      display:flex;
+      margin-top: 15px;
+    }
+
+    .login-btn {
       font-family: 'montserrat', 'arial', 'verdana', cursive;
       text-transform: uppercase;
       outline: 0;
@@ -46,20 +52,25 @@
       &:hover {
         opacity: 0.8;
       }
+
+      &:first-child {
+        margin-right:5px;
+      }
     }
   }
+
 }
-
-
 
 /********************************************
 MEDIA QUERIES
  ******************************************/
 
-@media screen and (min-height: 376px) {
-    .registerform {
-      top: 10%;
-    }
+@media only screen and (max-width: 1000px) {
+  .loginform {
+    top: 6.5em;
+  }
 }
+
+
 
 

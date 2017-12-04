@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {animate, style, transition, trigger} from '@angular/animations';
+import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
 import {UserDataService} from '../services/user-data.service';
 
 
@@ -11,8 +11,14 @@ import {UserDataService} from '../services/user-data.service';
   animations: [
     trigger('loginform', [
       transition('void => *', [
-        style({transform: 'translateY(100%)'}),
-        animate('1s')
+        query('.loginform, h2, .form-group ', [
+          style({
+            opacity: 0,
+            transform: 'translateY(-10px)'
+          }),
+          stagger(250, [animate('0.5s 0.5s ease-in-out')])
+        ])
+
       ])
     ])
   ]

@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
 
+  .car-container {
+    padding:0;
+  }
+
   .username {
     position: absolute;
     top: 1%;
@@ -21,6 +25,14 @@
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-around;
+  }
+
+  .sideboard{
+   background: grey;
+   position: absolute;
+    top:0;
+    right:0;
+
   }
 }
 

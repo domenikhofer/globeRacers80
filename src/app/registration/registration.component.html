@@ -1,5 +1,6 @@
-<div class="registerform_background">
-  <div class="registerform col-md-4 col-md-offset-4" [@registerform]>
+<app-logo-animation></app-logo-animation>
+<div class="registerform_background" [@registerform]>
+  <div class="registerform col-md-4 col-md-offset-4" >
     <h2 class="register-title">Create your account</h2>
     <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
     <div class="form-group">

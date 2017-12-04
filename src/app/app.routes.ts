@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { GamecontainerComponent } from './gamecontainer/gamecontainer.component';
 
 import { AuthGuard } from './auth.guard';
+import {WelcomeComponent} from './welcome/welcome.component';
 
 
 // Route Configuration
@@ -19,6 +20,7 @@ export const routes: Routes = [
   },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'welcome', component: WelcomeComponent },
   { path: 'game', canActivate: [AuthGuard], component: GamecontainerComponent }
  // { path: 'game', component: GamecontainerComponent }
 ];

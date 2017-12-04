@@ -11,7 +11,7 @@ import anime from 'animejs';
     trigger('carTrigger', [
       transition('void => *', [
         style({transform: 'translateY(-100%)' }),
-        animate('1s')
+        animate('1s cubic-bezier(.12,.67,.95,.62)')
       ])
     ])
   ]
@@ -30,9 +30,6 @@ export class CarComponent implements OnInit, OnChanges {
     this.ms = 0;
   }
 
-  togglesstates() {
-    this.showCar = true;
-  }
 
   ngOnChanges(changes: any) {
     if (this.ms > 0) {

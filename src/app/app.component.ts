@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import anime from 'animejs';
+
 
 
 @Component({
@@ -12,11 +12,6 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    anime({
-      targets: '.logo',
-      rotate: '1turn',
-      duration: 5000,
-      delay: 1000,
-    });
+
   }
 }

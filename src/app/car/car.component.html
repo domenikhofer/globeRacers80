@@ -1,7 +1,3 @@
-<div *ngIf="!showCar" class="start-container">
-  <button (click)="togglesstates()" class="start_btn">Start Game!</button>
-</div>
-
 <div class="car-container col-md-12">
   <div class="sky"></div>
   <div class="clouds"></div>
@@ -9,7 +5,7 @@
     <div class="mountain-shadow"></div>
   </div>
   <div class="road">
-    <a (click)="onClick()" class="car active"><img *ngIf="showCar" [@carTrigger] src="../assets/img/car.png" class="car" alt="blue car"></a>
+    <a (click)="onClick()" class="car active"><img  src="../assets/img/car.svg" class="car" alt="blue car" [@carTrigger]></a>
     <div class="road-lines"></div>
   </div>
   <div class="desert"></div>
