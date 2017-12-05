@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {AchievementService} from '../services/achievement.service';
 import {UserDataService} from '../services/user-data.service';
+import anime from 'animejs';
 
 @Component({
   selector: 'app-achievement',
@@ -35,6 +36,7 @@ export class AchievementComponent implements OnInit, OnChanges {
         x => x.unit === 'c' && x.count === clickCount
       );
       if (achievements.length === 1) {
+        this.newAchievementAnimation();
         await this.UserDataService.addAchievement(this.userData._id, achievements[0].id);
        await this.displayAchievements();
       }
@@ -46,10 +48,12 @@ export class AchievementComponent implements OnInit, OnChanges {
         x => x.unit === 'd' && x.count <= distance && userAchievements.indexOf(x.id) === -1
       );
       if (achievements.length === 1) {
+        this.newAchievementAnimation();
         await this.UserDataService.addAchievement(this.userData._id, achievements[0].id);
         await this.displayAchievements();
       }
     }
+    await this.displayAchievements();
   }
 
   async displayAchievements() {
@@ -59,5 +63,36 @@ export class AchievementComponent implements OnInit, OnChanges {
           x => this.allAchievements.find(
             y => y.id === x).title
         );
+  }
+
+  newAchievementAnimation() {
+    anime({
+      targets: '.cover',
+      opacity: [
+        {value: 1, duration: 1000},
+        {value: 1, duration: 2000},
+        {value: 0, duration: 1000}
+        ],
+      easing: 'easeInOutQuart',
+      duration: 5000,
+    });
+    anime({
+      targets: '.achievementsPopup img',
+      scale: [
+        {value: 0, duration: 0},
+        {value: 1, duration: 1000},
+        {value: 1.1, duration: 2000},
+        {value: 0, duration: 1000}
+      ],
+      rotate: [
+        {value: '-=90deg', duration: 0},
+        {value: '+=90deg', duration: 1000}
+      ],
+      easing: 'easeInOutQuart',
+      duration: 5000,
+    });
+
+
+
   }
 }

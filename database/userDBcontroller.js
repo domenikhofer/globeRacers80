@@ -83,3 +83,12 @@ module.exports.getTopUsers = function(req, res){
     }
   )
 };
+
+module.exports.resetUser = function(req, res){
+  db.resetUser(
+    req.body.user,
+    (err,dbUser)=>{
+      res.json(dbUser);
+    }
+  )
+};

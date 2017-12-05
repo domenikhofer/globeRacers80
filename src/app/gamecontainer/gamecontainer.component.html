@@ -1,12 +1,13 @@
 <div class="game-container">
 
   <div class="col-md-12 car-container">
-<app-car
-  (carClicked)="onCarClicked()"
-  [distance]="distance"
-  [ms]="ms"
-></app-car>
+    <app-car
+      (carClicked)="onCarClicked()"
+      [distance]="distance"
+      [ms]="ms"
+    ></app-car>
   </div>
+  <div class="sideboard">
     <app-tachometer
       [clickCount]="clicks"
       [mc]="mc"
@@ -15,12 +16,16 @@
     <app-odometer
       [distance]="distance"
     ></app-odometer>
+  </div>
 
-
-<div class="username logout" (click)="logout()">
-  {{user}}
-  <i class="fa fa-sign-out" aria-hidden="true"></i>
-</div>
+  <div class="username logout" (click)="userMenu = !userMenu">
+    {{user}} &nbsp;
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </div>
+  <div class="userMenu" *ngIf="userMenu">
+    <button class="logout" (click)="logout()"> Logout &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i></button>
+    <button class="deleteScore" (click)="reset()"   >Reset Scores &nbsp;<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> </button>
+  </div>
 
   <div class="game-info col-md-12">
     <div class="col-md-4">
@@ -45,12 +50,13 @@
 
   </div>
 
-<footer>
-  Icons made by
-  <a href="http://www.freepik.com" title="Freepik">Freepik</a>,
-  <a href="https://smashicons.com/" title="Smashicons">Smashicons</a>,
-  <a href="https://roundicons.com/" title="Roundicons">Roundicons</a>,
-  DinosoftLabs,
-  <a href="http://a-maslennikov.com/" title="Anatoly">Anatoly</a>
-  from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-</footer>
+  <footer>
+    Icons made by
+    <a href="http://www.freepik.com" title="Freepik">Freepik</a>,
+    <a href="https://smashicons.com/" title="Smashicons">Smashicons</a>,
+    <a href="https://roundicons.com/" title="Roundicons">Roundicons</a>,
+    DinosoftLabs,
+    <a href="http://a-maslennikov.com/" title="Anatoly">Anatoly</a>
+    from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
+    href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+  </footer>

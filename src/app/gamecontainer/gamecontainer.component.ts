@@ -22,6 +22,7 @@ export class GamecontainerComponent implements OnInit {
   ms;
   mc;
   user;
+  userMenu = false;
 
   constructor(UserDataService: UserDataService, UpgradeService: UpgradeService, private router: Router) {
     this.UserDataService = UserDataService;
@@ -46,7 +47,7 @@ export class GamecontainerComponent implements OnInit {
   async onCarClicked() {
    await this.UserDataService.addClicks(this.userData._id, 1);
     this.mc = this.getMultiplier('mc');
-    await this.UserDataService.addDistance(this.userData._id, this.mc)
+    await this.UserDataService.addDistance(this.userData._id, this.mc);
     this.userData = await this.UserDataService.getUserByUsername(this.user);
     this.clicks = this.userData.data.clicks;
     this.distance = this.userData.data.distance;
@@ -79,6 +80,17 @@ export class GamecontainerComponent implements OnInit {
   logout() {
     this.UserDataService.setUserLoggedOut(this.user);
     this.router.navigate(['/login']);
+
   }
+
+  async reset() {
+    this.userMenu = false;
+   if (confirm('Are you sure you want to delete all your progress?')) {
+     await this.UserDataService.resetUser(this.user);
+     await this.onCarClicked();
+   }
+
+  }
+
 
 }

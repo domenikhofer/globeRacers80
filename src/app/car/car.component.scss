@@ -3,7 +3,7 @@ GAME START
 *******************/
 
 .start-container {
-  z-index: 10000;
+  z-index: 21;
   background: rgba(25, 25, 25, .95);
   position: absolute;
   width: 100%;
@@ -37,7 +37,7 @@ GAME START
 }
 
 .car {
-  z-index: 1000;
+  z-index: 22;
   position: relative;
   bottom: 150%;
   background:none;

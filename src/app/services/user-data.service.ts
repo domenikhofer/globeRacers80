@@ -74,5 +74,9 @@ export class UserDataService {
   async getTopUsers(): Promise<any> {
     return await this.http.get(this.endpoint + '/db/user/get/topUsers').toPromise();
   }
+
+  async resetUser(user: string): Promise<any> {
+    return await this.http.post(this.endpoint + '/db/user/reset', {user}).toPromise();
+  }
 }
 

@@ -97,6 +97,16 @@ function getTopUsers(callback) {
   })
 }
 
+function resetUser(user, callback) {
+  db.update({username: user}, {$set: {"data.clicks": -1, "data.distance":-1, "data.achievements": [], "data.upgrades": []}}, {}, function (err, dbUser) {
+    if (callback) {
+      callback(err, dbUser)
+    }
+     })
+}
+
+
+
 
 module.exports = {
   addUser: addUser,
@@ -107,6 +117,7 @@ module.exports = {
   addDistance: addDistance,
   addAchievement: addAchievement,
   addUpgrade: addUpgrade,
-  getTopUsers: getTopUsers
+  getTopUsers: getTopUsers,
+  resetUser: resetUser
 };
 

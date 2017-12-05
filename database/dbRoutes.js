@@ -13,6 +13,7 @@ router.post("/user/get/byUsername",userDB.getUserByUsername);
 router.post("/user/get/byId",userDB.getUserById);
 router.get("/user/get/all",userDB.getUsers);
 router.get("/user/get/topUsers",userDB.getTopUsers);
+router.post("/user/reset", userDB.resetUser);
 
 
 router.post("/achievement/add/", achievementDB.addAchievement);
