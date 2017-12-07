@@ -35,10 +35,10 @@ export class GamecontainerComponent implements OnInit {
     this.allUpgrades = await this.UpgradeService.getAllUpgrades();
 
     setInterval(async () => {
-      this.ms = this.getMultiplier('ms');
-      await this.UserDataService.addDistance(this.userData._id, this.ms);
-      this.userData = await this.UserDataService.getUserByUsername(this.user);
-      this.distance = this.userData.data.distance;
+        this.ms = this.getMultiplier('ms');
+        await this.UserDataService.addDistance(this.userData._id, this.ms);
+        this.userData = await this.UserDataService.getUserByUsername(this.user);
+        this.distance = this.userData.data.distance;
     }, 1000);
   }
 
@@ -86,6 +86,8 @@ export class GamecontainerComponent implements OnInit {
   async reset() {
     this.userMenu = false;
    if (confirm('Are you sure you want to delete all your progress?')) {
+     await this.UserDataService.resetUser(this.user);
+     await this.onCarClicked();
      await this.UserDataService.resetUser(this.user);
      await this.onCarClicked();
    }

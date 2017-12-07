@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {UpgradeService} from '../services/upgrade.service';
 import {UserDataService} from '../services/user-data.service';
+import anime from 'animejs';
+
 
 @Component({
   selector: 'app-upgrade',
@@ -19,6 +21,8 @@ export class UpgradeComponent implements OnInit, OnChanges {
   availableUpgrades;
   showBox = false;
   clickedId;
+  presentOpenness = 0;
+  currentUpdates = 0;
 
   constructor(UpgradeService: UpgradeService, UserDataService: UserDataService) {
     this.UpgradeService = UpgradeService;
@@ -30,14 +34,14 @@ export class UpgradeComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes) {
-    if (changes.userData && changes.userData.firstChange === false ) {
+    if (changes.userData && changes.userData.firstChange === false) {
       this.displayUpgrades();
     }
   }
 
   async onUpgradeClick(id) {
     await this.UserDataService.addUpgrade(this.userData._id, id);
-      this.displayUpgrades();
+    this.displayUpgrades();
     this.upgradeClicked.emit(this.allUpgrades.find(x => x.id === id));
   }
 
@@ -46,9 +50,13 @@ export class UpgradeComponent implements OnInit, OnChanges {
     this.availableUpgrades = this.allUpgrades.filter(
       x =>
       ((x.unlocks.unit === 'c' && x.unlocks.count <= this.clickCount) ||
-        (x.unlocks.unit === 'd' && x.unlocks.count <= this.distance && this.distance <= x.unlocks.max)) &&
+      (x.unlocks.unit === 'd' && x.unlocks.count <= this.distance && this.distance <= x.unlocks.max)) &&
       userUpgrades.indexOf(x.id) === -1
     );
+    if (this.availableUpgrades.length > this.currentUpdates) {
+      this.showUpgradeGift();
+    }
+    this.currentUpdates = this.availableUpgrades.length;
   }
 
   showinfo(id) {
@@ -60,5 +68,121 @@ export class UpgradeComponent implements OnInit, OnChanges {
     this.showBox = false;
     this.clickedId = id;
   }
+
+  showUpgradeGift() {
+
+    const showCover = anime({
+      targets: '.cover, .upgradesPopup',
+      scale: [
+        {value: 0, duration: 1},
+        {value: 1, duration: 1}
+      ],
+      opacity: [
+        {value: 0, duration: 1},
+        {value: 1, duration: 1000},
+        {value: 1, duration: 2000}
+      ]
+    });
+
+    showCover.restart();
+
+    const showPresent = anime({
+      targets: 'svg',
+      scale: [
+        {value: 0, duration: 0},
+        {value: 1, duration: 1000},
+        {value: 1, duration: 1000},
+        {value: 1.1, duration: 1000},
+        {value: 1.1, duration: 1500},
+        {value: 1.2, duration: 1000}
+      ],
+      rotate: [
+        {value: '-=90deg', duration: 0},
+        {value: '+=90deg', duration: 1000},
+        {value: '+=3deg', duration: 300},
+        {value: '-=3deg', duration: 300},
+        {value: 0, duration: 1000},
+        {value: '+=3deg', duration: 300},
+        {value: '-=3deg', duration: 300},
+        {value: 0, duration: 1000},
+        {value: '+=3deg', duration: 300},
+        {value: '-=3deg', duration: 300},
+        {value: 0, duration: 1000},
+      ]
+    });
+
+    showPresent.restart();
+  }
+
+  openUpgradePresent() {
+
+    if (++this.presentOpenness < 10) {
+
+      anime({
+        targets: '.Top',
+        translateY: [
+          {value: '-=5', duration: 1}
+        ]
+      });
+
+      anime({
+        targets: 'svg',
+        scale: [
+          {value: '+=0.1', duration: 100},
+          {value: '-=0.1', duration: 100}
+        ]
+      });
+
+    } else {
+      this.presentOpenness = 0;
+      anime({
+        targets: '.Top',
+        translateY: [
+          {value: '-=2000', duration: 1000},
+          {value: '-=0', duration: 2000},
+          {value: 0, duration: 1}
+        ],
+        easing: 'easeInOutQuart'
+      });
+      anime({
+        targets: '.Bottom',
+        translateY: [
+          {value: '+=1000', duration: 1000},
+          {value: '+=1000', duration: 2000},
+          {value: 0, duration: 1}
+        ]
+      });
+      anime({
+        targets: '.popupText',
+        scale: [
+          {value: 0, duration: 0},
+          {value: 1, duration: 1000},
+          {value: 0, duration: 2000},
+        ]
+      });
+      anime({
+        targets: 'svg',
+        scale: [
+          {value: 1, duration: 4000},
+          {value: 0, duration: 1}
+        ]
+      });
+
+      anime({
+        targets: '.cover, .upgradesPopup',
+        scale: [
+          {value: 1, duration: 2500},
+          {value: 0, duration: 1}
+        ],
+        opacity: [
+          {value: 1, duration: 2000},
+          {value: 0, duration: 1000}
+        ]
+      });
+
+    }
+
+  }
+
 
 }

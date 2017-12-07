@@ -67,7 +67,7 @@ export class AchievementComponent implements OnInit, OnChanges {
 
   newAchievementAnimation() {
     anime({
-      targets: '.cover',
+      targets: '.achievementCover',
       opacity: [
         {value: 1, duration: 1000},
         {value: 1, duration: 2000},
