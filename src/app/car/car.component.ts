@@ -21,7 +21,6 @@ export class CarComponent implements OnInit, OnChanges {
   @Input() distance;
   @Input() ms;
   @Output() carClicked: EventEmitter<any> = new EventEmitter();
-  showCar = false;
   shown = false;
 
   constructor() {}

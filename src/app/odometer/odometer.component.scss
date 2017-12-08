@@ -4,6 +4,14 @@
   right: 2em;
   top: 35vh;
   z-index:30;
+  background: black;
+  border-radius: 5px;
+  padding-right: 3px;
+  color: #ebdbcd;
+
+  &:after {
+    content: 'm';
+  }
 }
 
 @media screen and (min-width: 1000px) {

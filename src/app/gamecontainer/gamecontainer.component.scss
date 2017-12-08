@@ -2,6 +2,24 @@
   display: flex;
   flex-direction: column;
 
+  .distanceAch {
+    font-family: 'Bungee', cursive;
+    text-align: center;
+    text-decoration: none;
+    transform: (perspective(2.5em) rotateX(5deg) scaleY(0.8));
+    transition: (all 0.5s);
+    text-transform: uppercase;
+    line-height: 0.8;
+    color: lighten(#edc405, 10%);
+    text-shadow: 0 -1px 15px black,
+    0 1px 0 adjust-hue(darken(indianred, 22%), -3deg),
+    0 2px 0 adjust-hue(darken(indianred, 21%), -3deg),
+    0 0px 0 adjust-hue(darken(indianred, 20%), -3deg),
+    0 1px 0 adjust-hue(darken(indianred, 19%), -3deg),
+    0 2px 0 adjust-hue(darken(indianred, 18%), -3deg),
+    0 2px 30px transparentize(lighten(indianred, 20%), 0.4);
+  }
+
   .car-container {
     padding: 0;
   }
@@ -79,4 +97,3 @@
     }
   }
 }
-

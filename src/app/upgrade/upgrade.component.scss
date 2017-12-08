@@ -8,6 +8,7 @@ app-upgrade{
 
   h3 {
     background-color: #f5b741;
+    margin: 0.55em 0;
   }
 
   .upgrade-container {
@@ -113,7 +114,7 @@ app-upgrade{
     font-weight: bolder;
     font-size: 3em;
     text-align: center;
-display:flex;
+    display:flex;
     transform: scale(0);
     text-shadow: 0px 0px 80px rgb(146, 248, 255);
     font-family: 'montserrat', 'arial', 'verdana', cursive;

@@ -13,7 +13,7 @@ import {HttpClient} from '@angular/common/http';
 import {UserDataService} from '../services/user-data.service';
 import {UpgradeService} from '../services/upgrade.service';
 import {AchievementService} from '../services/achievement.service';
-import { Ng2OdometerModule } from 'ng2-odometer';
+import {Ng2OdometerModule} from 'ng2-odometer';
 import {Router} from '@angular/router';
 
 describe('GamecontainerComponent', () => {

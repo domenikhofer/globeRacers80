@@ -5,12 +5,13 @@ All Fonts
 @import url("https://fonts.googleapis.com/css?family=Bangers");
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 @import url("https://fonts.googleapis.com/css?family=Boogaloo");
-html{
-  height:100%;}
+@import url("https://fonts.googleapis.com/css?family=Bungee");
+html {
+  height: 100%; }
 
 body {
   background: linear-gradient(to top, #4a483d 0%, #4c4f48 30%);
-  height:100%;}
+  height: 100%; }
 
 footer a {
   color: grey; }

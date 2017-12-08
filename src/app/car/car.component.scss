@@ -1,53 +1,14 @@
 /*********************
-GAME START
+LAYOUT ROAD
 *******************/
-
-.start-container {
-  z-index: 21;
-  background: rgba(25, 25, 25, .95);
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .start_btn {
-    font-family: 'montserrat', 'arial', 'verdana', cursive;
-    font-size: 1em;
-    font-weight: bold;
-    text-transform: uppercase;
-    height: 10em;
-    width: 10em;
-    border-radius: 50%;
-    border: none;
-    background: #D00000;
-    color: white;
-    box-shadow: 2px 9px 2px #800E13;
-    cursor: pointer;
-
-    &:active {
-      background-color: #800E13;
-      box-shadow: 0 5px #800E13;
-      transform: translateY(4px);
-    }
-
-  }
-}
 
 .car {
   z-index: 22;
   position: relative;
-  bottom: 150%;
+  bottom: 150%; // with old_car.svg 100%
   background:none;
   width: 50vh;
 }
-
-/*********************
-LAYOUT ROAD
-*******************/
-
 
 .car-container {
   height: 50vh;
