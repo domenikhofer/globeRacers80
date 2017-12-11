@@ -5,7 +5,7 @@ LAYOUT ROAD
 .car {
   z-index: 22;
   position: relative;
-  bottom: 150%; // with old_car.svg 100%
+  bottom: 150%; // with mustang_car.png 100%
   background:none;
   width: 50vh;
 }
@@ -58,8 +58,8 @@ LAYOUT ROAD
   height:100px;
   bottom:40%;
   -webkit-clip-path: polygon(0% 62%, 4% 74%, 21% 18%, 24% 32%, 32% 0%, 50% 62%, 54% 74%, 71% 18%, 74% 32%, 82% 0%, 100% 62%, 100% 100%, 0 100%);
-  animation: anim50 linear 60s;
-  animation-iteration-count: infinite;
+  // animation: anim50 linear 60s;
+  // animation-iteration-count: infinite;
   overflow:hidden;
   position: absolute;
 

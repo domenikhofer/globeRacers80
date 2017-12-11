@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LogoAnimationComponent } from './logo-animation.component';
+import {LogoAnimationComponent} from './logo-animation.component';
 
 describe('LogoAnimationComponent', () => {
   let component: LogoAnimationComponent;
@@ -8,7 +8,9 @@ describe('LogoAnimationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogoAnimationComponent ]
+      declarations: [
+        LogoAnimationComponent,
+      ]
     })
     .compileComponents();
   }));

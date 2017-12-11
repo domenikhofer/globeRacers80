@@ -35,7 +35,7 @@ describe('AuthGuard', () => {
 
   it('#canActivate should return false after creation', async(inject([AuthGuard, Router], (guard, router) => {
     expect(guard.canActivate(<any>{}, <any>{})).toBe(false);
-    expect(router.navigate).toHaveBeenCalledWith(['/login']);
+    expect(router.navigate).toHaveBeenCalledWith(['/welcome']);
   })
   ));
 });

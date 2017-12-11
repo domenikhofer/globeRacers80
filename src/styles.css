@@ -6,6 +6,8 @@ All Fonts
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 @import url("https://fonts.googleapis.com/css?family=Boogaloo");
 @import url("https://fonts.googleapis.com/css?family=Bungee");
+@import url("https://fonts.googleapis.com/css?family=Mr+Dafoe");
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
 html {
   height: 100%; }
 
@@ -27,12 +29,12 @@ Info Boxes
   font-weight: normal;
   color: #fff;
   text-transform: uppercase;
-  font-family: 'Bangers', cursive;
-  font-size: 5rem;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2em;
+  padding: 0.5em;
   white-space: nowrap;
   text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
-  letter-spacing: 3px; }
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1); }
 
 .upgrades,
 .leaderboard {

@@ -1,11 +1,26 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {UpgradeService} from '../services/upgrade.service';
 import {UserDataService} from '../services/user-data.service';
+import {trigger, style, animate, transition} from '@angular/animations';
 import anime from 'animejs';
 
 
 @Component({
   selector: 'app-upgrade',
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({opacity: 0}),
+          animate('0.5s ease-in')
+        ]),
+        transition(':leave', [
+          style({opacity: 1}),
+          animate('0.2s ease-out')
+        ])
+      ]
+    )
+  ],
   templateUrl: './upgrade.component.html',
   styleUrls: ['./upgrade.component.scss']
 })
@@ -41,22 +56,25 @@ export class UpgradeComponent implements OnInit, OnChanges {
 
   async onUpgradeClick(id) {
     await this.UserDataService.addUpgrade(this.userData._id, id);
+    this.showBox = false;
     this.displayUpgrades();
     this.upgradeClicked.emit(this.allUpgrades.find(x => x.id === id));
   }
 
   async displayUpgrades() {
     const userUpgrades = this.userData.data.upgrades;
-    this.availableUpgrades = this.allUpgrades.filter(
-      x =>
-      ((x.unlocks.unit === 'c' && x.unlocks.count <= this.clickCount) ||
-      (x.unlocks.unit === 'd' && x.unlocks.count <= this.distance && this.distance <= x.unlocks.max)) &&
-      userUpgrades.indexOf(x.id) === -1
-    );
-    if (this.availableUpgrades.length > this.currentUpdates) {
-      this.showUpgradeGift();
+    if (this.allUpgrades) {
+      this.availableUpgrades = this.allUpgrades.filter(
+        x =>
+        ((x.unlocks.unit === 'c' && x.unlocks.count <= this.clickCount) ||
+        (x.unlocks.unit === 'd' && x.unlocks.count <= this.distance && this.distance <= x.unlocks.max)) &&
+        userUpgrades.indexOf(x.id) === -1
+      );
+      if (this.availableUpgrades.length > this.currentUpdates) {
+        this.showUpgradeGift();
+      }
+      this.currentUpdates = this.availableUpgrades.length;
     }
-    this.currentUpdates = this.availableUpgrades.length;
   }
 
   showinfo(id) {
@@ -70,7 +88,6 @@ export class UpgradeComponent implements OnInit, OnChanges {
   }
 
   showUpgradeGift() {
-
     const showCover = anime({
       targets: '.cover, .upgradesPopup',
       scale: [
@@ -115,16 +132,13 @@ export class UpgradeComponent implements OnInit, OnChanges {
   }
 
   openUpgradePresent() {
-
     if (++this.presentOpenness < 10) {
-
       anime({
         targets: '.Top',
         translateY: [
           {value: '-=5', duration: 1}
         ]
       });
-
       anime({
         targets: 'svg',
         scale: [
@@ -132,7 +146,6 @@ export class UpgradeComponent implements OnInit, OnChanges {
           {value: '-=0.1', duration: 100}
         ]
       });
-
     } else {
       this.presentOpenness = 0;
       anime({
@@ -167,7 +180,6 @@ export class UpgradeComponent implements OnInit, OnChanges {
           {value: 0, duration: 1}
         ]
       });
-
       anime({
         targets: '.cover, .upgradesPopup',
         scale: [
@@ -179,10 +191,6 @@ export class UpgradeComponent implements OnInit, OnChanges {
           {value: 0, duration: 1000}
         ]
       });
-
     }
-
   }
-
-
 }

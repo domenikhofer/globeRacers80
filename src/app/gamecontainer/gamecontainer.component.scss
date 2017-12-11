@@ -6,7 +6,7 @@
     font-family: 'Bungee', cursive;
     text-align: center;
     text-decoration: none;
-    transform: (perspective(2.5em) rotateX(5deg) scaleY(0.8));
+    transform: (perspective(2.5em) rotateX(9deg) scaleY(0.8));
     transition: (all 0.5s);
     text-transform: uppercase;
     line-height: 0.8;
@@ -18,6 +18,10 @@
     0 1px 0 adjust-hue(darken(indianred, 19%), -3deg),
     0 2px 0 adjust-hue(darken(indianred, 18%), -3deg),
     0 2px 30px transparentize(lighten(indianred, 20%), 0.4);
+
+    &:hover {
+      transform: (perspective(5em) rotateX(5deg) scaleY(1));
+    }
   }
 
   .car-container {

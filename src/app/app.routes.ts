@@ -1,14 +1,13 @@
 // Imports
-import { ModuleWithProviders } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {ModuleWithProviders} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { LoginComponent } from './login/login.component';
-import { GamecontainerComponent } from './gamecontainer/gamecontainer.component';
+import {RegistrationComponent} from './registration/registration.component';
+import {LoginComponent} from './login/login.component';
+import {GamecontainerComponent} from './gamecontainer/gamecontainer.component';
+import {WelcomeComponent} from './welcome/welcome.component';
 
 import { AuthGuard } from './auth.guard';
-import {WelcomeComponent} from './welcome/welcome.component';
 
 
 // Route Configuration

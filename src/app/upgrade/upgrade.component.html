@@ -31,7 +31,7 @@
 <div class="upgrades"><h3>Upgrades</h3>
   <div class="upgrade-container">
   <div *ngFor="let upgrade of availableUpgrades" class="upgrade {{upgrade.title}}">
-    <div *ngIf="showBox && (clickedId === upgrade.id)" class="infobox">
+    <div *ngIf="showBox && (clickedId === upgrade.id)" [@enterAnimation] class="infobox">
       <button class="x-close" (click)="hideInfo(upgrade.id)">x</button>
       <span class="upgrade-title">{{upgrade.title}}</span><br>
       {{upgrade.description}}<br>

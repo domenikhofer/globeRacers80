@@ -1,8 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "globe-racers80",
-    "ejected": true
+    "name": "globe-racers80"
   },
   "apps": [
     {

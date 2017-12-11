@@ -7,6 +7,8 @@ import {OdometerComponent} from '../odometer/odometer.component';
 import {LeaderboardComponent} from '../leaderboard/leaderboard.component';
 import {AchievementComponent} from '../achievement/achievement.component';
 import {UpgradeComponent} from '../upgrade/upgrade.component';
+import {LoaderComponent} from '../shared/loader/loader.component';
+
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
 import {HttpClient} from '@angular/common/http';
@@ -29,9 +31,10 @@ describe('GamecontainerComponent', () => {
         OdometerComponent,
         LeaderboardComponent,
         AchievementComponent,
-        UpgradeComponent
+        UpgradeComponent,
+        LoaderComponent
       ],
-      imports:[ Ng2OdometerModule ],
+      imports: [ Ng2OdometerModule ],
       providers: [
         MockBackend,
         BaseRequestOptions,

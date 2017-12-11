@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
-
-import { UserDataService } from '../services/user-data.service';
-import { UpgradeService } from '../services/upgrade.service';
-import { AchievementService } from '../services/achievement.service';
+import {UserDataService} from '../services/user-data.service';
+import {UpgradeService} from '../services/upgrade.service';
+import {AchievementService} from '../services/achievement.service';
 
 
 @Component({
@@ -27,6 +26,8 @@ export class GamecontainerComponent implements OnInit {
   mc;
   user;
   userMenu = false;
+  loading = false;
+
 
   constructor(UserDataService: UserDataService,
               UpgradeService: UpgradeService,
@@ -38,6 +39,7 @@ export class GamecontainerComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.loading = true;
     this.user = this.UserDataService.getUserLoggedIn();
     this.userData = await this.UserDataService.getUserByUsername(this.user);
     this.allUpgrades = await this.UpgradeService.getAllUpgrades();
@@ -49,13 +51,14 @@ export class GamecontainerComponent implements OnInit {
         await this.UserDataService.addDistance(this.userData._id, this.ms);
         this.userData = await this.UserDataService.getUserByUsername(this.user);
         this.distance = this.userData.data.distance;
+        this.loading = false;
     }, 1000);
   }
 
   async onCarClicked() {
    await this.UserDataService.addClicks(this.userData._id, 1);
     this.mc = this.getMultiplier('mc');
-    await this.UserDataService.addDistance(this.userData._id, this.mc); // change added Distance back to old mc
+    await this.UserDataService.addDistance(this.userData._id, this.mc);
     this.userData = await this.UserDataService.getUserByUsername(this.user);
     this.clicks = this.userData.data.clicks;
     this.distance = this.userData.data.distance;
@@ -70,8 +73,6 @@ export class GamecontainerComponent implements OnInit {
   }
 
   onUpgradeClicked(upgrade) {
-    console.log('bla');
-    setTimeout(() => { console.log('nu'); }, 1000);
     this.getMultiplier(upgrade.upgrade.unit);
     if  (upgrade.upgrade.unit === 'mc') {
       this.mc = this.getMultiplier('mc');

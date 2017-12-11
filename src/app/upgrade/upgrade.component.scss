@@ -8,7 +8,7 @@ app-upgrade{
 
   h3 {
     background-color: #f5b741;
-    margin: 0.55em 0;
+    margin: 1em 0;
   }
 
   .upgrade-container {
@@ -38,17 +38,30 @@ app-upgrade{
         border-radius: 2px;
         opacity: 0.95;
         z-index: 1000;
-        font-family: 'montserrat', 'arial', 'verdana';
+        font-family: 'Press Start 2P', cursive;
+        font-size: 0.85em;
         line-height: 2em;
         text-align: center;
 
+
       .upgrade-title {
-        font-size: 1.25em;
+        font-size: 1.75em;
+        font-family: 'Bungee', cursive;
+        color: lighten(#edc405, 10%);
+        text-shadow: 0 -1px 15px black,
+        0 1px 0 adjust-hue(darken(indianred, 22%), -3deg),
+        0 2px 0 adjust-hue(darken(indianred, 21%), -3deg),
+        0 0px 0 adjust-hue(darken(indianred, 20%), -3deg),
+        0 1px 0 adjust-hue(darken(indianred, 19%), -3deg),
+        0 2px 0 adjust-hue(darken(indianred, 18%), -3deg),
+        0 2px 30px transparentize(lighten(indianred, 20%), 0.4);
       }
 
       .upgrade-btn {
-        background: #af1117;
+        font-family: 'Bungee', cursive;
         color: white;
+        text-shadow: 0 -1px 15px black;
+        background: #af1117;
         text-transform: uppercase;
 
         &:hover {
@@ -62,6 +75,7 @@ app-upgrade{
         right: 0;
       }
     }
+
     .special-info {
       color: red;
       font-weight: bold;
@@ -117,14 +131,13 @@ app-upgrade{
     display:flex;
     transform: scale(0);
     text-shadow: 0px 0px 80px rgb(146, 248, 255);
-    font-family: 'montserrat', 'arial', 'verdana', cursive;
+    font-family: 'Bungee', cursive;
 
     p {
       align-self: center;
     }
 
   }
-
 
   svg {
     position: fixed;
@@ -133,13 +146,9 @@ app-upgrade{
     width:60%;
     max-width:400px;
     height:100%;
-
     transform: scale(0);
    /* pointer-events: none;*/
   }
-
-
-
 
   .cover{
     z-index:40;

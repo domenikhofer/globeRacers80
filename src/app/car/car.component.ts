@@ -1,5 +1,5 @@
-import { Component, Input, EventEmitter, OnInit, Output, OnChanges } from '@angular/core';
-import { animate, style, transition, trigger } from '@angular/animations';
+import {Component, Input, EventEmitter, OnInit, Output, OnChanges} from '@angular/core';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 import anime from 'animejs';
 
@@ -27,6 +27,15 @@ export class CarComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.ms = 0;
+    if (0 < this.distance) {
+      anime({
+        targets: '.mountains',
+        translateX: ['0', '-50%'],
+        easing: 'easeOutExpo',
+        duration: 600000,
+        loop: true
+      });
+    }
   }
 
 
@@ -36,6 +45,16 @@ export class CarComponent implements OnInit, OnChanges {
         targets: '.road-lines',
         translateX: ['0', '-20%'],
         easing: 'easeOutExpo',
+      });
+    }
+
+    if (0 < this.distance  && this.distance < 2) {
+      anime({
+        targets: '.mountains',
+        translateX: ['0', '-50%'],
+        easing: 'easeOutExpo',
+        duration: 600000,
+        loop: true
       });
     }
   }
@@ -51,6 +70,7 @@ export class CarComponent implements OnInit, OnChanges {
      translateX: ['0', '-20%'],
      easing: 'easeOutExpo',
    });
+
 
    if (this.distance > 40000 && this.distance < 40500 ) {
      this.shown = true;

@@ -3,7 +3,6 @@ import {Router} from '@angular/router';
 import {animate, query, stagger, style, transition, trigger} from '@angular/animations';
 import {UserDataService} from '../services/user-data.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -44,7 +43,7 @@ export class LoginComponent implements OnInit {
     const userdata = await this.userDataService.getUserByUsername(username);
 
     if (!userdata) {
-      alert('Username not found, please register');
+      alert('User not found, please register');
     } else if (await this.userDataService.checkPassword(password, userdata.hash)) {
       this.loading = true;
       this.userDataService.setUserLoggedIn(username);

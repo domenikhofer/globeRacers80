@@ -25,6 +25,7 @@ import { AchievementService } from './services/achievement.service';
 import { AuthGuard } from './auth.guard';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LogoAnimationComponent } from './logo-animation/logo-animation.component';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { LogoAnimationComponent } from './logo-animation/logo-animation.componen
     GamecontainerComponent,
     RegistrationComponent,
     WelcomeComponent,
-    LogoAnimationComponent
+    LogoAnimationComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

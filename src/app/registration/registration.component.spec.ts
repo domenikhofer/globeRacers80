@@ -4,7 +4,7 @@ import {RegistrationComponent} from './registration.component';
 import {FormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {LoginComponent} from '../login/login.component';
+import {LogoAnimationComponent} from '../logo-animation/logo-animation.component';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
 import {HttpClient} from '@angular/common/http';
@@ -19,7 +19,10 @@ describe('RegistrationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RegistrationComponent ],
+      declarations: [
+        RegistrationComponent,
+        LogoAnimationComponent,
+      ],
       imports: [
         FormsModule,
         RouterTestingModule,

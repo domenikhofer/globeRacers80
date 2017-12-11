@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {Component, DebugElement} from '@angular/core';
-import { LoginComponent } from './login.component';
+import {LoginComponent} from './login.component';
+import {LogoAnimationComponent} from '../logo-animation/logo-animation.component';
 import {FormsModule} from '@angular/forms';
 import {Router} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -11,7 +12,6 @@ import {UserDataService} from '../services/user-data.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {By} from '@angular/platform-browser';
 
-
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -19,24 +19,27 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-         declarations: [ LoginComponent ],
-            imports: [
-              FormsModule,
-            RouterTestingModule,
-              BrowserAnimationsModule
-            ],
-            providers: [
-              MockBackend,
-              BaseRequestOptions,
-              {
-                provide: HttpClient,
-                useFactory: (backendInstance: MockBackend, defaultOptions: BaseRequestOptions) => {
-                  return new Http(backendInstance, defaultOptions);
-                },
-                deps: [MockBackend, BaseRequestOptions]
-            },
-            UserDataService
-          ]
+        declarations: [
+          LogoAnimationComponent,
+          LoginComponent
+        ],
+        imports: [
+          FormsModule,
+          RouterTestingModule,
+          BrowserAnimationsModule
+        ],
+        providers: [
+          MockBackend,
+          BaseRequestOptions,
+        {
+        provide: HttpClient,
+          useFactory: (backendInstance: MockBackend, defaultOptions: BaseRequestOptions) => {
+            return new Http(backendInstance, defaultOptions);
+        },
+          deps: [MockBackend, BaseRequestOptions]
+        },
+        UserDataService
+      ]
   })
     .compileComponents();
   }));

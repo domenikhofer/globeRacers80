@@ -1,0 +1,71 @@
+.loader-wrapper {
+    background: linear-gradient(181deg, rgba(65, 107, 167, 1) 0%, rgba(0, 128, 128, 1) 100%); /* w3c */
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+  .loader {
+    margin: auto;
+    text-align: center;
+
+    .loading {
+    position: relative;
+    background-image: linear-gradient(#416ba7 20%, #F0F0C9 46%, #E77728 50%, #32120E 54%, #4a483d 58%, #E77728 90%, #E77728 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 4px #f5f5f5;
+    font-size: 8em;
+    font-family: 'Bungee', sans-serif;
+    font-style: italic;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .globeracer {
+    position: absolute;
+    font-family: 'Mr Dafoe', cursive;
+    font-size: 3em;
+    color: #F975F7 ;
+    transform:rotate(-15deg);
+    margin-left: 10em;
+    margin-top: -1em;
+    -webkit-text-stroke: 1px #f008b7;
+    -webkit-filter: drop-shadow(2px 2px 20px #f008b7);
+    z-index: 20;
+  }
+
+  #load {
+    margin-top: 3em;
+    width: 100px;
+    animation: loading 3s linear infinite;
+    #loading-inner {
+      stroke: {
+        dashoffset: 0;
+        dasharray: 300;
+        width: 10;
+        miterlimit: 10;
+        linecap: round;
+      }
+      animation: loading-circle 2s linear infinite;
+      stroke: #f008b7;
+      fill: transparent;
+    }
+  }
+  }
+
+  @keyframes loading {
+    0% {transform: rotate(0);}
+    100% {transform: rotate(360deg);}
+  }
+  @keyframes loading-circle {
+    0% {stroke-dashoffset: 0}
+    100% {stroke-dashoffset: -600;}
+  }
+}
+
