@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { Ng2OdometerModule } from 'ng2-odometer';
+import { ResponsiveModule } from 'ng2-responsive'
 
 import { AppComponent } from './app.component';
 import { CarComponent } from './car/car.component';
@@ -51,7 +52,8 @@ import { LoaderComponent } from './shared/loader/loader.component';
     HttpClientModule,
     FormsModule,
     routing,
-    Ng2OdometerModule
+    Ng2OdometerModule,
+    ResponsiveModule
   ],
   providers: [
     UserDataService,
