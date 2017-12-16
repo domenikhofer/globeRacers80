@@ -39,26 +39,3 @@ describe('AchievementComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-
-
-/*
-*
-*
-*     TestBed.configureTestingModule({
- providers: [
- MockBackend,
- BaseRequestOptions,
- {
- provide: HttpClient,
- useFactory: (backendInstance: MockBackend, defaultOptions: BaseRequestOptions) => {
- return new Http(backendInstance, defaultOptions);
- },
- deps: [MockBackend, BaseRequestOptions]
- },
- UserDataService
- ]
- });
-*
-*
-* */

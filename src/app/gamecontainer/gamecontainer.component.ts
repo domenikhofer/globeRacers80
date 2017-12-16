@@ -5,7 +5,6 @@ import {UserDataService} from '../services/user-data.service';
 import {UpgradeService} from '../services/upgrade.service';
 import {AchievementService} from '../services/achievement.service';
 
-
 @Component({
   selector: 'app-gamecontainer',
   templateUrl: './gamecontainer.component.html',

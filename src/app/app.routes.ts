@@ -7,7 +7,7 @@ import {LoginComponent} from './login/login.component';
 import {GamecontainerComponent} from './gamecontainer/gamecontainer.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 
-import { AuthGuard } from './auth.guard';
+import {AuthGuard} from './auth.guard';
 
 
 // Route Configuration

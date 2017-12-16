@@ -1,6 +1,5 @@
 import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 
-
 import {UpgradeComponent} from './upgrade.component';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
@@ -75,7 +74,6 @@ describe('UpgradeComponent', () => {
     fixture.detectChanges();
     debugElementUpgrades = await fixture.debugElement.query(By.css('.upgrade-container'));
     nativeElementUpgrades = debugElementUpgrades.nativeElement;
-
   }
 
   beforeEach(async(() => {
@@ -112,25 +110,27 @@ describe('UpgradeComponent', () => {
   it('upgrade-container should be empty on init of new user', async () => {
     await changeParameter(0, 0, []);
     expect(nativeElementUpgrades.children.length).toBe(0);
-
   });
   it('upgrade-container should be empty if user has not yet fulfilled criteria for upgrade', async () => {
     await changeParameter(0, 19, []);
     expect(nativeElementUpgrades.children.length).toBe(0);
-
   });
   it('upgrade-container should show upgrade on reaching of criteria and not yet having it in UserData', async () => {
     await changeParameter(0, 20, []);
     expect(nativeElementUpgrades.children.length).toBe(1);
-
   });
+  // TODO: test animation // last one doesn't work yet!!!!
+  it('New upgrade animation appears, when reaching criteria ', async () => {
+    await changeParameter(0, 20, []);
+  });
+
   it('Upgrade Popup should open on click on Upgrade-Icon', async () => {
     await changeParameter(0, 20, []);
     const openPopupBtn = fixture.debugElement.query(By.css('.upgrade-icon'));
     await openPopupBtn.triggerEventHandler('click', null);
     await fixture.detectChanges();
     const activateUpgradeBtn = fixture.debugElement.query(By.css('button.btn.upgrade-btn'));
-    expect(activateUpgradeBtn).not.toBeNull();
+    expect(activateUpgradeBtn).toBeTruthy();
   });
   it('Upgrade should be added to UserData on click on Activate Button', async () => {
     await changeParameter(0, 20, []);
@@ -142,7 +142,7 @@ describe('UpgradeComponent', () => {
     fixture.detectChanges();
     expect(component.UserDataService.userData[0].data.upgrades.length).toBe(1);
   });
-
+  // last one doesn't work yet!!!!
   it('Upgrade Popup should hide on click on Activate Button', async () => {
     await changeParameter(0, 20, []);
     const openPopupBtn = fixture.debugElement.query(By.css('.upgrade-icon'));
@@ -159,10 +159,34 @@ describe('UpgradeComponent', () => {
     await changeParameter(0, 20, [0]);
     expect(nativeElementUpgrades.children.length).toBe(0);
   });
-
+  // popup closes on close button // last one doesn't work yet!!!!
+  it('pop closes when close button is clicked', async () => {
+    await changeParameter(0, 20, []);
+    const openPopupBtn = fixture.debugElement.query(By.css('.upgrade-icon'));
+    await openPopupBtn.triggerEventHandler('click', null);
+    await fixture.detectChanges();
+    const closePopupBtn = fixture.debugElement.query(By.css('.x-close'));
+    await closePopupBtn.triggerEventHandler('click', null);
+    fixture.detectChanges();
+    const activateUpgradeBtn = fixture.debugElement.query(By.css('button.btn.upgrade-btn'));
+    expect(activateUpgradeBtn).toBe(null);
+  });
+  // test if upgrade text in popup
+  it('upgrade title in popup is correct', async () => {
+    await changeParameter(0, 20, []);
+    const openPopupBtn = fixture.debugElement.query(By.css('.upgrade-icon'));
+    await openPopupBtn.triggerEventHandler('click', null);
+    await fixture.detectChanges();
+    const upgradeTitle = fixture.debugElement.query(By.css('.upgrade-title'));
+    expect(upgradeTitle.nativeElement.textContent).toBe('Test Title');
+  });
+  // test if img is correct
+  it('upgrade image is correct', async () => {
+    await changeParameter(0, 20, []);
+    const openPopupBtn = fixture.debugElement.query(By.css('.upgrade-icon'));
+    expect(openPopupBtn.nativeElement.src).toContain('shake.svg');
+  });
 });
 
-//last one doesnt work yet!!!!
 
-//test if upgrade text in popup + img  is correct ?
-//popup closes on close button
+
