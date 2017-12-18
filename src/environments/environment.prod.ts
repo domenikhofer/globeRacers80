@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  server: 'globeracer80.herokuapp.com'
+  server: 'http://localhost:1993'
 };
