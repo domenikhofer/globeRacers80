@@ -2,57 +2,59 @@
   <app-loader [loading]="loading"></app-loader>
 </div>
 
-<div *ngIf="!loading" class="game-container">
-  <div class="col-md-12 car-container">
-    <app-car
-      (carClicked)="onCarClicked()"
-      [distance]="distance"
-      [ms]="ms"
-    ></app-car>
-  </div>
-  <div class="sideboard">
-    <app-tachometer
-      [clickCount]="clicks"
-      [mc]="mc"
-      [ms]="ms"
-    ></app-tachometer>
-    <app-odometer
-      [distance]="distance"
-    ></app-odometer>
-  </div>
-  <h1 class="distanceAch"><span *ngIf="distanceToAch">{{distanceToAch}}</span> meters to the next achievement</h1>
-  <div class="username logout" (click)="userMenu = !userMenu">
-    {{user}} &nbsp;
-    <i class="fa fa-bars" aria-hidden="true"></i>
-  </div>
-  <div class="userMenu" *ngIf="userMenu">
-    <button class="logout" (click)="logout()"> Logout &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i></button>
-    <button class="deleteScore" (click)="reset()"   >Reset Scores &nbsp;<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> </button>
-  </div>
-
-  <div class="game-info col-md-12">
-    <div class="col-md-4">
-      <app-leaderboard></app-leaderboard>
-    </div>
-    <div class="col-md-4">
-      <app-achievement
-        [userData]="userData"
-        [clickCount]="clicks"
-        [distance]="distance"
-        [user]="user"
-      ></app-achievement>
-    </div>
-    <div class="col-md-4">
-      <app-upgrade
-        [userData]="userData"
-        (upgradeClicked)="onUpgradeClicked($event)"
-        [clickCount]="clicks"
-        [distance]="distance"
-      ></app-upgrade>
-    </div>
-  </div>
-
+<div *isMobile>
   <div *isPortrait class="portrait_msg"><p>To play the game please switch to landscape mode</p></div>
+</div>
+
+<div *ngIf="!loading" class="game-container">
+    <div class="col-md-12 car-container">
+      <app-car
+        (carClicked)="onCarClicked()"
+        [distance]="distance"
+        [ms]="ms"
+      ></app-car>
+    </div>
+    <div class="sideboard">
+      <app-tachometer
+        [clickCount]="clicks"
+        [mc]="mc"
+        [ms]="ms"
+      ></app-tachometer>
+      <app-odometer
+        [distance]="distance"
+      ></app-odometer>
+    </div>
+    <h1 class="distanceAch"><span *ngIf="distanceToAch">{{distanceToAch}}</span> meters to the next achievement</h1>
+    <div class="username logout" (click)="userMenu = !userMenu">
+      {{user}} &nbsp;
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <div class="userMenu" *ngIf="userMenu">
+      <button class="logout" (click)="logout()"> Logout &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i></button>
+      <button class="deleteScore" (click)="reset()"   >Reset Scores &nbsp;<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> </button>
+    </div>
+
+    <div class="game-info col-md-12">
+      <div class="col-md-4">
+        <app-leaderboard></app-leaderboard>
+      </div>
+      <div class="col-md-4">
+        <app-achievement
+          [userData]="userData"
+          [clickCount]="clicks"
+          [distance]="distance"
+          [user]="user"
+        ></app-achievement>
+      </div>
+      <div class="col-md-4">
+        <app-upgrade
+          [userData]="userData"
+          (upgradeClicked)="onUpgradeClicked($event)"
+          [clickCount]="clicks"
+          [distance]="distance"
+        ></app-upgrade>
+      </div>
+    </div>
 
   <footer>
     Icons made by
