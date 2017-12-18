@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, Output, EventEmitter} from '@angular/core';
 import {AchievementService} from '../services/achievement.service';
 import {UserDataService} from '../services/user-data.service';
 import anime from 'animejs';
@@ -14,6 +14,7 @@ export class AchievementComponent implements OnInit, OnChanges {
   @Input() distance;
   @Input() userData;
   @Input() user;
+  @Input() distanceToAch;
   AchievementService;
   UserDataService;
   userAchievements;

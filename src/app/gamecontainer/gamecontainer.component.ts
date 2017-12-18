@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Router} from '@angular/router';
 
 import {UserDataService} from '../services/user-data.service';
@@ -27,7 +27,6 @@ export class GamecontainerComponent implements OnInit {
   userMenu = false;
   loading = false;
 
-
   constructor(UserDataService: UserDataService,
               UpgradeService: UpgradeService,
               AchievementService: AchievementService,
@@ -43,7 +42,6 @@ export class GamecontainerComponent implements OnInit {
     this.userData = await this.UserDataService.getUserByUsername(this.user);
     this.allUpgrades = await this.UpgradeService.getAllUpgrades();
     this.allAchievements = await this.AchievementService.getAllAchievements();
-    this.distanceToAch = await this.getDistancetoNextAchievement();
 
     setInterval(async () => {
         this.ms = this.getMultiplier('ms');
@@ -55,20 +53,12 @@ export class GamecontainerComponent implements OnInit {
   }
 
   async onCarClicked() {
-   await this.UserDataService.addClicks(this.userData._id, 1);
+    await this.UserDataService.addClicks(this.userData._id, 1);
     this.mc = this.getMultiplier('mc');
     await this.UserDataService.addDistance(this.userData._id, this.mc);
     this.userData = await this.UserDataService.getUserByUsername(this.user);
     this.clicks = this.userData.data.clicks;
     this.distance = this.userData.data.distance;
-    this.distanceToAch = this.getDistancetoNextAchievement();
-  }
-
-  getDistancetoNextAchievement() {
-    const nextAchievementCount = this.userData.data.achievements.map(x => this.allAchievements.find(y => y.id === x + 1).count);
-    const distance = this.userData.data.distance;
-    const distancetoAch = (nextAchievementCount[nextAchievementCount.length - 1] - distance);
-    return distancetoAch;
   }
 
   onUpgradeClicked(upgrade) {
@@ -79,6 +69,18 @@ export class GamecontainerComponent implements OnInit {
       this.ms = this.getMultiplier('ms');
     }
   }
+
+  onDistanceToAchChange() {
+    this.distanceToAch = this.getDistancetoNextAchievement();
+  }
+
+  getDistancetoNextAchievement() {
+    const nextAchievementCount = this.userData.data.achievements.map(x => this.allAchievements.find(y => y.id === x + 1).count);
+    const distance = this.userData.data.distance;
+    const distancetoAch = (nextAchievementCount[nextAchievementCount.length - 1] - distance);
+    return distancetoAch;
+  }
+
 
   getMultiplier(type: string) {
     const allUserUpgrades = this.userData.data.upgrades.map(x => this.allUpgrades.find(y => y.id === x));
