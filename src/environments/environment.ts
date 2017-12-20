@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  server: 'http://localhost:1993'
+  server: process.env.PORT
 };
