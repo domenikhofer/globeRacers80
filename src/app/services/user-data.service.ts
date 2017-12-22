@@ -4,7 +4,6 @@ import 'rxjs/add/operator/map';
 import * as bcrypt from 'bcrypt-nodejs';
 import {environment} from '../../environments/environment';
 
-
 @Injectable()
 export class UserDataService {
 

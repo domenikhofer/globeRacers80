@@ -1,7 +1,6 @@
 import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import anime from 'animejs';
 
-
 @Component({
   selector: 'app-tachometer',
   templateUrl: './tachometer.component.html',

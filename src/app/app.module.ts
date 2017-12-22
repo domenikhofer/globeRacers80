@@ -28,7 +28,6 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { LogoAnimationComponent } from './logo-animation/logo-animation.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

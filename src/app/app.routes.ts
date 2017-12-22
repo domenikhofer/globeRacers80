@@ -9,7 +9,6 @@ import {WelcomeComponent} from './welcome/welcome.component';
 
 import {AuthGuard} from './auth.guard';
 
-
 // Route Configuration
 export const routes: Routes = [
   {

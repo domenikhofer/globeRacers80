@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TachometerComponent } from './tachometer.component';
+import {TachometerComponent} from './tachometer.component';
 
 describe('TachometerComponent', () => {
   let component: TachometerComponent;

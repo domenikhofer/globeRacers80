@@ -21,15 +21,17 @@
   }
 }
 
-/*********************
-TACHOMETER
-*******************/
 #tachometersign {
   display: none;
 }
 
-@media screen and (min-width: 1000px) {
 
+
+/********************************************
+MEDIA QUERIES
+ ******************************************/
+
+@media screen and (min-width: 1000px) {
   .mobile_speed {
     display: none;
   }
@@ -50,24 +52,26 @@ TACHOMETER
       text-align: center;
       margin-top: 75%;
     }
+
     .meterPerClick,
     .meterPerSecond {
       color: #fefffa;
       font-family: 'montserrat', 'arial', 'verdana';
     }
 
-
     .ii {
       position: absolute;
       width: 20em;
       height: 20em;
       z-index: 2;
+
       div {
         position: absolute;
         width: 17.5em;
         height: 17.5em;
         padding: 4px;
         box-sizing: border-box;
+
         b {
           position: absolute;
           display: block;
@@ -76,8 +80,8 @@ TACHOMETER
           height: 20px;
           background: #FFF;
           margin: 0 -5px 0;
-
         }
+
         &:nth-child(2n+1) b {
           width: 10px;
           height: 35px;
@@ -108,7 +112,7 @@ TACHOMETER
           transform: rotate(345deg);
         }
         &:nth-child(9) {
-          transform: rotate(0deg); /*---*/
+          transform: rotate(0deg);
         }
         &:nth-child(10) {
           transform: rotate(15deg);
@@ -134,9 +138,7 @@ TACHOMETER
         &:nth-child(17) {
           transform: rotate(120deg);
         }
-
       }
-
     }
 
     [class^="num_"] {
@@ -149,7 +151,6 @@ TACHOMETER
       text-transform: uppercase;
       font-family: 'montserrat', 'arial', 'verdana', cursive;
       text-decoration: none;
-
     }
 
     .num_1 {

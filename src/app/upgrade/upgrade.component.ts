@@ -4,7 +4,6 @@ import {UserDataService} from '../services/user-data.service';
 import {trigger, style, animate, transition} from '@angular/animations';
 import anime from 'animejs';
 
-
 @Component({
   selector: 'app-upgrade',
   animations: [

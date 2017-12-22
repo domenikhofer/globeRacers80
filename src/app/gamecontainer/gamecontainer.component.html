@@ -34,29 +34,28 @@
   </div>
   <h1 class="distanceAch">{{distanceToAch || 1}} meters to the next achievement</h1>
 
-
   <div class="game-info col-md-12">
-      <div class="col-md-4">
-        <app-leaderboard></app-leaderboard>
-      </div>
-      <div class="col-md-4">
-        <app-achievement
-          [userData]="userData"
-          [clickCount]="clicks"
-          [distance]="distance"
-          [user]="user"
-          [distanceToAch]="onDistanceToAchChange()"
-        ></app-achievement>
-      </div>
-      <div class="col-md-4">
-        <app-upgrade
-          [userData]="userData"
-          (upgradeClicked)="onUpgradeClicked($event)"
-          [clickCount]="clicks"
-          [distance]="distance"
-        ></app-upgrade>
-      </div>
+    <div class="col-md-4">
+      <app-leaderboard></app-leaderboard>
     </div>
+    <div class="col-md-4">
+      <app-achievement
+        [userData]="userData"
+        [clickCount]="clicks"
+        [distance]="distance"
+        [user]="user"
+        [distanceToAch]="onDistanceToAchChange()"
+      ></app-achievement>
+    </div>
+    <div class="col-md-4">
+      <app-upgrade
+        [userData]="userData"
+        (upgradeClicked)="onUpgradeClicked($event)"
+        [clickCount]="clicks"
+        [distance]="distance"
+      ></app-upgrade>
+      </div>
+  </div>
 
   <footer>
     Icons made by

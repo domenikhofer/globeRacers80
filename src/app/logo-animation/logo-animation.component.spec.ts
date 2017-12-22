@@ -1,5 +1,4 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-
 import {LogoAnimationComponent} from './logo-animation.component';
 
 describe('LogoAnimationComponent', () => {

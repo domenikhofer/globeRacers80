@@ -1,5 +1,4 @@
 import {TestBed, inject} from '@angular/core/testing';
-
 import {UpgradeService} from './upgrade.service';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';

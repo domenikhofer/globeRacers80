@@ -13,7 +13,6 @@ export class OdometerComponent implements OnInit {
   }
 
   ngOnInit() {
-   // this.distance = 0;
   }
 
 }

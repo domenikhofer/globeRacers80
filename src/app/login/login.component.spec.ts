@@ -1,9 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {Component, DebugElement} from '@angular/core';
+import {DebugElement} from '@angular/core';
 import {LoginComponent} from './login.component';
 import {LogoAnimationComponent} from '../logo-animation/logo-animation.component';
 import {FormsModule} from '@angular/forms';
-import {Router} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {MockBackend} from '@angular/http/testing';
 import {BaseRequestOptions, Http} from '@angular/http';
