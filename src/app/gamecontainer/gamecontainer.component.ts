@@ -48,7 +48,7 @@ export class GamecontainerComponent implements OnInit {
 
     setInterval(async () => {
         this.ms = this.getMultiplier('ms');
-        console.log(this.ms);
+        this.mc = this.getMultiplier('mc');
         await this.UserDataService.addDistance(this.userData._id, this.ms);
         this.userData = await this.UserDataService.getUserByUsername(this.user);
         this.distance = this.userData.data.distance;
