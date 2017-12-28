@@ -1,115 +1,125 @@
-.car {
-  z-index: 22;
-  position: relative;
-  bottom: 150%; // with mustang_car.png 100%
-  background:none;
-  width: 50vh;
-}
-
 .car-container {
   height: 50vh;
   overflow: hidden;
   padding-left: 0;
-}
 
-.sky {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, #416ba7 0%, #90bce3 50%);
-  position: absolute;
-}
+  .car {
+    z-index: 22;
+    position: relative;
+    bottom: 150%; // with mustang_car.png 100%
+    background: none;
+    width: 50vh;
+  }
 
-.road {
-  bottom: 0px;
-  width: 100%;
-  height: 20%;
-  background: linear-gradient(to bottom, #4a483d 0%, #4c4f48 30%);
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .road-lines {
-    bottom: 0px;
-    margin-bottom: 1%;
-    width: 200%;
-    height: 10%;
-    background: repeating-linear-gradient(90deg, white 0%, white 10%, transparent 10%, transparent 20%);
+  .sky {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #416ba7 0%, #90bce3 50%);
     position: absolute;
   }
 
+  .road {
+    bottom: 0px;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to bottom, #4a483d 0%, #4c4f48 30%);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .road-lines {
+      bottom: 0px;
+      margin-bottom: 1%;
+      width: 200%;
+      height: 10%;
+      background: repeating-linear-gradient(90deg, white 0%, white 10%, transparent 10%, transparent 20%);
+      position: absolute;
+    }
+
+  }
+
+  .desert {
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(#ddd, #dfdfdf);
+    bottom: 20%;
+    position: absolute;
+  }
+
+  .mountains {
+    background: #F0F0C9;
+    background: linear-gradient(#eee, #eee);
+    width: 200%;
+    height: 100px;
+    bottom: 40%;
+    -webkit-clip-path: polygon(0% 62%, 4% 74%, 21% 18%, 24% 32%, 32% 0%, 50% 62%, 54% 74%, 71% 18%, 74% 32%, 82% 0%, 100% 62%, 100% 100%, 0 100%);
+    overflow: hidden;
+    position: absolute;
+
+    .mountain-shadow {
+      width: 100%;
+      height: 100%;
+      background: #E77728;
+      background: linear-gradient(#fff 0%, #e0e0e0 50%);
+      -webkit-clip-path: polygon(4% 74%, 9% 90%, 8% 80%, 14% 64%, 16% 46%, 20% 30%, 21% 18%, 24% 32%, 27% 42%, 31% 50%, 30% 20%, 32% 0%, 54% 74%, 59% 90%, 58% 80%, 64% 64%, 66% 46%, 70% 30%, 71% 18%, 74% 32%, 77% 42%, 81% 50%, 80% 20%, 82% 0%, 100% 0%, 0% 0%);
+      position: absolute;
+    }
+
+  }
+
+  .italy {
+    position: absolute;
+    bottom: 30%;
+    width: 20vh;
+    animation: anim60 linear 10s;
+  }
+
+  .clouds {
+    width: 100px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 400px 60px 10px 0px #fff,
+    350px 60px 10px 0px #fff,
+    385px 40px 10px 0px #fff,
+    1200px 60px 10px 0px #fff,
+    1150px 60px 10px 0px #fff,
+    1185px 40px 10px 0px #fff,
+    850px 150px 12px 0px #fff,
+    900px 130px 12px 0px #fff,
+    1750px 150px 12px 0px #fff,
+    1800px 130px 12px 0px #fff;
+    opacity: 0.3;
+    animation: animcloud linear 80s;
+    animation-iteration-count: infinite;
+    position: absolute;
+  }
+
+  @keyframes anim50 {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    100% {
+      transform: translate(-50%, 0px);
+    }
+  }
+
+  @keyframes anim60 {
+    0% {
+      transform: translate(500%, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+
+  @keyframes animcloud {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    100% {
+      transform: translate(-900px, 0px);
+    }
+  }
 }
-
-.desert {
-  width:100%;
-  height:20%;
-  background:linear-gradient(#FFDDA1, #F3B234);
-  bottom:20%;
-  position: absolute;
-}
-
-.mountains {
-  background:#F0F0C9;
-  background:linear-gradient(#F0F0C9,#E77728);
-  width:200%;
-  height:100px;
-  bottom:40%;
-  -webkit-clip-path: polygon(0% 62%, 4% 74%, 21% 18%, 24% 32%, 32% 0%, 50% 62%, 54% 74%, 71% 18%, 74% 32%, 82% 0%, 100% 62%, 100% 100%, 0 100%);
-  overflow:hidden;
-  position: absolute;
-
-.mountain-shadow {
-  width:100%;
-  height:100%;
-  background:#E77728;
-  background:linear-gradient(#F0F0C9 0%, #E77728 50%);
-  -webkit-clip-path: polygon(4% 74%, 9% 90%, 8% 80%, 14% 64%, 16% 46%, 20% 30%, 21% 18%, 24% 32%, 27% 42%, 31% 50%, 30% 20%, 32% 0%, 54% 74%, 59% 90%, 58% 80%, 64% 64%, 66% 46%, 70% 30%, 71% 18%, 74% 32%, 77% 42%, 81% 50%, 80% 20%, 82% 0%, 100% 0%, 0% 0%);
-  position: absolute;
-}
-
-}
-
-.italy {
-  position: absolute;
-  bottom: 30%;
-  width: 20vh;
-  animation: anim60 linear 10s;
-}
-
-.clouds {
-  width:100px;
-  height:50px;
-  border-radius:50%;
-  box-shadow: 400px 60px 10px 0px #fff,
-  350px 60px 10px 0px #fff,
-  385px 40px 10px 0px #fff,
-  1200px 60px 10px 0px #fff,
-  1150px 60px 10px 0px #fff,
-  1185px 40px 10px 0px #fff,
-
-  850px 150px 12px 0px #fff,
-  900px 130px 12px 0px #fff,
-  1750px 150px 12px 0px #fff,
-  1800px 130px 12px 0px #fff;
-  opacity:0.3;
-  animation: animcloud linear 80s;
-  animation-iteration-count: infinite;
-  position: absolute;
-}
-
-@keyframes anim50 {
-  0% {transform: translate(0px, 0px);}
-  100% {transform: translate(-50%, 0px);}
-}
-
-@keyframes anim60 {
-  0% {transform: translate(500%,0);}
-  100% {transform: translate(-100%,0);}
-}
-
-@keyframes animcloud {
-  0% {transform: translate(0px, 0px);}
-  100% {transform: translate(-900px, 0px);}
-}
-
 

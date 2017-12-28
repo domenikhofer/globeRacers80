@@ -13,26 +13,34 @@
       [distance]="distance"
       [ms]="ms"
     ></app-car>
+
+    <div class="sideboard">
+      <app-tachometer
+        [clickCount]="clicks"
+        [mc]="mc"
+        [ms]="ms"
+      ></app-tachometer>
+      <app-odometer
+        [distance]="distance"
+      ></app-odometer>
+    </div>
+
+    <div class="username logout" (click)="userMenu = !userMenu">
+      {{user}} &nbsp;
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+
+    <div class="level">
+      <img alt="Level {{this.country}}" src="../assets/img/country/{{this.country}}.png" /> {{this.country}}
+    </div>
+
+    <div class="userMenu" *ngIf="userMenu">
+      <button class="logout" (click)="logout()"> Logout &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i></button>
+      <button class="deleteScore" (click)="reset()">Reset Scores &nbsp;<i class="fa fa-exclamation-triangle" aria-hidden="true"></i></button>
+    </div>
   </div>
-  <div class="sideboard">
-    <app-tachometer
-      [clickCount]="clicks"
-      [mc]="mc"
-      [ms]="ms"
-    ></app-tachometer>
-    <app-odometer
-      [distance]="distance"
-    ></app-odometer>
-  </div>
-  <div class="username logout" (click)="userMenu = !userMenu">
-    {{user}} &nbsp;
-    <i class="fa fa-bars" aria-hidden="true"></i>
-  </div>
-  <div class="userMenu" *ngIf="userMenu">
-    <button class="logout" (click)="logout()"> Logout &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i></button>
-    <button class="deleteScore" (click)="reset()">Reset Scores &nbsp;<i class="fa fa-exclamation-triangle" aria-hidden="true"></i> </button>
-  </div>
-  <h1 class="distanceAch">{{distanceToAch || 1}} meters to the next achievement</h1>
+
+  <h1 class="distanceAch">{{distanceToAch || 1}} {{meter}} to the next achievement</h1>
 
   <div class="game-info col-md-12">
     <div class="col-md-4">

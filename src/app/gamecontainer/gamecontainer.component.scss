@@ -48,54 +48,63 @@
 
   .car-container {
     padding: 0;
-  }
+    position: relative;
 
-  .username {
-    position: absolute;
-    top: 1%;
-    right: 1%;
-    font-size: 1em;
-    font-family: 'montserrat', 'arial', 'verdana', cursive;
-    text-transform: uppercase;
-    color: white;
-
-    i.fa.fa-sign-out {
+    .level {
       color: white;
-      font-size: 1.5em;
+      font-family: 'Bungee', cursive;
+      margin: 1em;
+      position: absolute;
+      top: 0;
     }
-  }
 
-  .userMenu {
-    position: absolute;
-    background: #fff;
-    text-align: center;
-    padding: 20px;
-    top: 2.5em;
-    right: 1em;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    z-index: 30;
-
-    button {
+    .username {
+      position: absolute;
+      top: 1%;
+      right: 1%;
+      font-size: 1em;
       font-family: 'montserrat', 'arial', 'verdana', cursive;
       text-transform: uppercase;
-      outline: 0;
-      background: #D1495B;
-      width: 100%;
-      border: 0;
-      padding: 15px;
-      color: #FFFFFF;
-      font-size: 14px;
-      -webkit-transition: all 0.3s ease;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      margin:5px;
+      color: white;
 
-      &:hover {
-        opacity: 0.8;
+      i.fa.fa-sign-out {
+        color: white;
+        font-size: 1.5em;
       }
+    }
 
-      &.logout {
-        background: #4caf50;
+    .userMenu {
+      position: absolute;
+      background: #fff;
+      text-align: center;
+      padding: 20px;
+      top: 2.5em;
+      right: 1em;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+      z-index: 30;
+
+      button {
+        font-family: 'montserrat', 'arial', 'verdana', cursive;
+        text-transform: uppercase;
+        outline: 0;
+        background: #D1495B;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        margin: 5px;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &.logout {
+          background: #4caf50;
+        }
       }
     }
   }

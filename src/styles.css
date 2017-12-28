@@ -34,4 +34,12 @@ Info Boxes
 .leaderboard {
   padding: 0.75px; }
 
+/********************************************
+MEDIA QUERIES
+ ******************************************/
+@media screen and (min-height: 1000px) {
+  footer {
+    position: absolute;
+    bottom: 0; } }
+
 /*# sourceMappingURL=styles.css.map */

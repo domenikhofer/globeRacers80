@@ -1,6 +1,9 @@
-{"id":0,"title":"You started your journey!","img":"c1.png","unit":"c","count":1,"_id":"3QKskhVGUEzU2EtK"}
-{"id":1,"title":"You left your street!","img":"c1.png","unit":"c","count":10,"_id":"H948bAIzgxm2jb9e"}
-{"id":4,"title":"Arrived in Italy!","img":"c1.png","unit":"d","count":40500,"_id":"NMzP0nSCYzvAi810"}
-{"id":2,"title":"Out of town, still a long way to go!","img":"c1.png","unit":"d","count":31,"_id":"NMzP0nSCYzvAi8u8"}
-{"id":3,"title":"Crossed the country!","img":"c1.png","unit":"d","count":40000,"_id":"NMzP0nSCYzvAi8u9"}
-{"id":5,"title":"You made it!","img":"c1.png","unit":"d","count":100000000,"_id":"NMzP0nSCYzvAi999"}
+{"id":0,"title":"You started your journey!","unit":"c","count":1,"_id":"3QKskhVGUEzU2EtK"}
+{"id":1,"title":"You left your street!","unit":"c","count":10,"_id":"H948bAIzgxm2jb9e"}
+{"id":4,"title":"Made it over the mountains","unit":"d","count":5000,"_id":"NMzP0nSCYzvAi771"}
+{"id":7,"title":"Arrived in Italy!","unit":"d","count":40500,"_id":"NMzP0nSCYzvAi810"}
+{"id":2,"title":"Out of town, still a long way to go!","unit":"d","count":100,"_id":"NMzP0nSCYzvAi8u8"}
+{"id":6,"title":"Crossed the country!","unit":"d","count":40000,"_id":"NMzP0nSCYzvAi8u9"}
+{"id":5,"title":"You made id halfway through the country","unit":"d","count":20000,"_id":"NMzP0nSCYzvAi990"}
+{"id":3,"title":"Passed the canton border","unit":"d","count":500,"_id":"NMzP0nSCYzvAi991"}
+{"id":8,"title":"You made it!","unit":"d","count":100000000,"_id":"NMzP0nSCYzvAi999"}

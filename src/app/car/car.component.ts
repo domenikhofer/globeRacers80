@@ -38,7 +38,6 @@ export class CarComponent implements OnInit, OnChanges {
     }
   }
 
-
   ngOnChanges(changes: any) {
     if (this.ms > 0) {
       anime({
@@ -47,7 +46,6 @@ export class CarComponent implements OnInit, OnChanges {
         easing: 'easeOutExpo',
       });
     }
-
     if (0 < this.distance  && this.distance < 2) {
       anime({
         targets: '.mountains',
@@ -57,29 +55,41 @@ export class CarComponent implements OnInit, OnChanges {
         loop: true
       });
     }
+    if (this.distance > 40000) {
+      const desert = document.getElementsByClassName('desert') as HTMLCollectionOf<HTMLElement>;
+       if (desert.length !== 0) {
+         desert[0].style.background = 'linear-gradient(#FFDDA1, #F3B234)';
+       }
+      const mountains = document.getElementsByClassName('mountains') as HTMLCollectionOf<HTMLElement>;
+      if (mountains.length !== 0) {
+        mountains[0].style.background = 'linear-gradient(#F0F0C9, #E77728)';
+      }
+      const mountainShadow = document.getElementsByClassName('mountain-shadow') as HTMLCollectionOf<HTMLElement>;
+      if (mountainShadow.length !== 0) {
+        mountainShadow[0].style.background = 'linear-gradient(#F0F0C9 0%, #E77728 50%)';
+      }
+    }
+    if (this.distance > 40000 && this.distance < 40500) {
+      this.shown = true;
+      const that = this;
+      setTimeout(function() {
+        that.shown = false;
+      }, 10000);
+    }
   }
 
   onClick() {
     this.carClicked.emit();
-   anime({
+    this.playAudio();
+    anime({
       targets: '.car',
       scale: ['1.05', '1.0'],
     });
-   anime({
-     targets: '.road-lines',
-     translateX: ['0', '-20%'],
-     easing: 'easeOutExpo',
-   });
-
-
-   if (this.distance > 40000 && this.distance < 40500 ) {
-     this.shown = true;
-     const that = this;
-     setTimeout(function() {
-       that.shown = false;
-     }, 10000);
-   }
-    this.playAudio();
+    anime({
+      targets: '.road-lines',
+      translateX: ['0', '-20%'],
+      easing: 'easeOutExpo',
+    });
   }
 
   playAudio() {
@@ -88,6 +98,5 @@ export class CarComponent implements OnInit, OnChanges {
     audio.load();
     audio.play();
   }
-
 }
 

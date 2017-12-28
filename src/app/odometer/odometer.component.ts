@@ -8,9 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class OdometerComponent implements OnInit {
   @Input() distance;
 
-  constructor() {
-
-  }
+  constructor() {}
 
   ngOnInit() {
   }

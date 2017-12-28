@@ -24,6 +24,8 @@ export class GamecontainerComponent implements OnInit {
   ms;
   mc;
   user;
+  meter;
+  country;
   userMenu = false;
   loading = false;
 
@@ -37,6 +39,7 @@ export class GamecontainerComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.country = 'switzerland';
     this.loading = true;
     this.user = this.UserDataService.getUserLoggedIn();
     this.userData = await this.UserDataService.getUserByUsername(this.user);
@@ -45,6 +48,7 @@ export class GamecontainerComponent implements OnInit {
 
     setInterval(async () => {
         this.ms = this.getMultiplier('ms');
+        console.log(this.ms);
         await this.UserDataService.addDistance(this.userData._id, this.ms);
         this.userData = await this.UserDataService.getUserByUsername(this.user);
         this.distance = this.userData.data.distance;
@@ -72,6 +76,8 @@ export class GamecontainerComponent implements OnInit {
 
   onDistanceToAchChange() {
     this.distanceToAch = this.getDistancetoNextAchievement();
+    (!this.distanceToAch || this.distanceToAch === 1) ? (this.meter = 'meter') : (this.meter = 'meters');
+    if (this.distance > 40000) { this.country = 'italy'; }
   }
 
   getDistancetoNextAchievement() {
@@ -81,13 +87,10 @@ export class GamecontainerComponent implements OnInit {
     return distancetoAch;
   }
 
-
   getMultiplier(type: string) {
     const allUserUpgrades = this.userData.data.upgrades.map(x => this.allUpgrades.find(y => y.id === x));
     const typeUpgrades = allUserUpgrades.filter(x => x.upgrade.unit === type);
-
     let multiplier = (type === 'mc' ? 1 : 0);
-
     const operators = {
       '*': (a, b) => a * b,
       '+': (a, b) => a + b,
@@ -100,19 +103,15 @@ export class GamecontainerComponent implements OnInit {
   logout() {
     this.UserDataService.setUserLoggedOut(this.user);
     this.router.navigate(['/login']);
-
   }
 
   async reset() {
     this.userMenu = false;
-   if (confirm('Are you sure you want to delete all your progress?')) {
+    if (confirm('Are you sure you want to delete all your progress?')) {
      await this.UserDataService.resetUser(this.user);
      await this.onCarClicked();
      await this.UserDataService.resetUser(this.user);
      await this.onCarClicked();
-   }
-
+    }
   }
-
-
 }

@@ -14,7 +14,6 @@ export class TachometerComponent implements OnInit, OnChanges {
 
   constructor() {}
 
-
   ngOnInit() {
     this.mc = 1;
     this.ms = 0;
