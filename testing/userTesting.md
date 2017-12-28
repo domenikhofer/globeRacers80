@@ -1,8 +1,8 @@
 ![picture](userTesting.jpg)
 
-## User Test mit SL 26.12.2017
+## User Test am 26.12.2017
 
-# Feedback
+### Feedback
 
  Allgemein: "Intuitives Spiel, das die Motivationspanne durch regelmässige Belohnungen hoch hält"
  
