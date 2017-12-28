@@ -8,7 +8,7 @@ import anime from 'animejs';
 })
 export class LogoAnimationComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   async ngOnInit() {
     await anime({

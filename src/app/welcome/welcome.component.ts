@@ -22,9 +22,8 @@ import {animate, query, stagger, style, transition, trigger} from '@angular/anim
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

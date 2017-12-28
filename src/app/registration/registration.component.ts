@@ -42,7 +42,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   async register() {
-
     const userdata = await this.userDataService.getUserByUsername(this.model.username);
 
     if (userdata === null) {

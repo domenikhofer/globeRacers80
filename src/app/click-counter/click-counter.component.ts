@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ClickCounterComponent implements OnInit {
   @Input() clickCount: number;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.clickCount = 0;
