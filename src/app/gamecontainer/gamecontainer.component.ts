@@ -78,6 +78,7 @@ export class GamecontainerComponent implements OnInit {
     this.distanceToAch = this.getDistancetoNextAchievement();
     (!this.distanceToAch || this.distanceToAch === 1) ? (this.meter = 'meter') : (this.meter = 'meters');
     if (this.distance > 40000) { this.country = 'italy'; }
+    if (this.distance > 100000) { this.country = 'tunisia'; }
   }
 
   getDistancetoNextAchievement() {
@@ -108,6 +109,7 @@ export class GamecontainerComponent implements OnInit {
   async reset() {
     this.userMenu = false;
     if (confirm('Are you sure you want to delete all your progress?')) {
+     this.distance = 0;
      await this.UserDataService.resetUser(this.user);
      await this.onCarClicked();
      await this.UserDataService.resetUser(this.user);

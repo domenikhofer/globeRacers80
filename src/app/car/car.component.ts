@@ -56,9 +56,23 @@ export class CarComponent implements OnInit, OnChanges {
       });
     }
     if (this.distance > 40000) {
-      const desert = document.getElementsByClassName('desert') as HTMLCollectionOf<HTMLElement>;
-       if (desert.length !== 0) {
-         desert[0].style.background = 'linear-gradient(#FFDDA1, #F3B234)';
+      const field = document.getElementsByClassName('field') as HTMLCollectionOf<HTMLElement>;
+      if (field.length !== 0) {
+        field[0].style.background = 'linear-gradient(#808c5e, #576b3c)';
+      }
+      const mountains = document.getElementsByClassName('mountains') as HTMLCollectionOf<HTMLElement>;
+      if (mountains.length !== 0) {
+        mountains[0].style.background = 'linear-gradient(#CFDBC5, #5A6351)';
+      }
+      const mountainShadow = document.getElementsByClassName('mountain-shadow') as HTMLCollectionOf<HTMLElement>;
+      if (mountainShadow.length !== 0) {
+        mountainShadow[0].style.background = 'linear-gradient(#CFDBC5 0%, #5A6351 50%)';
+      }
+    }
+    if (this.distance > 100000) {
+      const field = document.getElementsByClassName('field') as HTMLCollectionOf<HTMLElement>;
+       if (field.length !== 0) {
+         field[0].style.background = 'linear-gradient(#FFDDA1, #F3B234)';
        }
       const mountains = document.getElementsByClassName('mountains') as HTMLCollectionOf<HTMLElement>;
       if (mountains.length !== 0) {
