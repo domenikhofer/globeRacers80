@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  server: 'https://localhost:1993'
+  server: 'https://localhost:' + process.env.PORT
 };
