@@ -13,6 +13,21 @@ body {
 }
 
 footer {
+  position: fixed;
+  bottom:0;
+  right:0;
+  padding:5px;
+  text-align: right;
+
+  details {
+    color:lightgray;
+    outline:none;
+
+    summary {
+      outline: none; }
+
+  }
+
   a {
     color: grey;
   }
@@ -47,15 +62,15 @@ Info Boxes
 }
 
 
-
-
 /********************************************
 MEDIA QUERIES
  ******************************************/
 
-@media screen and (min-height: 1000px) {
-  footer {
-    position: absolute;
-    bottom: 0;
+
+@media screen and (max-width: 1300px) {
+  .achievements h3,
+  .upgrades h3,
+  .leaderboard-container h3 {
+    font-size: 1.5em;
   }
 }

@@ -2,17 +2,15 @@
   <app-loader [loading]="loading"></app-loader>
 </div>
 
-<div *isMobile>
-  <div *isPortrait class="portrait_msg"><p>To play the game please switch to landscape mode</p></div>
-</div>
 
-<div *ngIf="!loading" class="game-container">
+<div *ngIf="!loading"  class="game-container">
   <div class="col-md-12 car-container">
     <app-car
       (carClicked)="onCarClicked()"
       [distance]="distance"
       [ms]="ms"
     ></app-car>
+
 
     <div class="sideboard">
       <app-tachometer
@@ -66,6 +64,8 @@
   </div>
 
   <footer>
+    <details>
+      <summary><i class="fa fa-copyright" aria-hidden="true"></i></summary>
     Icons made by
     <a href="http://www.freepik.com" title="Freepik">Freepik</a>,
     <a href="https://smashicons.com/" title="Smashicons">Smashicons</a>,
@@ -74,5 +74,6 @@
     <a href="http://a-maslennikov.com/" title="Anatoly">Anatoly</a>
     from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a
     href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+    </details>
   </footer>
 </div>

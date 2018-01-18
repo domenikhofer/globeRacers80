@@ -13,6 +13,7 @@
   .loader {
     margin: auto;
     text-align: center;
+    width:100%;
 
     .loading {
       position: relative;
@@ -68,5 +69,32 @@
     0% {stroke-dashoffset: 0}
     100% {stroke-dashoffset: -600;}
   }
+}
+
+
+
+/********************************************
+MEDIA QUERIES
+ ******************************************/
+
+@media screen and (max-width: 450px) {
+
+  .loader-wrapper{
+    .loader{
+      .loading {
+        font-size: 3em;
+      }
+
+      .globeracer {
+        font-size: 2em;
+        margin-left: 7em;
+        margin-top: -0.5em;
+
+      }
+    }
+  }
+
+
+
 }
 
