@@ -19,7 +19,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## User Test am 26.12.2017
 
-![picture](userTesting.jpg)
+![picture](GlobeRacers80/testing/userTesting.jpg)
 
 ### Feedback
 
