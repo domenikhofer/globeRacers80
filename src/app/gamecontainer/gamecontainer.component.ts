@@ -28,6 +28,7 @@ export class GamecontainerComponent implements OnInit {
   country;
   userMenu = false;
   loading = false;
+  globalTimer;
 
   constructor(UserDataService: UserDataService,
               UpgradeService: UpgradeService,
@@ -46,7 +47,7 @@ export class GamecontainerComponent implements OnInit {
     this.allUpgrades = await this.UpgradeService.getAllUpgrades();
     this.allAchievements = await this.AchievementService.getAllAchievements();
 
-    setInterval(async () => {
+   this.globalTimer = window.setInterval(async () => {
         this.ms = this.getMultiplier('ms');
         this.mc = this.getMultiplier('mc');
         await this.UserDataService.addDistance(this.userData._id, this.ms);
@@ -103,7 +104,9 @@ export class GamecontainerComponent implements OnInit {
 
   logout() {
     this.UserDataService.setUserLoggedOut(this.user);
+    window.clearInterval(this.globalTimer);
     this.router.navigate(['/login']);
+
   }
 
   async reset() {

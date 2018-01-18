@@ -1,7 +1,7 @@
 import {Component, Input, EventEmitter, OnInit, Output, OnChanges} from '@angular/core';
 import {animate, style, transition, trigger} from '@angular/animations';
 
-import anime from 'animejs';
+import * as anime from 'animejs';
 
 @Component({
   selector: 'app-car',
@@ -26,7 +26,6 @@ export class CarComponent implements OnInit, OnChanges {
   constructor() {}
 
   ngOnInit() {
-    this.ms = 0;
     if (0 < this.distance) {
       anime({
         targets: '.mountains',

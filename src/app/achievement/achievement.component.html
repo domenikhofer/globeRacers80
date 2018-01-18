@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody *ngIf="userAchievements">
-      <tr *ngFor="let achievement of (userAchievements.reverse()); let i = index;">
+      <tr *ngFor="let achievement of (userAchievements); let i = index;">
         <td class="achievement" *ngIf="i<3">{{achievement}}</td>
       </tr>
     </tbody>

@@ -1,7 +1,7 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {AchievementService} from '../services/achievement.service';
 import {UserDataService} from '../services/user-data.service';
-import anime from 'animejs';
+import * as anime from 'animejs';
 
 @Component({
   selector: 'app-achievement',
@@ -65,6 +65,7 @@ export class AchievementComponent implements OnInit, OnChanges {
           x => this.allAchievements.find(
             y => y.id === x).title
         );
+      this.userAchievements.reverse();
     }
   }
 
