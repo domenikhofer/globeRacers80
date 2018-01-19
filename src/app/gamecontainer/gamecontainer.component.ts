@@ -90,7 +90,6 @@ export class GamecontainerComponent implements OnInit {
   }
 
   getMultiplier(type: string) {
-    this.ms = 0;
     const allUserUpgrades = this.userData.data.upgrades.map(x => this.allUpgrades.find(y => y.id === x));
     const typeUpgrades = allUserUpgrades.filter(x => x.upgrade.unit === type);
     let multiplier = (type === 'mc' ? 1 : 0);
