@@ -64,7 +64,7 @@ export class AchievementComponent implements OnInit, OnChanges {
         userData.data.achievements.map(
           x => this.allAchievements.find(
             y => y.id === x).title
-        );
+        ).reverse();
     }
   }
 
