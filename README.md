@@ -32,7 +32,17 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 - [x] Odometer Zahlen mit ‘ anstelle des Kommas trennen
 
 
-## Packages Used
+## We used
+
+- Angular
+- Angular CLI
+- SASS
+- Webpack
+- Karma
+- Typescript
+
+
 
 ## Inspiration
 
+[CookieClicker](http://orteil.dashnet.org/cookieclicker/)

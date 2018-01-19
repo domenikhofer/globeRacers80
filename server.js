@@ -24,12 +24,15 @@ app.use(express.static(__dirname + '/dist'));
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
-/*app.get('/*', function(req, res) {
+app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/dist/index.html'));
-});*/
+});
 
+/*
 //////DEV/////////////
 app.use(cors());
+*/
+
 app.use('/db', require("./database/dbRoutes.js"));
 
 // If an incoming request uses
