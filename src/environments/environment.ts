@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  server: 'https://localhost:1993'
+  server: 'https://globeracers.herokuapp.com'
 };
