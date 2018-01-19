@@ -19,6 +19,7 @@ module.exports.getUsers = function(req, res){
 };
 
 module.exports.getUserByUsername = function(req, res){
+  console.log(req, res);
   db.getUserByUsername(
     req.body.username,
     (err,dbUser)=>{
