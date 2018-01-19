@@ -47,12 +47,17 @@ export class GamecontainerComponent implements OnInit {
     this.allAchievements = await this.AchievementService.getAllAchievements();
 
     setInterval(async () => {
+      console.log(1);
         this.ms = this.getMultiplier('ms');
+      console.log(2);
         this.mc = this.getMultiplier('mc');
+      console.log(3);
         await this.UserDataService.addDistance(this.userData._id, this.ms);
+      console.log(4);
         this.userData = await this.UserDataService.getUserByUsername(this.user);
-        console.log(this.userData);
+      console.log(5);
         this.distance = this.userData.data.distance;
+      console.log(6);
         this.loading = false;
     }, 1000);
   }
