@@ -48,7 +48,6 @@ export class RegistrationComponent implements OnInit {
       const hash = await this.userDataService.getPasswordHash(this.model.password);
       await this.userDataService.addUser(this.model.username, hash);
       this.userDataService.setUserLoggedIn(this.model.username);
-      //console.log(this.userDataService.getUserLoggedIn());
       this.router.navigate(['/game']);
       this.loading = true;
     } else {
