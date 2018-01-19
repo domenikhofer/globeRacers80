@@ -58,7 +58,6 @@ export class AchievementComponent implements OnInit, OnChanges {
   }
 
   async displayAchievements() {
-    console.log('now');
     const userData = await this.UserDataService.getUserByUsername(this.user);
     if (this.allAchievements) {
       this.userAchievements =
