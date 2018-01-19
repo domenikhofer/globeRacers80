@@ -43,21 +43,16 @@ export class GamecontainerComponent implements OnInit {
     this.loading = true;
     this.user = this.UserDataService.getUserLoggedIn();
     this.userData = await this.UserDataService.getUserByUsername(this.user);
+    console.log(this.user, this.userData);
     this.allUpgrades = await this.UpgradeService.getAllUpgrades();
     this.allAchievements = await this.AchievementService.getAllAchievements();
 
     setInterval(async () => {
-      console.log(1);
         this.ms = this.getMultiplier('ms');
-      console.log(2);
         this.mc = this.getMultiplier('mc');
-      console.log(3);
         await this.UserDataService.addDistance(this.userData._id, this.ms);
-      console.log(4);
         this.userData = await this.UserDataService.getUserByUsername(this.user);
-      console.log(5);
         this.distance = this.userData.data.distance;
-      console.log(6);
         this.loading = false;
     }, 1000);
   }
@@ -95,7 +90,6 @@ export class GamecontainerComponent implements OnInit {
   }
 
   getMultiplier(type: string) {
-    console.log(this.userData);
     const allUserUpgrades = this.userData.data.upgrades.map(x => this.allUpgrades.find(y => y.id === x));
     const typeUpgrades = allUserUpgrades.filter(x => x.upgrade.unit === type);
     let multiplier = (type === 'mc' ? 1 : 0);
