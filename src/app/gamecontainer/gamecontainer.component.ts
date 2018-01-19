@@ -43,7 +43,6 @@ export class GamecontainerComponent implements OnInit {
     this.loading = true;
     this.user = this.UserDataService.getUserLoggedIn();
     this.userData = await this.UserDataService.getUserByUsername(this.user);
-    console.log(this.user, this.userData);
     this.allUpgrades = await this.UpgradeService.getAllUpgrades();
     this.allAchievements = await this.AchievementService.getAllAchievements();
 

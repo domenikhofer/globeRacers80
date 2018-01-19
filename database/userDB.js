@@ -37,7 +37,8 @@ function getUsers(callback) {
 function getUserByUsername(username, callback) {
   db.findOne({username: username}, function (err, dbUser) {
     if (callback) {
-      callback(err, dbUser);
+      callback(err, dbUser)
+      console.log(dbUser);
       return dbUser;
     }
   })
