@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angula
 import {UpgradeService} from '../services/upgrade.service';
 import {UserDataService} from '../services/user-data.service';
 import {trigger, style, animate, transition} from '@angular/animations';
-import anime from 'animejs';
+import * as anime from 'animejs';
 
 @Component({
   selector: 'app-upgrade',
