@@ -7,9 +7,13 @@ Tap your car to push it further and further, collect upgrades and get achievemen
 Can you make it around the world?
 
 ## Get Startin'!
-git clone
-npm start
+- git clone
+- npm install
+- npm start
 
+## Live Version:
+
+[globeracers80.com (Beta)](www.globeracers80.com)
 
 
 ## Running unit tests
