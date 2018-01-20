@@ -6,10 +6,16 @@ All you got is a broken down car and a mighty strong finger.
 Tap your car to push it further and further, collect upgrades and get achievements!
 Can you make it around the world?
 
-## Get Startin'!
+## Get Startin'! 
 - git clone
 - npm install
 - npm start
+
+## Get Startin' on a MacBook!
+- git clone
+- npm install
+- npm run server
+- ng serve
 
 ## Live Version:
 
