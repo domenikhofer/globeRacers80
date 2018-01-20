@@ -19,7 +19,7 @@ Can you make it around the world?
 
 ## Live Version:
 
-[globeracers80.com (Beta)](www.globeracers80.com)
+[globeracers80.com (Beta)](http://www.globeracers80.com)
 
 
 ## Running unit tests
